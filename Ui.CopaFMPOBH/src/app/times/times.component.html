@@ -1,0 +1,39 @@
+<div id="times">
+    <section class="image-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="info">
+                        <div class="wrap">
+                            <h1>Times</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="club-main-stat">
+        <div class="container">
+            <div class="row">
+                <div class="tab-item part-wrap tab-pane" id="participants">
+                    <div class="part-list">
+                        <div class="container">
+                            <div class="row">
+                                <div *ngFor="let time of times" class="col-md-3">
+                                    <a href="#" class="item">
+                                        <span class="logo">
+                                            <img src="assets/images/soccer/team-logo1.png" width="80" height="80"
+                                                alt="team-logo">
+                                        </span>
+                                        <span class="name"> {{ time.nome }} </span>
+                                    </a>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

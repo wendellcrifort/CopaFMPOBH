@@ -1,0 +1,17 @@
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\bin\Release\net8.0\Persistence.deps.json
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\bin\Release\net8.0\Persistence.dll
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\bin\Release\net8.0\Persistence.pdb
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\bin\Release\net8.0\Application.dll
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\bin\Release\net8.0\Domain.dll
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\bin\Release\net8.0\Application.pdb
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\bin\Release\net8.0\Domain.pdb
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\Persistence.csproj.AssemblyReference.cache
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\Persistence.AssemblyInfoInputs.cache
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\Persistence.AssemblyInfo.cs
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\Persistence.csproj.CopyComplete
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\Persistence.dll
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\refint\Persistence.dll
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\Persistence.pdb
+C:\Users\Wendell\source\repos\Api.CopaFMPOBH\Persistence\obj\Release\net8.0\ref\Persistence.dll
