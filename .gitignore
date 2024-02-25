@@ -1,0 +1,11 @@
+
+*.vsidx
+.vs/CopaFMPOBH/v17/.wsuo
+*.cache
+*.editorconfig
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
+Api.CopaFMPOBH/obj/Debug/net8.0/Api.CopaFMPOBH.sourcelink.json
+Application/obj/Debug/net8.0/Application.sourcelink.json
+Domain/obj/Debug/net8.0/Domain.assets.cache
+Domain/obj/Debug/net8.0/Domain.assets.cache
