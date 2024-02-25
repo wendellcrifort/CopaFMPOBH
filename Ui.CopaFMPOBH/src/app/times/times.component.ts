@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Time } from 'src/models/time';
-import { RankingService } from 'src/services/ranking.service';
+import { JogadorService } from 'src/services/jogador.service';
 
 @Component({
   selector: 'app-times',
@@ -10,10 +10,11 @@ import { RankingService } from 'src/services/ranking.service';
 export class TimesComponent {
   times: Time[] = []; 
 
-  constructor(private rankingService: RankingService) { }
+  constructor(private rankingService: JogadorService) { }
 
   ngOnInit(): void {
     this.rankingService.getTimes().subscribe(data => {
+      console.log(data)
       this.times = data
     });
   }

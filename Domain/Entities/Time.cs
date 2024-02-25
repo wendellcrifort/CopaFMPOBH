@@ -41,5 +41,8 @@ namespace Domain.Entities
 
         [Column("CartoesVermelhos")]
         public int? CartoesVermelhos { get; set; }
+
+        [Column("Escudo")]
+        public string? Escudo { get; set; }
     }
 }

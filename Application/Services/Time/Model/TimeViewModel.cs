@@ -17,6 +17,7 @@ namespace Application.Services.Time.Model
         public int SaldoGols { get; set; }
         public int CartoesAmarelos { get; set; }
         public int CartoesVermelhos { get; set; }
+        public string? Escudo { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -33,6 +34,7 @@ namespace Application.Services.Time.Model
                 .ForMember(dest => dest.SaldoGols, opt => opt.MapFrom(src => src.SaldoGols))
                 .ForMember(dest => dest.CartoesAmarelos, opt => opt.MapFrom(src => src.CartoesAmarelos))
                 .ForMember(dest => dest.CartoesVermelhos, opt => opt.MapFrom(src => src.CartoesVermelhos))
+                .ForMember(dest => dest.Escudo, opt => opt.MapFrom(src => src.Escudo))
                 .ReverseMap();
 
         }
