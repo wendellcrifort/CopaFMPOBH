@@ -15531,8 +15531,7 @@ h5.esport-landing-header {
   padding-top: 50px
 }
 
-.esport-team-landing-players-sllider-section {
-  background: url(../images/common/esport-team-landing-players-slider-background.jpg),no-repeat;
+.esport-team-landing-players-sllider-section {  
   background-size: cover;
   padding-bottom: 73px;
   padding-top: 35px
@@ -30924,13 +30923,13 @@ div.fancy-select {
 }
 
 .landing-sport-main-slider .msp_post_slider .msp_post_slide.slide-1 {
-  background: url(../images/common/landing-sport-slide.jpg) no-repeat;
+  
   background-size: cover;
   background-position: bottom
 }
 
 .landing-sport-main-slider .msp_post_slider .msp_post_slide.slide-2 {
-  background: url(../images/common/landing-sport-slide-2.jpg) no-repeat;
+  
   background-size: cover;
   background-position: bottom
 }
@@ -31475,7 +31474,7 @@ div.fancy-select {
     text-align: left;
     padding-top: 80px;
     padding-bottom: 70px;
-    background-image: url(../images/common/Subject-Flat.png);
+    
     background-position: 98% 100%;
     background-repeat: no-repeat;
     z-index: 1
@@ -32161,7 +32160,7 @@ ul.sport-championship-timline-tabs {
 .sport-championship-twitter {
   position: relative;
   padding: 75px 0;
-  background: url(../images/common/sport-championship-twitter.jpg),no-repeat;
+  
   background-size: cover
 }
 
@@ -33459,7 +33458,7 @@ ul.sport-championship-timline-tabs {
 }
 
 .esport-championship-about-trophey {
-  background: url(../images/common/esport-champ-about-background.jpg);
+  
   padding-top: 40px;
   padding-bottom: 45px
 }
@@ -33597,7 +33596,7 @@ ul.esport-championship-timline-tabs {
 .esport-championship-win-team {
   padding: 70px 40px;
   margin-bottom: 20px;
-  background: url(../images/common/esport_championship_win_team_background.jpg);
+  
   background-size: cover
 }
 
@@ -34022,7 +34021,7 @@ ul.esport-championship-timline-tabs {
 .esport_championship_twitter_slider {
   position: relative;
   padding: 75px 0;
-  background: url(../images/common/esport_championship_twitter_slider.jpg);
+  
   background-size: cover;
   background-position: center
 }
@@ -34398,7 +34397,7 @@ ul.esport-championship-timline-tabs {
       bottom: 0;
       transform: skew(-6deg);
       background-blend-mode: overlay;
-      background-image: url(../images/common/espot-champ-pabstorm.jpg);
+      
       background-color: #fb6107
     }
 
@@ -34765,13 +34764,13 @@ ul.esport-championship-timline-tabs {
 }
 
 .esport-team-landing-main-slider .msp_post_slider .msp_post_slide.slide-1 {
-  background: url(../images/common/esport-team-landing-main-slider-slide-1.jpg) no-repeat;
+  
   background-size: cover;
   background-position: bottom
 }
 
 .esport-team-landing-main-slider .msp_post_slider .msp_post_slide.slide-2 {
-  background: url(../images/common/esport-team-landing-main-slider-slide-2.jpg) no-repeat;
+  
   background-size: cover;
   background-position: bottom
 }
@@ -34833,7 +34832,7 @@ ul.esport-championship-timline-tabs {
 }
 
 .esport-team-landing-next-event {
-  background: url(../images/common/esport-team-landing-next-event-background.jpg);
+  
   padding: 80px 10px 60px 10px;
   background-repeat: no-repeat;
   text-align: center;
@@ -35402,7 +35401,7 @@ ul.esport-championship-timline-tabs {
 .esport-team-landing-twitter-slider {
   position: relative;
   padding: 75px 0;
-  background: url(../images/common/esprot-team-laning-twitter-background.jpg);
+  
   background-size: cover;
   background-position: center
 }
