@@ -10,11 +10,10 @@ import { JogadorService } from 'src/services/jogador.service';
 export class TimesComponent {
   times: Time[] = []; 
 
-  constructor(private rankingService: JogadorService) { }
+  constructor(private jogadorService: JogadorService) { }
 
   ngOnInit(): void {
-    this.rankingService.getTimes().subscribe(data => {
-      console.log(data)
+    this.jogadorService.getTimes().subscribe(data => {      
       this.times = data
     });
   }

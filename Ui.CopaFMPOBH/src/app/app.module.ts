@@ -7,6 +7,7 @@ import { PartidasComponent } from './partidas/partidas.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { MenuComponent } from './menu/menu.component';
 import { TimesComponent } from './times/times.component';
+import { JogadorComponent } from './jogadores/jogadores.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +17,8 @@ import { CommonModule } from '@angular/common';
     PartidasComponent,
     InicioComponent,
     MenuComponent,
-    TimesComponent
+    TimesComponent,
+    JogadorComponent
   ],
   imports: [
     CommonModule,

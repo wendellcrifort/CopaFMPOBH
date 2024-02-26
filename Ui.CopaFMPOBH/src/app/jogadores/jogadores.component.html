@@ -1,0 +1,32 @@
+<div id="times">
+  <section class="club-main-stat">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 overflow-scroll standings-table">
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="2017" role="tabpanel">
+              <table class="standing-full">
+                <tr>
+                  <th>N</th>
+                  <th>Nome</th>
+                  <th>GF</th>
+                  <th>GS</th>
+                  <th>CA</th>
+                  <th>CV</th>
+                </tr>
+                <tr *ngFor="let jogador of jogadores">                  
+                  <td>{{ jogador.numero }}</td>
+                  <td>{{ jogador.nome }}</td>
+                  <td>{{ jogador.golsMarcados }}</td>
+                  <td>{{ jogador.golsSofridos }}</td>
+                  <td>{{ jogador.cartoesAmarelos }}</td>
+                  <td>{{ jogador.cartoesVemelhos }}</td>                
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
