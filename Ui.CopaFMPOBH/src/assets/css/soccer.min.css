@@ -15801,20 +15801,18 @@ textarea {
 
 .amateurs-main-match {
   padding: 67px 50px 67px 50px;
-  font-size: 0;  
+  font-size: 0;
   background-size: cover
 }
 
 .club-top-info {
   min-height: 300px;
-  
   background-size: cover;
   position: relative
 }
 
 .match-live-info-bg {
   padding: 35px 0 26px 0;
-  
   background-size: cover
 }
 
@@ -16032,7 +16030,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 .main-players-stat {
   padding: 44px 0 100px 0;
   background-size: cover;
-  
 }
 
   .main-players-stat h4 {
@@ -16042,7 +16039,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
 .success-story {
   padding: 44px 0 0 0;
-  
   background-size: cover
 }
 
@@ -16119,7 +16115,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
 .success-story-cybersport {
   padding: 44px 0 0 0;
-  
   background-size: cover
 }
 
@@ -16239,7 +16234,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
 .amateurs-success-story {
   padding-bottom: 100px;
-  
   background-size: cover
 }
 
@@ -16270,7 +16264,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 .am-sponsor-box {
   height: 480px;
   padding: 80px 0 80px 0;
-  
   background-size: cover
 }
 
@@ -16280,7 +16273,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
 .main-club-stuff {
   padding: 56px 0 100px 0;
-  
   background-size: cover
 }
 
@@ -16290,7 +16282,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
 .call-to-action {
   padding: 74px 0;
-  
   background-size: cover
 }
 
@@ -16500,7 +16491,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
   .store-badge.hot {
     padding-left: 23px;
-    
   }
 
     .store-badge.hot:before {
@@ -16553,7 +16543,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
 .main-sponsor-slider-background {
   padding: 94px 0 160px 0;
-  
   background-size: cover
 }
 
@@ -16852,7 +16841,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 .amateurs-match-shedule {
   padding-top: 97px;
   padding-bottom: 80px;
-  
   background-size: cover
 }
 
@@ -16870,7 +16858,6 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
 .image-header {
   min-height: 300px;
-  
   background-size: cover;
   overflow: hidden;
   clear: both
@@ -17214,7 +17201,6 @@ ul.team-legend {
 .broadcast-wrap {
   padding-top: 45px;
   padding-bottom: 75px;
-  
   background-size: contain
 }
 
@@ -18177,7 +18163,6 @@ blockquote {
 }
 
 .main-award-box {
-  
   background-size: cover
 }
 
@@ -18867,7 +18852,6 @@ td a {
   margin-right: 15px;
   width: 95px;
   height: 15px;
-  
 }
 
   .rating.one {
@@ -20556,7 +20540,6 @@ overflow-scroll.table tr td {
 
     .top-language .list li a {
       padding-right: 23px;
-      
       font-size: 12px;
       font-family: Montserrat,sans-serif;
       text-transform: uppercase;
@@ -20691,124 +20674,133 @@ overflow-scroll.table tr td {
     font-size: 16px;
     text-transform: uppercase;
     font-family: Montserrat,sans-serif;
+    color: #D6001C;
+  }
+
+.text-main {
+  font-family: Raleway,sans-serif;
+  font-size: 20px;
+  color: #0050B5;
+  font-weight: 800;
+  line-height: normal;
+  text-shadow: white 0.1em 0.1em 0.2em
+}
+
+.main-slider-caption .team {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-family: Raleway,sans-serif;
+  color: #D6001C;
+  font-weight: 800;
+  line-height: normal
+}
+
+  .main-slider-caption .team .big-count {
+    padding: 0 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 32px;
+    color: #fff;
+    line-height: 60px;
+    border-radius: 10px;
+    background: #141414
+  }
+
+.main-slider-caption .match-role {
+  font-size: 64px;
+  text-transform: uppercase;
+  font-family: Raleway,sans-serif;
+  color: #141414;
+  font-weight: 900;
+  line-height: normal
+}
+
+.main-slider-caption .counter {
+  padding-top: 24px
+}
+
+  .main-slider-caption .counter ul li {
+    margin-right: 30px;
+    text-align: center;
+    display: inline-block
+  }
+
+  .main-slider-caption .counter .digit {
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    min-width: 80px;
+    text-align: center;
+    font-size: 32px;
+    color: #141414;
+    font-weight: 700;
+    background: #fff;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Open Sans",sans-serif
+  }
+
+  .main-slider-caption .counter .descr {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: Raleway,sans-serif;
+    font-weight: 900;
     color: #fff
   }
 
-  .main-slider-caption .team {
-    font-size: 40px;
-    text-transform: uppercase;
-    font-family: Raleway,sans-serif;
-    color: #fff;
-    font-weight: 800;
-    line-height: normal
-  }
+.main-slider-caption .booking {
+  padding-top: 35px
+}
 
-    .main-slider-caption .team .big-count {
-      padding: 0 20px;
-      text-align: center;
-      display: inline-block;
-      font-size: 32px;
-      color: #fff;
-      line-height: 60px;
-      border-radius: 10px;
-      background: #141414
-    }
-
-  .main-slider-caption .match-role {
-    font-size: 64px;
-    text-transform: uppercase;
-    font-family: Raleway,sans-serif;
+  .main-slider-caption .booking a {
+    padding: 15px 24px 15px 24px;
+    background: #D6001C;
+    overflow: hidden;
+    border-radius: 23px;
     color: #141414;
-    font-weight: 900;
-    line-height: normal
-  }
-
-  .main-slider-caption .counter {
-    padding-top: 24px
-  }
-
-    .main-slider-caption .counter ul li {
-      margin-right: 30px;
-      text-align: center;
-      display: inline-block
-    }
-
-    .main-slider-caption .counter .digit {
-      padding: 0 10px;
-      box-sizing: border-box;
-      border-radius: 8px;
-      min-width: 80px;
-      text-align: center;
-      font-size: 32px;
-      color: #141414;
-      font-weight: 700;
-      background: #fff;
-      height: 80px;
-      line-height: 80px;
-      font-family: "Open Sans",sans-serif
-    }
-
-    .main-slider-caption .counter .descr {
-      font-size: 12px;
-      text-transform: uppercase;
-      font-family: Raleway,sans-serif;
-      font-weight: 900;
-      color: #fff
-    }
-
-  .main-slider-caption .booking {
-    padding-top: 35px
-  }
-
-    .main-slider-caption .booking a {
-      padding: 15px 24px 15px 24px;
-      background: #D6001C;
-      overflow: hidden;
-      border-radius: 23px;
-      color: #141414;
-      font-size: 16px;
-      font-family: Montserrat,sans-serif;
-      text-transform: uppercase
-    }
-
-      .main-slider-caption .booking a:hover {
-        border-radius: 9px;
-        background: #D6001C
-      }
-
-  .main-slider-caption .title {
-    line-height: normal;
-    color: #141414;
-    font-family: Raleway,sans-serif;
-    font-size: 32px;
-    font-weight: 900;
+    font-size: 16px;
+    font-family: Montserrat,sans-serif;
     text-transform: uppercase
   }
 
-    .main-slider-caption .title span {
-      color: #fff
+    .main-slider-caption .booking a:hover {
+      border-radius: 9px;
+      background: #D6001C
     }
 
-  .main-slider-caption .big-title {
-    line-height: normal;
-    color: #141414;
-    font-family: Raleway,sans-serif;
-    font-size: 88px;
-    font-weight: 900;
-    text-transform: uppercase
+.main-slider-caption .title {
+  line-height: normal;
+  color: #141414;
+  font-family: Raleway,sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase
+}
+
+  .main-slider-caption .title span {
+    color: #fff
   }
 
-  .main-slider-caption .sub-title {
-    padding-bottom: 35px;
-    line-height: normal;
-    color: #141414;
-    text-transform: uppercase;
-    font-size: 16px
-  }
+.main-slider-caption .big-title {
+  line-height: normal;
+  color: #141414;
+  font-family: Raleway,sans-serif;
+  font-size: 88px;
+  font-weight: 900;
+  text-transform: uppercase
+}
 
-  .main-slider-caption .btn {
-    margin-right: 16px
-  }
+.main-slider-caption .sub-title {
+  padding-bottom: 35px;
+  line-height: normal;
+  color: #141414;
+  text-transform: uppercase;
+  font-size: 16px
+}
+
+.main-slider-caption .btn {
+  margin-right: 16px
+}
 
 .event-nav {
   position: absolute;
@@ -24194,7 +24186,6 @@ overflow-scroll.table tr td {
 
 .championship-header-wrapper {
   min-height: 300px;
-  
   background-size: cover;
   position: relative
 }
@@ -24768,7 +24759,6 @@ table tr td:first-child span {
 
 .store-banner {
   height: 460px;
-  
   background-size: cover
 }
 
@@ -26493,17 +26483,14 @@ table tr td .organisation-name {
     }
 
   .msp_post_slider .msp_post_slide.slide-1 {
-    
     background-size: cover
   }
 
   .msp_post_slider .msp_post_slide.slide-2 {
-
     background-size: cover
   }
 
   .msp_post_slider .msp_post_slide.slide-3 {
-
     background-size: cover
   }
 
@@ -28186,7 +28173,6 @@ table tr td .organisation-name {
   bottom: 110px;
   left: 0;
   right: 0;
-  
 }
 
   .coming-wrap .error-logo {
@@ -28294,7 +28280,6 @@ table tr td .organisation-name {
 }
 
 .error-wrap.offline {
-  
 }
 
   .error-wrap.offline > .offline-title {
@@ -28369,11 +28354,9 @@ table tr td .organisation-name {
   bottom: 110px;
   left: 0;
   right: 0;
-  
 }
 
   .error-wrap.offline {
-    
   }
 
   .error-wrap .error-logo {
@@ -30854,7 +30837,6 @@ div.fancy-select {
 
 .landing-sport-about {
   padding: 93px 0;
-  
   background-position: right top;
   background-attachment: fixed;
   background-size: contain
