@@ -3,4 +3,9 @@
 https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Wendell\Documents\api</_PublishTargetUrl>
+    <History>True|2024-02-25T01:24:42.0864221Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
 </Project>

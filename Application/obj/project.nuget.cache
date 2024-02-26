@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e77x1V+adE/ty7iK7lGuhNecwP0M01Db7f5NrV/pUc2352ApX4QfWwyNi/XwFzRjNQxuo2DnpHBpIhK3xc7ZXQ==",
+  "dgSpecHash": "HNqUE7uxSgF4dj2PN2sD0cVFIzI4xc0UFc9piLTMcFJoEWWLafXNvkjg7hSDFCYYCvP2fdbYUoPAbSnZ0EIM7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Wendell\\source\\repos\\Api.CopaFMPOBH\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\Wendell\\source\\repos\\CopaFMPOBH\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wendell\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Wendell\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.2\\microsoft.entityframeworkcore.8.0.2.nupkg.sha512",

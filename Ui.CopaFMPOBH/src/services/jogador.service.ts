@@ -8,8 +8,8 @@ import { Time } from 'src/models/time';
 })
 export class JogadorService {
   
-  private apiUrl = 'http://localhost:5097/Jogador';
-  //private apiUrl = 'https://copafmpobh.com.br/api/Jogador';
+  // private apiUrl = 'http://localhost:5097/Jogador';
+  private apiUrl = 'https://copafmpobh.com.br/api/Jogador';
 
   constructor(private http: HttpClient) { }
 

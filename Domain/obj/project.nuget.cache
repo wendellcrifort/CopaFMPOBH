@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A+LETOVaAdIe9jz4VUmWw0I9Fmq91gN8PGPiC5lV/wgqVQtO99pHggqZKzI8AjcXkT2/wmxzwgcJfI8w3rT5ow==",
+  "dgSpecHash": "YNIXgEQSteQrKucDB2AOdBb7b0tl/t4+Gc4RPqRSqxKND6l/A336rCv1xB34LkcZeRfWb+zak7/td4SIyiLn2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Wendell\\source\\repos\\Api.CopaFMPOBH\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\Wendell\\source\\repos\\CopaFMPOBH\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

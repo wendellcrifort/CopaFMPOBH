@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ILBMcWJo0bUzLX3IU8r2N+Tps+el4THg/8yuDFWDlrOqJ9sd5UVsdMagPyg28xRwHjI2nIv3GeWwyis2PH8Tyg==",
+  "dgSpecHash": "j6ItHegJ/s9clK0+6lB3mGc4MjFUmB/avG5YHg/hlVrI3YIb4d63DMgDO5R7BUqFB/wb/MuQAi2i7qu6APvivw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Wendell\\source\\repos\\Api.CopaFMPOBH\\Persistence\\Persistence.csproj",
+  "projectFilePath": "C:\\Users\\Wendell\\source\\repos\\CopaFMPOBH\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Wendell\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Wendell\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
