@@ -20,11 +20,10 @@ namespace Api.CopaFMPOBH.Controllers
         }
 
         [HttpPost("[Action]")]
-        public IActionResult Jogador(List<JogadorModel> jogadores)
+        public async Task<ActionResult<int>> Jogador(List<JogadorModel> jogadores)
         {
-            _jogadorService.CriaJogador(jogadores);
-
-            return Created();
+            var result = await _jogadorService.CriaJogador(jogadores);
+            return Ok(result);
         }
 
         [HttpGet("[Action]/{idTime}")]

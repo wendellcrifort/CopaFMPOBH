@@ -16,15 +16,14 @@ namespace Application.Services.Jogador
             _copaDbContext = copaDbContext;
         }
 
-        public async Task<Task> CriaJogador(List<JogadorModel> jogadores)
+        public async Task<int> CriaJogador(List<JogadorModel> jogadores)
         {
             var listaJogadores = new List<Domain.Entities.Jogador>();
             foreach (var jogador in jogadores)            
                 listaJogadores.Add(_mapper.Map<Domain.Entities.Jogador>(jogador));
 
             _copaDbContext.Jogador.AddRange(listaJogadores);
-            await _copaDbContext.SaveChangesAsync();
-            return Task.CompletedTask;
+            return await _copaDbContext.SaveChangesAsync();            
         }
 
         public async Task<List<JogadorViewModel>> BuscarJogadores(int idTime)
