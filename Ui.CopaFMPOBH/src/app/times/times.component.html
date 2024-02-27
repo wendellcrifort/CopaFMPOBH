@@ -1,25 +1,25 @@
 <div id="times">
-    <section class="club-main-stat">
-        <div class="container">
-            <div class="row">
-                <div class="tab-item part-wrap tab-pane" id="participants">
-                    <div class="part-list">
-                        <div class="container">
-                            <div class="row">
-                                <div *ngFor="let time of times" class="col-md-3">
-                                    <a routerLink="/jogadores" class="item">
-                                        <span class="logo">
-                                            <img src="assets/images/CopaFMPOBH/Times/{{ time.escudo }}" width="80" height="80"
-                                                alt="team-logo">
-                                        </span>
-                                        <span class="name"> {{ time.nome }} </span>
-                                    </a>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
+  <section class="club-main-stat">
+    <div class="container">
+      <div class="row">
+        <div class="tab-item part-wrap tab-pane" id="participants">
+          <div class="part-list">
+            <div class="container">
+              <div class="row">
+                <div *ngFor="let time of times" class="col-md-3">
+                  <a routerLink="/jogadores/{{ time.id }}" class="item">
+                    <span class="logo">
+                      <img src="assets/images/CopaFMPOBH/Times/{{ time.escudo }}" width="80" height="80"
+                           alt="team-logo">
+                    </span>
+                    <span class="name"> {{ time.nome }} </span>
+                  </a>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </div>

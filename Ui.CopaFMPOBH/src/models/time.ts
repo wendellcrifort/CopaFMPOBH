@@ -1,5 +1,5 @@
 export interface Time {
-  idTime: number;
+  id: number;
   nome: string;
   pontos: number;
   vitorias: number;

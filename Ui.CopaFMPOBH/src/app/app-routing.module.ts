@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'partidas', component: PartidasComponent },
   { path: 'times', component: TimesComponent },
-  { path: 'jogadores', component: JogadorComponent },
+  { path: 'jogadores/:id', component: JogadorComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' } // Rota padrão
 ];
 
