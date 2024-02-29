@@ -24,11 +24,13 @@ namespace Application.Services.Partida
             return Task.CompletedTask;
         }
 
-        public async Task<List<PartidaViewModel>> BuscarPartidas(string data)
+        public async Task<List<PartidaViewModel>> BuscarPartidas(string? data)
         {
             var partidas = await _copaDbContext.Partida
                                          .AsNoTracking()
-                                         .Where(x => x.DataPartida == data)
+                                         .Where(x => !string.IsNullOrEmpty(data) 
+                                                      ? x.DataPartida == data 
+                                                      : true)
                                          .ToListAsync();
 
             return _mapper.Map<List<PartidaViewModel>>(partidas);
@@ -79,7 +81,7 @@ namespace Application.Services.Partida
                     break;
             }
 
-            var novoEvento = new Domain.Entities.EventosPartida()
+            var novoEvento = new EventosPartida()
             {
                 IdPartida = idPartida,
                 IdJogador = idJogador,

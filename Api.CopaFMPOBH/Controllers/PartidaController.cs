@@ -25,7 +25,7 @@ namespace Api.CopaFMPOBH.Controllers
         }
 
         [HttpGet("[Action]")]
-        public async Task<ActionResult<List<PartidaViewModel>>> BuscarPartidas(string data)
+        public async Task<ActionResult<List<PartidaViewModel>>> BuscarPartidas(string? data)
         {
             var partidas = await _partidaService.BuscarPartidas(data);
             return Ok(partidas);
