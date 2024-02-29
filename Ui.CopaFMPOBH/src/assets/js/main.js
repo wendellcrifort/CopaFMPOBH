@@ -11,15 +11,6 @@
 
 
         /**
-         * Init matches slider
-         * @html: ./html-component/matches-slider.html
-         * @js: ./js/matches-slider.js
-         */
-        if ($('#main-slider').length > 0) {
-            $('#main-slider').MatchesSlider();
-        }
-
-        /**
          * Init header sticky menu 
          * @html: ./html-component/header.html
          * @js: ./js/header.js
