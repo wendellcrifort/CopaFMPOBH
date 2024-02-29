@@ -18,22 +18,39 @@ namespace Application.Services.Partida
             _copaDbContext = copaDbContext;
         }
 
-        public Task CriarPartida(PartidaModel partida)
+        public async Task<int> CriarPartida(PartidaModel partida)
         {
-            _copaDbContext.Partida.Add(_mapper.Map<Domain.Entities.Partida>(partida));
-            return Task.CompletedTask;
+            var partidaModel = _mapper.Map<Domain.Entities.Partida>(partida);
+
+            _copaDbContext.Partida.Add(partidaModel);
+            return await _copaDbContext.SaveChangesAsync();            
         }
 
         public async Task<List<PartidaViewModel>> BuscarPartidas(string? data)
         {
             var partidas = await _copaDbContext.Partida
                                          .AsNoTracking()
-                                         .Where(x => !string.IsNullOrEmpty(data) 
-                                                      ? x.DataPartida == data 
+                                         .Include(i => i.TimeMandante)
+                                         .Include(i => i.TimeVisitante)
+                                         .Where(x => !string.IsNullOrEmpty(data)
+                                                      ? x.DataPartida == data
                                                       : true)
                                          .ToListAsync();
 
             return _mapper.Map<List<PartidaViewModel>>(partidas);
+        }
+
+        public async Task<PartidaViewModel> BuscarPartidaEmAndamento(int idPartida)
+        {
+            var dadosPartida = await _copaDbContext.Partida
+                                                   .AsNoTracking()
+                                                   .Include(i => i.TimeMandante)
+                                                      .ThenInclude(i => i.Jogadores)
+                                                   .Include(i => i.TimeVisitante)
+                                                      .ThenInclude(i => i.Jogadores)
+                                                   .FirstOrDefaultAsync(x => x.Id == idPartida);
+
+            return _mapper.Map<PartidaViewModel>(dadosPartida);                                             
         }
 
         public async Task<List<EventosPartidaViewModel>> BuscarEventosPartida(int idPartida)

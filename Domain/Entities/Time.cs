@@ -44,5 +44,7 @@ namespace Domain.Entities
 
         [Column("Escudo")]
         public string? Escudo { get; set; }
+
+        public virtual List<Jogador>? Jogadores { get ; set; }  
     }
 }

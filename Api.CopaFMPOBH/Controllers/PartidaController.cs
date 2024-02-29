@@ -17,11 +17,9 @@ namespace Api.CopaFMPOBH.Controllers
         }
 
         [HttpPost("[Action]")]
-        public IActionResult Partida(PartidaModel partida)
+        public async Task<ActionResult<int>> Partida(PartidaModel partida)
         {
-            _partidaService.CriarPartida(partida);
-
-            return Created();
+            return Ok(await _partidaService.CriarPartida(partida));
         }
 
         [HttpGet("[Action]")]
@@ -31,8 +29,15 @@ namespace Api.CopaFMPOBH.Controllers
             return Ok(partidas);
         }
 
+        [HttpGet("[Action]")]
+        public async Task<ActionResult<PartidaViewModel>> BuscarPartidaEmAndamento(int idPartida)
+        {
+            var partida = await _partidaService.BuscarPartidaEmAndamento(idPartida);
+            return Ok(partida);
+        }
+
         [HttpGet("[Action]/{idPartida}")]
-        public async Task<ActionResult<List<PartidaViewModel>>> BuscarEventosPartidas(int idPartida)
+        public async Task<ActionResult<List<EventosPartidaViewModel>>> BuscarEventosPartidas(int idPartida)
         {
             var partidas = await _partidaService.BuscarEventosPartida(idPartida);
             return Ok(partidas);

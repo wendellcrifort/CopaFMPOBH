@@ -1,4 +1,5 @@
 ﻿using Application.Common.Mappings;
+using Application.Services.Jogador.Model;
 using AutoMapper;
 
 namespace Application.Services.Time.Model
@@ -19,6 +20,8 @@ namespace Application.Services.Time.Model
         public int CartoesVermelhos { get; set; }
         public string? Escudo { get; set; }
 
+        public List<JogadorViewModel> Jogadores { get; set; } = new List<JogadorViewModel>();
+
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Domain.Entities.Time, TimeViewModel>(MemberList.Destination)
@@ -35,6 +38,7 @@ namespace Application.Services.Time.Model
                 .ForMember(dest => dest.CartoesAmarelos, opt => opt.MapFrom(src => src.CartoesAmarelos))
                 .ForMember(dest => dest.CartoesVermelhos, opt => opt.MapFrom(src => src.CartoesVermelhos))
                 .ForMember(dest => dest.Escudo, opt => opt.MapFrom(src => src.Escudo))
+                .ForMember(dest => dest.Jogadores, opt => opt.MapFrom(src => src.Jogadores))
                 .ReverseMap();
 
         }

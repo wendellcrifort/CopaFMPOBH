@@ -15,24 +15,30 @@ namespace Domain.Entities
         public string HoraPartida { get; set; }
 
         [Column("Rodada")]
-        public int Rodada { get; set; }
+        public int? Rodada { get; set; }
 
         [Column("IdTimeMandante")]
         public int IdTimeMandante { get; set; }
 
         [Column("GolsTimeMandante")]
-        public int GolsTimeMandante { get; set; }
+        public int? GolsTimeMandante { get; set; }
 
         [Column("PontosTimeMandante")]
-        public int PontosTimeMandante { get; set; }
+        public int? PontosTimeMandante { get; set; }
 
         [Column("IdTimeVisitante")]
         public int IdTimeVisitante { get; set; }
 
         [Column("GolsTimeVisitante")]
-        public int GolsTimeVisitante { get; set; }
+        public int? GolsTimeVisitante { get; set; }
 
         [Column("PontosTimeVisitante")]
-        public int PontosTimeVisitante { get; set; }
+        public int? PontosTimeVisitante { get; set; }
+                
+        [ForeignKey("IdTimeMandante")]
+        public virtual Time? TimeMandante { get; set; }
+                
+        [ForeignKey("IdTimeVisitante")]
+        public virtual Time? TimeVisitante { get; set; }
     }
 }

@@ -45,8 +45,7 @@ namespace Domain.Entities
         [Column("Suspenso")]
         public bool? Suspenso { get; set; } = false;
 
-        [NotMapped]
         [ForeignKey("IdTime")]
-        public virtual Time? Time { get; set; }
+        public virtual Time Time { get; set; } = new Time();
     }
 }
