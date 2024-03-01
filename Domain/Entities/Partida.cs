@@ -34,7 +34,10 @@ namespace Domain.Entities
 
         [Column("PontosTimeVisitante")]
         public int? PontosTimeVisitante { get; set; }
-                
+
+        [Column("EmAndamento")]
+        public bool EmAndamento { get; set; }
+
         [ForeignKey("IdTimeMandante")]
         public virtual Time? TimeMandante { get; set; }
                 

@@ -22,6 +22,12 @@ namespace Api.CopaFMPOBH.Controllers
             return Ok(await _partidaService.CriarPartida(partida));
         }
 
+        [HttpPost("[Action]/{idPartida}")]
+        public async Task<ActionResult<int>> IniciarPartida(int idPartida)
+        {
+            return Ok(await _partidaService.IniciarPartida(idPartida));
+        }
+
         [HttpGet("[Action]")]
         public async Task<ActionResult<List<PartidaViewModel>>> BuscarPartidas(string? data)
         {
@@ -29,7 +35,7 @@ namespace Api.CopaFMPOBH.Controllers
             return Ok(partidas);
         }
 
-        [HttpGet("[Action]")]
+        [HttpGet("[Action]/{idPartida}")]
         public async Task<ActionResult<PartidaViewModel>> BuscarPartidaEmAndamento(int idPartida)
         {
             var partida = await _partidaService.BuscarPartidaEmAndamento(idPartida);
@@ -58,10 +64,10 @@ namespace Api.CopaFMPOBH.Controllers
             return Ok(idEvento);
         }
 
-        [HttpDelete("[Action]")]
-        public IActionResult RemoverEventoPartida(int idEvento)
+        [HttpDelete("[Action]/{idEvento}")]
+        public async Task<IActionResult> RemoverEventoPartida(int idEvento)
         {
-            _partidaService.RemoverEventoPartida(idEvento);
+            await _partidaService.RemoverEventoPartida(idEvento);
             return Ok();
         }
     }

@@ -46,6 +46,6 @@ namespace Domain.Entities
         public bool? Suspenso { get; set; } = false;
 
         [ForeignKey("IdTime")]
-        public virtual Time Time { get; set; } = new Time();
+        public virtual Time? Time { get; set; }
     }
 }

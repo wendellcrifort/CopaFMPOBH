@@ -12,6 +12,7 @@ namespace Application.Services.Partida.Model
         public TimeViewModel TimeMandante { get; set; } = new TimeViewModel();
         public TimeViewModel TimeVisitante { get; set; } = new TimeViewModel();
         public int Rodada { get; set; }
+        public bool EmAndamento { get;set; }
 
         public void Mapping(Profile profile)
         {
@@ -21,7 +22,8 @@ namespace Application.Services.Partida.Model
                 .ForMember(dest => dest.HoraPartida, opt => opt.MapFrom(src => src.HoraPartida))
                 .ForMember(dest => dest.Rodada, opt => opt.MapFrom(src => src.Rodada))
                 .ForMember(dest => dest.TimeMandante, opt => opt.MapFrom(src => src.TimeMandante))
-                .ForMember(dest => dest.TimeVisitante, opt => opt.MapFrom(src => src.TimeVisitante))                
+                .ForMember(dest => dest.TimeVisitante, opt => opt.MapFrom(src => src.TimeVisitante))
+                .ForMember(dest => dest.EmAndamento, opt => opt.MapFrom(src => src.EmAndamento))
                 .ReverseMap();
 
         }

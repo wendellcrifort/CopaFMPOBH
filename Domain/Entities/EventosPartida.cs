@@ -18,16 +18,14 @@ namespace Domain.Entities
         public int IdTime { get; set; }
 
         [Column("IdGoleiro")]
-        public int IdGoleiro { get; set; }
+        public int? IdGoleiro { get; set; }
 
         [Column("DescricaoEvento")]
         public string? DescricaoEvento { get; set; }
-
-        [NotMapped]
+                
         [ForeignKey("IdPartida")]
         public virtual Partida? Partida { get; set; }
-
-        [NotMapped]
+                
         [ForeignKey("IdJogador")]
         public virtual Jogador? Jogador { get; set; }
     }

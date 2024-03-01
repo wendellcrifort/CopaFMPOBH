@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Ui.CopaFMPOBH", "Ui.CopaFMPOBH\Ui.CopaFMPOBH.esproj", "{6E8F86A4-21E2-4C24-84A7-775035116BE0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A89A20A0-33B7-430C-9668-5BE86F99DA24}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
