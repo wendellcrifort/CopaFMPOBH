@@ -75,7 +75,10 @@ namespace Application.Services.Partida
 
         public async Task FinalizarPartida(PartidaModel partida)
         {
-            _copaDbContext.Partida.Update(_mapper.Map<Domain.Entities.Partida>(partida));
+            var partidadeEncerrada = _mapper.Map<Domain.Entities.Partida>(partida);
+            _copaDbContext.Partida.Update(partidadeEncerrada);
+            
+            await _copaDbContext.SaveChangesAsync();
 
             await SalvarScoreMandante(partida);
             await SalvarScoreVisitante(partida);
@@ -89,23 +92,34 @@ namespace Application.Services.Partida
             var partida = await _copaDbContext.Partida.FirstAsync(x => x.Id == idPartida);
             var jogador = await _copaDbContext.Jogador.FirstAsync(x => x.Id == idJogador);
             var goleiro = await _copaDbContext.Jogador.FirstOrDefaultAsync(x => x.Id == idGoleiro);
-            var timeMarcador = await _copaDbContext.Time.FirstAsync(x => x.Id == jogador.IdTime);
-            var timeSofredor = await _copaDbContext.Time.FirstAsync(x => x.Id == goleiro.IdTime);
+            var timeAcao = await _copaDbContext.Time.FirstAsync(x => x.Id == jogador.IdTime);
+            Domain.Entities.Time timePassivo = new Domain.Entities.Time();
+
+            if (evento == TipoEventoEnum.GolContra)
+            {
+                if (partida.IdTimeMandante == goleiro.IdTime)
+                    timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeVisitante);
+
+                else
+                    timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeMandante);
+            }
+            else if(evento == TipoEventoEnum.GolMarcado)            
+                timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == goleiro.IdTime);
 
             switch (evento)
             {
                 case TipoEventoEnum.GolMarcado:
-                    await AddGolMarcado(partida, jogador, timeMarcador);
-                    await AddGolSofrido(goleiro, timeSofredor);
+                    await AddGolMarcado(partida, jogador, timeAcao);
+                    await AddGolSofrido(goleiro, timePassivo);
                     break;
                 case TipoEventoEnum.GolContra:
-                    await AddGolSofrido(goleiro, timeSofredor);
+                    await AddGolContra(goleiro, timeAcao, timePassivo, partida);
                     break;
                 case TipoEventoEnum.CartaoAmarelo:
-                    await AddCartaoAmarelo(jogador, timeMarcador);
+                    await AddCartaoAmarelo(jogador, timeAcao);
                     break;
                 case TipoEventoEnum.CartaoVermelho:
-                    await AddCartaoVermelho(jogador, timeMarcador);
+                    await AddCartaoVermelho(jogador, timeAcao);
                     break;
                 default:
                     break;
@@ -117,7 +131,7 @@ namespace Application.Services.Partida
                 IdJogador = idJogador,
                 DescricaoEvento = evento.ToString(),
                 IdGoleiro = goleiro?.Id,
-                IdTime = timeMarcador.Id,
+                IdTime = timeAcao.Id,
             };
 
             _copaDbContext.EventosPartida.Add(novoEvento);
@@ -134,7 +148,7 @@ namespace Application.Services.Partida
         public async Task<EventoPlacarViewModel> RemoverEventoPartida(int idEvento)
         {
 
-            var evento = await _copaDbContext.EventosPartida                                             
+            var evento = await _copaDbContext.EventosPartida
                                              .FirstOrDefaultAsync(x => x.Id == idEvento)
                                                 ?? throw new Exception("Evento não localizado");
 
@@ -175,7 +189,7 @@ namespace Application.Services.Partida
                 await RemoverGolSofrido(goleiro);
             }
             else if (evento.DescricaoEvento == TipoEventoEnum.GolContra.ToString())
-                await RemoverGolSofrido(goleiro);
+                await RemoverGolContra(goleiro, partida);
 
             _copaDbContext.EventosPartida.Remove(evento);
             var result = await _copaDbContext.SaveChangesAsync();
@@ -194,6 +208,7 @@ namespace Application.Services.Partida
             var time = await _copaDbContext.Time.FirstAsync(x => x.Id == jogador.IdTime);
 
             jogador.CartoesVemelhos -= 1;
+            jogador.Suspenso = false;
             time.CartoesVermelhos -= 1;
 
             _copaDbContext.Time.Update(time);
@@ -222,6 +237,37 @@ namespace Application.Services.Partida
             time.SaldoGols += 1;
 
             _copaDbContext.Time.Update(time);
+            _copaDbContext.Jogador.Update(goleiro);
+            await _copaDbContext.SaveChangesAsync();
+        }
+
+        private async Task RemoverGolContra(Domain.Entities.Jogador goleiro,
+                                            Domain.Entities.Partida partida)
+        {
+            Domain.Entities.Time timeAdversario = new Domain.Entities.Time();
+            var time = await _copaDbContext.Time.FirstAsync(x => x.Id == goleiro.IdTime);
+
+            goleiro.GolsSofridos -= 1;
+            time.GolsSofridos -= 1;
+            time.SaldoGols += 1;
+
+            if (partida.IdTimeMandante == time.Id)
+            {
+                partida.GolsTimeVisitante -= 1;
+                timeAdversario = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeVisitante);
+                timeAdversario.GolsFeitos -= 1;
+                timeAdversario.SaldoGols -= 1;
+            }
+            else
+            {
+                partida.GolsTimeMandante -= 1;
+                timeAdversario = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeMandante);
+                timeAdversario.GolsFeitos -= 1;
+                timeAdversario.SaldoGols -= 1;
+            }
+
+            _copaDbContext.Time.Update(time);
+            _copaDbContext.Time.Update(timeAdversario);
             _copaDbContext.Jogador.Update(goleiro);
             await _copaDbContext.SaveChangesAsync();
         }
@@ -281,6 +327,30 @@ namespace Application.Services.Partida
             time.SaldoGols -= 1;
 
             _copaDbContext.Time.Update(time);
+            _copaDbContext.Jogador.Update(goleiro);
+            await _copaDbContext.SaveChangesAsync();
+        }
+
+        private async Task AddGolContra(Domain.Entities.Jogador goleiro,
+                                        Domain.Entities.Time timeAcao,
+                                        Domain.Entities.Time timePassivo,
+                                        Domain.Entities.Partida partida)
+        {
+            goleiro.GolsSofridos += 1;
+            timeAcao.GolsSofridos += 1;
+            timeAcao.SaldoGols -= 1;
+
+            timePassivo.GolsFeitos += 1;
+            timePassivo.SaldoGols += 1;
+
+            if (partida.IdTimeMandante == timePassivo.Id)
+                partida.GolsTimeMandante += 1;
+            else
+                partida.GolsTimeVisitante += 1;
+
+            _copaDbContext.Partida.Update(partida);
+            _copaDbContext.Time.Update(timeAcao);
+            _copaDbContext.Time.Update(timePassivo);
             _copaDbContext.Jogador.Update(goleiro);
             await _copaDbContext.SaveChangesAsync();
         }

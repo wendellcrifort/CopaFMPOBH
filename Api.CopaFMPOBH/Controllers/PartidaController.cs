@@ -50,25 +50,25 @@ namespace Api.CopaFMPOBH.Controllers
         }
 
         [HttpPatch("[Action]")]
-        public IActionResult FinalizarPartida(PartidaModel partida)
+        public async Task<ActionResult> FinalizarPartida(PartidaModel partida)
         {
-            _partidaService.FinalizarPartida(partida);
+            await _partidaService.FinalizarPartida(partida);
 
             return Ok();
         }
 
         [HttpPost("[Action]")]
-        public async Task<ActionResult<int>> RegistrarEventoPartida(int idPartida, int idJogador, TipoEventoEnum evento, int idGoleiro)
+        public async Task<ActionResult<EventoPlacarViewModel>> RegistrarEventoPartida(int idPartida, int idJogador, TipoEventoEnum evento, int idGoleiro)
         {
             var idEvento = await _partidaService.RegistrarEventoPartida(idPartida, idJogador, evento, idGoleiro);
             return Ok(idEvento);
         }
 
         [HttpDelete("[Action]/{idEvento}")]
-        public async Task<IActionResult> RemoverEventoPartida(int idEvento)
+        public async Task<ActionResult<EventoPlacarViewModel>> RemoverEventoPartida(int idEvento)
         {
-            await _partidaService.RemoverEventoPartida(idEvento);
-            return Ok();
+            var evento = await _partidaService.RemoverEventoPartida(idEvento);
+            return Ok(evento);
         }
     }
 }
