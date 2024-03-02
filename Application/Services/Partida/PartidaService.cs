@@ -4,7 +4,6 @@ using Application.Services.Partida.Model;
 using AutoMapper;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Net.Http.Headers;
 
 namespace Application.Services.Partida
 {
@@ -73,11 +72,15 @@ namespace Application.Services.Partida
             return _mapper.Map<List<EventosPartidaViewModel>>(eventos);
         }
 
-        public async Task FinalizarPartida(PartidaModel partida)
+        public async Task FinalizarPartida(int idPartida)
         {
+            var partida = await _copaDbContext.Partida.FirstAsync(x => x.Id == idPartida);
+
+            partida.EmAndamento = false;
+            partida.PartidaFinalizada = true;
+
             var partidadeEncerrada = _mapper.Map<Domain.Entities.Partida>(partida);
-            _copaDbContext.Partida.Update(partidadeEncerrada);
-            
+            _copaDbContext.Partida.Update(partida);            
             await _copaDbContext.SaveChangesAsync();
 
             await SalvarScoreMandante(partida);
@@ -378,11 +381,15 @@ namespace Application.Services.Partida
                 partida.GolsTimeVisitante += 1;
         }
 
-        private async Task SalvarScoreVisitante(PartidaModel partida)
+        private async Task SalvarScoreVisitante(Domain.Entities.Partida partida)
         {
-            var time = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdVisitante);
+            var time = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeVisitante);
 
-            var pontos = partida.GolsVisitante > partida.GolsMandante ? 3 : partida.GolsMandante == partida.GolsVisitante ? 1 : 0;
+            var pontos = partida.GolsTimeVisitante > partida.GolsTimeMandante 
+                                                            ? 3 
+                                                                : partida.GolsTimeMandante == partida.GolsTimeVisitante 
+                                                            ? 1 
+                                                                : 0;
 
             time.Pontos += pontos;
 
@@ -390,17 +397,20 @@ namespace Application.Services.Partida
             await _copaDbContext.SaveChangesAsync();
         }
 
-        private async Task SalvarScoreMandante(PartidaModel partida)
+        private async Task SalvarScoreMandante(Domain.Entities.Partida partida)
         {
-            var time = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdMandante);
+            var time = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeMandante);
 
-            var pontos = partida.GolsMandante > partida.GolsVisitante ? 3 : partida.GolsMandante == partida.GolsVisitante ? 1 : 0;
+            var pontos = partida.GolsTimeMandante > partida.GolsTimeVisitante   
+                                ? 3 
+                                    : partida.GolsTimeMandante == partida.GolsTimeVisitante 
+                                ? 1 
+                                    : 0;
 
             time.Pontos += pontos;
 
             _copaDbContext.Time.Update(time);
             await _copaDbContext.SaveChangesAsync();
         }
-
     }
 }

@@ -49,10 +49,10 @@ namespace Api.CopaFMPOBH.Controllers
             return Ok(partidas);
         }
 
-        [HttpPatch("[Action]")]
-        public async Task<ActionResult> FinalizarPartida(PartidaModel partida)
+        [HttpPatch("[Action]/{idPartida}")]
+        public async Task<ActionResult> FinalizarPartida(int idPartida)
         {
-            await _partidaService.FinalizarPartida(partida);
+            await _partidaService.FinalizarPartida(idPartida);
 
             return Ok();
         }
