@@ -10,6 +10,8 @@ import { TimesComponent } from './times/times.component';
 import { JogadorComponent } from './jogadores/jogadores.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida.component';
+import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CommonModule } from '@angular/common';
     InicioComponent,
     MenuComponent,
     TimesComponent,
-    JogadorComponent
+    JogadorComponent,
+    GerenciarPartidaComponent,
+    PartidaComponent
   ],
   imports: [
     CommonModule,

@@ -1,12 +1,12 @@
 export interface Jogador {
-  cartoesAmarelos: number;
-  cartoesVemelhos: number;
-  ehGoleiro: boolean;
-  golsMarcados: number;
-  golsSofridos: number;
   id: number;
   idTime: number;
-  nome: string
+  nome: string;
   numero: number;
+  golsMarcados: number;
+  golsSofridos: number;
+  ehGoleiro: boolean;
+  cartoesAmarelos: number;
+  cartoesVermelhos: number;
   suspenso: boolean;
 }
