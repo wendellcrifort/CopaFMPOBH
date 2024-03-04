@@ -54,9 +54,9 @@ namespace Application.Services.Partida
             var dadosPartida = await _copaDbContext.Partida
                                                    .AsNoTracking()
                                                    .Include(i => i.TimeMandante)
-                                                      .ThenInclude(i => i.Jogadores)
+                                                      .ThenInclude(i => i.Jogadores.OrderBy(o => o.Numero))
                                                    .Include(i => i.TimeVisitante)
-                                                      .ThenInclude(i => i.Jogadores)
+                                                      .ThenInclude(i => i.Jogadores.OrderBy(o => o.Numero))
                                                    .FirstOrDefaultAsync(x => x.Id == idPartida);
 
             return _mapper.Map<PartidaViewModel>(dadosPartida);
