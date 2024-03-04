@@ -1,0 +1,48 @@
+<div class="broadcast-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Partidas 06/04</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="broadcast-list" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="broadcast-item" *ngFor="let partida of partidas">
+                        <a [routerLink]="['/gerenciarPartida', partida.idPartida]">
+                            <div class="item-header" id="headingOne">
+                                <div class="row">
+                                    <div class="part-list col-sm-12">
+                                        <div class="item-head-body">
+                                            <div class="col-md-3">
+                                                <span class="item">
+                                                    <span class="logo"><img
+                                                            src="assets/images/CopaFMPOBH/Times/{{ partida.timeMandante.escudo }}"
+                                                            width="80" height="80" alt="club-image"></span>
+                                                    <span class="name">{{partida.timeMandante.nome}}</span>
+                                                </span>
+                                            </div>
+                                            <span class="info">
+                                                <span class="vs">vs</span>
+                                                <span class="then">{{partida.horaPartida}}</span>
+                                            </span>
+                                            <div class="col-md-3">
+                                                <span class="item">
+                                                    <span class="logo"><img
+                                                            src="assets/images/CopaFMPOBH/Times/{{ partida.timeVisitante.escudo }}"
+                                                            width="80" height="80" alt="club-image"></span>
+                                                    <span class="name">{{partida.timeVisitante.nome}}</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

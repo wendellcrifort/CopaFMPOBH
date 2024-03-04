@@ -1,6 +1,9 @@
+import { Jogador } from "./jogador";
+
 export interface Time {
   id: number;
   nome: string;
+  grupo: string;
   pontos: number;
   vitorias: number;
   empates: number;
@@ -11,4 +14,5 @@ export interface Time {
   cartoesAmarelos: number;
   cartoesVermelhos: number;
   escudo: string;
+  jogadores: Jogador[];
 }
