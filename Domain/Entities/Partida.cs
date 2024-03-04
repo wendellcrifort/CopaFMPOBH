@@ -38,6 +38,9 @@ namespace Domain.Entities
         [Column("EmAndamento")]
         public bool EmAndamento { get; set; }
 
+        [Column("PartidaFinalizada")]
+        public bool PartidaFinalizada { get;set; }
+
         [ForeignKey("IdTimeMandante")]
         public virtual Time? TimeMandante { get; set; }
                 
