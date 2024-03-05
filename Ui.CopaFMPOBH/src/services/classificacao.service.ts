@@ -8,8 +8,8 @@ import { classificacao } from '../models/classificacao';
 })
 export class ClassificacaoService {
 
-  private apiUrl = 'http://localhost:5097/Ranking';
-  //private apiUrl = 'http://api.copafmpobh.com.br/Ranking';
+  //private apiUrl = 'http://localhost:5097/Ranking';
+  private apiUrl = 'http://api.copafmpobh.com.br/Ranking';
 
   constructor(private http: HttpClient) { }
 
