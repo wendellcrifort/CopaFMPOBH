@@ -19514,6 +19514,13 @@ blockquote {
   padding-top: 45px
 }
 
+@media (max-width:400px) {
+  .club-main-stat {
+    padding-bottom: 36px !important;
+    padding-top: 0px !important;
+  }
+}
+
 .club-main-stat {
   padding-bottom: 80px;
   padding-top: 80px;
