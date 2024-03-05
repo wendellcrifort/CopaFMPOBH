@@ -1,0 +1,32 @@
+<div id="times">
+  <section class="club-main-stat">
+    <div class="container">
+      <div class="broadcast-item">
+        <div class="item-body">
+          <div class="row">
+            <div class="col-xs-12" style="padding-right: 0">
+              <div class="lineup-list">
+                <div class="left">
+                  <div class="number col-xs-1"><span>N</span></div>
+                  <div class="playername name col-xs-5">Nome</div>
+                  <div class="name col-xs-2">Jogos</div>
+                  <div class="name col-xs-1">GS</div>
+                  <div class="name col-xs-2">Média</div>                  
+                </div>
+                <div class="item" *ngFor="let jogador of goleiros">
+                  <div class="left">
+                    <div class="number col-xs-1"><span>{{jogador.numero}}</span></div>
+                    <div class="playername name col-xs-5">{{jogador.nome.split(' ')[0] + ' ' + jogador.nome.split(' ')[1]}}</div>
+                    <div class="name col-xs-2" style="text-align:center"> {{jogador.jogos}} </div>
+                    <div class="name col-xs-1" style="text-align:center"> {{jogador.golsSofridos}} </div>
+                    <div class="name col-xs-2" style="text-align:center"> {{jogador.golsSofridos / (jogador.jogos > 0 ? jogador.jogos : 1) }} </div>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

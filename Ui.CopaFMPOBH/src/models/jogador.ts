@@ -9,4 +9,5 @@ export interface Jogador {
   cartoesAmarelos: number;
   cartoesVermelhos: number;
   suspenso: boolean;
+  jogos: number;
 }

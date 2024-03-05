@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida.component';
 import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
 import { ClassificacaoComponent } from './classificacao/classificacao.component';
+import { GoleiroComponent } from './melhorgoleiro/goleiro.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ClassificacaoComponent } from './classificacao/classificacao.component'
     JogadorComponent,
     GerenciarPartidaComponent,
     PartidaComponent,
-    ClassificacaoComponent
+    ClassificacaoComponent,
+    GoleiroComponent
   ],
   imports: [
     CommonModule,

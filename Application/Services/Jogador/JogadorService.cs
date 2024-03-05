@@ -53,7 +53,7 @@ namespace Application.Services.Jogador
         {
             var jogadores = await _copaDbContext.Jogador
                                                 .AsNoTracking()
-                                                .Where(x => x.EhGoleiro && x.Jogos > 0)
+                                                .Where(x => x.EhGoleiro)
                                                 .OrderBy(o => o.GolsSofridos)
                                                 .ThenByDescending(o => o.Jogos)
                                                 .ToListAsync();

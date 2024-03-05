@@ -15,6 +15,7 @@ namespace Application.Services.Jogador.Model
         public int? CartoesAmarelos { get; set; } = 0;
         public int? CartoesVermelhos { get; set; } = 0;
         public bool? Suspenso { get; set; } = false;
+        public int? Jogos { get; set;}
 
         public void Mapping(Profile profile)
         {
@@ -29,6 +30,7 @@ namespace Application.Services.Jogador.Model
                 .ForMember(dest => dest.CartoesAmarelos, opt => opt.MapFrom(src => src.CartoesAmarelos))
                 .ForMember(dest => dest.CartoesVermelhos, opt => opt.MapFrom(src => src.CartoesVermelhos))
                 .ForMember(dest => dest.Suspenso, opt => opt.MapFrom(src => src.Suspenso))
+                .ForMember(dest => dest.Jogos, opt => opt.MapFrom(src => src.Jogos))
                 .ReverseMap();
         }
     }
