@@ -25172,6 +25172,19 @@ overflow-scroll.table tr td {
     font-family: Montserrat, sans-serif
   }
 
+@media (min-width:450px) {
+  .leftNumber {
+    width: 30px !important;
+  }
+
+  .leftName {
+  }
+}
+
+@media (max-width:450px) {
+  
+}
+
     .broadcast-item .lineup-list .number:before {
       content: '';
       position: absolute;

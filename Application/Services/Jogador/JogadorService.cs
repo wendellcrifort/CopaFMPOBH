@@ -19,11 +19,11 @@ namespace Application.Services.Jogador
         public async Task<int> CriaJogador(List<JogadorModel> jogadores)
         {
             var listaJogadores = new List<Domain.Entities.Jogador>();
-            foreach (var jogador in jogadores)            
+            foreach (var jogador in jogadores)
                 listaJogadores.Add(_mapper.Map<Domain.Entities.Jogador>(jogador));
 
             _copaDbContext.Jogador.AddRange(listaJogadores);
-            return await _copaDbContext.SaveChangesAsync();            
+            return await _copaDbContext.SaveChangesAsync();
         }
 
         public async Task<JogadorTimeViewModel> BuscarJogadores(int idTime)
@@ -37,7 +37,7 @@ namespace Application.Services.Jogador
             return _mapper.Map<JogadorTimeViewModel>(jogadoresTime);
         }
 
-        public async Task<List<JogadorViewModel>> BuscarArtilheiros() 
+        public async Task<List<JogadorViewModel>> BuscarArtilheiros()
         {
             var jogadores = await _copaDbContext.Jogador
                                                 .AsNoTracking()
@@ -53,6 +53,7 @@ namespace Application.Services.Jogador
         {
             var jogadores = await _copaDbContext.Jogador
                                                 .AsNoTracking()
+                                                .Include(x => x.Time)
                                                 .Where(x => x.EhGoleiro)
                                                 .OrderBy(o => o.GolsSofridos)
                                                 .ThenByDescending(o => o.Jogos)
