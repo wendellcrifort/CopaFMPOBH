@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Jogador } from 'src/models/jogador';
 import { JogadorService } from 'src/services/jogador.service';
+import { JogadoresTime } from '../../models/JogadoresTime';
 
 @Component({
   selector: 'app-jogadores',
@@ -10,16 +10,15 @@ import { JogadorService } from 'src/services/jogador.service';
 })
 
 export class JogadorComponent {
-  jogadores: Jogador[] = [];
+  jogadoresTime: JogadoresTime | undefined;
 
   constructor(private route: ActivatedRoute,
               private jogadorService: JogadorService) { }
 
   ngOnInit(): void {
-    const idTime = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(idTime)
-    this.jogadorService.getJogadores(idTime).subscribe(data => {      
-      this.jogadores = data
+    this.route.params.subscribe(params => {
+      const timeId = +params['id'];
+      this.jogadorService.getJogadores(timeId)?.subscribe(x => this.jogadoresTime = x);
     });
   }
 }

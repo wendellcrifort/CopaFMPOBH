@@ -26,15 +26,15 @@ namespace Application.Services.Jogador
             return await _copaDbContext.SaveChangesAsync();            
         }
 
-        public async Task<List<JogadorViewModel>> BuscarJogadores(int idTime)
+        public async Task<JogadorTimeViewModel> BuscarJogadores(int idTime)
         {
-            var jogadores = await _copaDbContext.Jogador
-                                                .AsNoTracking()
-                                                .Where(x => x.IdTime == idTime)
-                                                .OrderBy(o => o.Nome)
-                                                .ToListAsync();
+            var jogadoresTime = await _copaDbContext.Time
+                                                    .AsNoTracking()
+                                                    .Include(i => i.Jogadores
+                                                    .OrderBy(o => o.Nome))
+                                                    .FirstAsync(x => x.Id == idTime);
 
-            return _mapper.Map<List<JogadorViewModel>>(jogadores);
+            return _mapper.Map<JogadorTimeViewModel>(jogadoresTime);
         }
 
         public async Task<List<JogadorViewModel>> BuscarArtilheiros() 

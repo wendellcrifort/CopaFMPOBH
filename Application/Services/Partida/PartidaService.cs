@@ -210,7 +210,7 @@ namespace Application.Services.Partida
         {
             var time = await _copaDbContext.Time.FirstAsync(x => x.Id == jogador.IdTime);
 
-            jogador.CartoesVemelhos -= 1;
+            jogador.CartoesVermelhos -= 1;
             jogador.Suspenso = false;
             time.CartoesVermelhos -= 1;
 
@@ -296,7 +296,7 @@ namespace Application.Services.Partida
 
         private async Task AddCartaoVermelho(Domain.Entities.Jogador jogador, Domain.Entities.Time time)
         {
-            jogador.CartoesVemelhos += 1;
+            jogador.CartoesVermelhos += 1;
             jogador.Suspenso = true;
 
             time.CartoesVermelhos += 1;

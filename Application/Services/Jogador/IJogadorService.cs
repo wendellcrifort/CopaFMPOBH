@@ -5,7 +5,7 @@ namespace Application.Services.Jogador
     public interface IJogadorService
     {
         Task<int> CriaJogador(List<JogadorModel> jogadores);
-        Task<List<JogadorViewModel>> BuscarJogadores(int idTime);
+        Task<JogadorTimeViewModel> BuscarJogadores(int idTime);
         Task<List<JogadorViewModel>> BuscarArtilheiros();
         Task<List<JogadorViewModel>> BuscarMelhoresGoleiros();
     }
