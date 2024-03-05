@@ -1,0 +1,80 @@
+<div id="times">
+  <section class="club-main-stat">
+    <div class="container">
+      <div class="broadcast-item">
+        <div class="item-body">
+          <div class="row">
+            <div class="col-xs-12 col-md-6" style="padding-right: 0">
+              <div class="lineup-list">
+                <div class="left">
+                  <div class="number col-xs-12 col-md-12" style="width:100% !important"><span> GRUPO A </span></div>
+                  <div class="number paddingZero col-xs-1"><span> - </span></div>
+                  <div class="name width32 nameTeam col-xs-3">Time</div>
+                  <div class="name paddingZero col-xs-1">P</div>                  
+                  <div class="name paddingZero col-xs-1">V</div>
+                  <div class="name paddingZero col-xs-1">E</div>
+                  <div class="name paddingZero col-xs-1">D</div>
+                  <div class="name paddingZero col-xs-1">GF</div>
+                  <div class="name paddingZero col-xs-1">GS</div>
+                  <div class="name paddingZero col-xs-1">SG</div>
+                </div>
+                <div class="item" *ngFor="let time of classificacao!.grupoA">
+                  <div class="left">
+                    <div class="number paddingZero col-xs-1">
+                      <img src="assets/images/CopaFMPOBH/Times/{{ time.escudo }}"
+                           width="24"
+                           height="24"
+                           alt="team-logo">
+                    </div>
+                    <div class="name width32 nameTeam col-xs-3">{{time.nome}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.pontos}}</div>                    
+                    <div class="name paddingZero col-xs-1">{{time.vitorias}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.empates}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.derrotas}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.golsFeitos}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.golsSofridos}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.saldoGols}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-6" style="padding-right: 0">
+              <div class="lineup-list">
+                <div class="left">
+                  <div class="number col-xs-12 col-md-12" style="width:100% !important"><span> GRUPO B </span></div>
+                  <div class="number paddingZero col-xs-1"><span> - </span></div>
+                  <div class="name width32 nameTeam col-xs-3">Time</div>
+                  <div class="name paddingZero col-xs-1">P</div>                  
+                  <div class="name paddingZero col-xs-1">V</div>
+                  <div class="name paddingZero col-xs-1">E</div>
+                  <div class="name paddingZero col-xs-1">D</div>
+                  <div class="name paddingZero col-xs-1">GF</div>
+                  <div class="name paddingZero col-xs-1">GS</div>
+                  <div class="name paddingZero col-xs-1">SG</div>
+                </div>
+                <div class="item" *ngFor="let time of classificacao!.grupoB">
+                  <div class="left">
+                    <div class="number paddingZero col-xs-1">
+                      <img src="assets/images/CopaFMPOBH/Times/{{ time.escudo }}"
+                           width="24"
+                           height="24"
+                           alt="team-logo">
+                    </div>
+                    <div class="name width32 nameTeam col-xs-3">{{time.nome}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.pontos}}</div>                    
+                    <div class="name paddingZero col-xs-1">{{time.vitorias}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.empates}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.derrotas}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.golsFeitos}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.golsSofridos}}</div>
+                    <div class="name paddingZero col-xs-1">{{time.saldoGols}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

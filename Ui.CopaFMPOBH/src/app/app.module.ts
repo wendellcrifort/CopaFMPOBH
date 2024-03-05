@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida.component';
 import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
+import { ClassificacaoComponent } from './classificacao/classificacao.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PartidaComponent } from './gerenciar-partida/partida/partida.component'
     TimesComponent,
     JogadorComponent,
     GerenciarPartidaComponent,
-    PartidaComponent
+    PartidaComponent,
+    ClassificacaoComponent
   ],
   imports: [
     CommonModule,

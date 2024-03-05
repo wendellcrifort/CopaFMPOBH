@@ -8196,6 +8196,31 @@ button.close {
   }
 }
 
+@media (max-width:450px) {
+  .paddingZero {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    width:27px !important;
+    text-align: center !important;
+  }
+
+  .nameTeam {
+    width: 158px !important;
+  }
+}
+
+@media (min-width:450px) {
+  .paddingZero {    
+    text-align: center !important;
+  }
+}
+
+@media (min-width:450px) {
+  .width32 {
+    width: 32% !important;
+  }
+}
+
 @media (min-width:768px) and (max-width:991px) {
   .hidden-sm {
     display: none !important
@@ -19514,7 +19539,7 @@ blockquote {
   padding-top: 45px
 }
 
-@media (max-width:400px) {
+@media (max-width:450px) {
   .club-main-stat {
     padding-bottom: 36px !important;
     padding-top: 0px !important;
@@ -21710,7 +21735,7 @@ overflow-scroll.table tr td {
   }
 }
 
-@media (max-width:400px) {
+@media (max-width:450px) {
   .error-wrap .offline-title .small-text {
     font-size: 25px;
     line-height: normal
@@ -23261,8 +23286,8 @@ overflow-scroll.table tr td {
   left: -1px;
   top: 0;
   bottom: 0;
-  width: 50px;
-  height: 44px;
+  /*width: 50px;
+  height: 44px;*/
   object-fit: cover
 }
 
@@ -25101,16 +25126,33 @@ overflow-scroll.table tr td {
     text-align: right
   }
 
+@media (max-width:450px) {
   .broadcast-item .lineup-list .number img {
     z-index: 5;
     position: absolute;
-    left: -1px;
-    top: 0;
+    left: 5px;
+    top: 5px;
     bottom: 0;
-    width: 50px;
-    height: 47px;
+    /*width: 50px;
+    height: 47px;*/
     object-fit: cover
   }
+}
+
+@media (min-width:450px) {
+  .broadcast-item .lineup-list .number img {
+    z-index: 5;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    bottom: 0;
+    /*width: 50px;
+    height: 47px;*/
+    object-fit: cover
+  }
+}
+
+  
 
   .broadcast-item .lineup-list .right .number img {
     left: -10px
@@ -25160,7 +25202,7 @@ overflow-scroll.table tr td {
   .broadcast-item .lineup-list .name {
     padding-left: 18px;
     font-size: 14px;
-    color: #262626
+    color: #262626;    
   }
 
   .broadcast-item .lineup-list .right .name {
