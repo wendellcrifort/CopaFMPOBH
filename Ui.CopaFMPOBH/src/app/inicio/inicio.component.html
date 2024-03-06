@@ -1,25 +1,25 @@
 <section class="club-main-stat">
   <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="partidas!.partidaAoVivo !== undefined && partidas!.partidaAoVivo !== null">
       <div class="col-md-12">
         <div class="last-match">
-          <div class="team">
-           <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/exodusfutsal.png" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">Exodus FC</a>
-          </div>
-          <div class="score">
-            <span class="live">Ao Vivo</span><br />
-            <span>64</span>:<span>7</span>
-          </div>
-          <div class="team right">
+          <div class="team width33">
             <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/romanosfc.png" width="40"
+              <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.partidaAoVivo.timeMandante.escudo }}" width="40"
                    height="40" alt="team-logo" />
             </a>
-            <a href="#" class="name">Romanos FC</a>
+            <a href="#" class="name">{{ partidas!.partidaAoVivo.timeMandante.nome }}</a>
+          </div>
+          <div class="score width34">
+            <span class="live">Ao Vivo</span><br />
+            <span>{{ partidas!.partidaAoVivo.golsTimeMandante }}</span>:<span>{{ partidas!.partidaAoVivo.golsTimeVisitante }}</span>
+          </div>
+          <div class="team right width33">
+            <a href="#">
+              <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.partidaAoVivo.timeVisitante.escudo }}" width="40"
+                   height="40" alt="team-logo" />
+            </a>
+            <a href="#" class="name">{{ partidas!.partidaAoVivo.timeVisitante.nome }}</a>
           </div>
         </div>
       </div>
@@ -28,76 +28,61 @@
     <div class="row">
       <div class="col-md-12">
         <div class="last-match">
-          <div class="team">
+          <div class="team width33">
             <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/linderpoolfc.png" width="40"
+              <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.proximaPartida.timeMandante.escudo }}" width="40"
                    height="40" alt="team-logo" />
             </a>
-            <a href="#" class="name">Linderpool FC</a>
+            <a href="#" class="name">{{ partidas!.proximaPartida.timeMandante.nome }}</a>
           </div>
-          <div class="score">
+          <div class="score width34">
             <span>-</span>:<span>-</span>
           </div>
-          <div class="team right">
+          <div class="team right width33">
             <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/petrobrasfc.png" width="40"
+              <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.proximaPartida.timeVisitante.escudo }}" width="40"
                    height="40" alt="team-logo" />
             </a>
-            <a href="#" class="name">Petrobras FC</a>
+            <a href="#" class="name">{{ partidas!.proximaPartida.timeVisitante.escudo }}</a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-md-12 col-sm-12 col-xs-12"><h6>Partidas Encerradas</h6></div>
+    <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="partidas!.partidasEncerradas !== undefined && partidas!.partidasEncerradas !== null && partidas!.partidasEncerradas.length > 0"><h6>Partidas Encerradas</h6></div>
 
-    <div class="row">
+    <div class="row" *ngFor="let partida of partidas!.partidasEncerradas">
       <div class="col-md-12">
         <div class="last-match">
-          <div class="team">
+          <div class="team width33">
             <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/fcbyernbarreiro.png" width="40"
+              <img src="../../assets/images/CopaFMPOBH/Times/{{ partida!.timeMandante.escudo }}" width="40"
                    height="40" alt="team-logo" />
             </a>
-            <a href="#" class="name">FC Bayern Barreiro</a>
+            <a href="#" class="name">{{ partida!.timeMandante.nome }}</a><br />
+            <div>
+              <span class="name marginJogadorMarcado">
+                <!--Matheus Lima
+                <i class='far fa-futbol' style='font-size:12px;color:green'></i>
+                <i class='far fa-futbol' style='font-size:12px;color:green'></i>
+                <i class='far fa-futbol' style='font-size:12px;color:green'></i>
+                <i class='far fa-futbol' style='font-size:12px;color:green'></i>
+                <i class='far fa-futbol' style='font-size:12px;color:green'></i>-->
+              </span><br />
+            </div>
           </div>
-          <div class="score">
-            <span>2</span>:<span>8</span>
+          <div class="score width34">
+            <span>{{ partida!.golsTimeMandante }}</span>:<span>{{ partida!.golsTimeVisitante }}</span>
           </div>
-          <div class="team right">
+          <div class="team right width33">
             <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/lagunafc.png" width="40"
+              <img src="../../assets/images/CopaFMPOBH/Times/{{ partida!.timeVisitante.escudo }}" width="40"
                    height="40" alt="team-logo" />
             </a>
-            <a href="#" class="name">Laguna FC</a>
+            <a href="#" class="name">{{ partida!.timeVisitante.nome }}</a>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="last-match">
-          <div class="team">
-            <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/apocalipse.png" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">Apocalipse</a>
-          </div>
-          <div class="score">
-            <span>3</span>:<span>2</span>
-          </div>
-          <div class="team right">
-            <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/schalke07.png" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">Schalke 07</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>

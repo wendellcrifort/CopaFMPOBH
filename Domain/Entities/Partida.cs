@@ -14,6 +14,9 @@ namespace Domain.Entities
         [Column("HoraPartida")]
         public string HoraPartida { get; set; }
 
+        [Column("DataHora")]
+        public int DataHoraPartida { get; set; }
+
         [Column("Rodada")]
         public int? Rodada { get; set; }
 

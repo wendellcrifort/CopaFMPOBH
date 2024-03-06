@@ -49,6 +49,24 @@ namespace Application.Services.Partida
             return _mapper.Map<List<PartidaViewModel>>(partidas);
         }
 
+        public async Task<PartidasHomeViewModel> BuscarPartidasHome()
+        {
+            var partidas = await _copaDbContext.Partida
+                                         .AsNoTracking()
+                                         .Include(i => i.TimeMandante)
+                                         .Include(i => i.TimeVisitante)
+                                         .OrderBy(o => o.DataHoraPartida)                                         
+                                         .ToListAsync();
+
+            var partidasHome = new PartidasHomeViewModel();
+
+            partidasHome.PartidaAoVivo = _mapper.Map<PartidaViewModel>(partidas.FirstOrDefault(x => x.EmAndamento));
+            partidasHome.ProximaPartida = _mapper.Map<PartidaViewModel>(partidas.FirstOrDefault(x => !x.EmAndamento && !x.PartidaFinalizada));
+            partidasHome.PartidasEncerradas = _mapper.Map<List<PartidaViewModel>>(partidas.Where(x => x.PartidaFinalizada));
+
+            return partidasHome;
+        }
+
         public async Task<PartidaViewModel> BuscarPartidaEmAndamento(int idPartida)
         {
             var dadosPartida = await _copaDbContext.Partida
