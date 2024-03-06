@@ -26,7 +26,7 @@ import { GoleiroComponent } from './melhorgoleiro/goleiro.component';
     JogadorComponent,
     GerenciarPartidaComponent,
     PartidaComponent,
-    EventosComponent
+    EventosComponent,
     ClassificacaoComponent,
     GoleiroComponent
   ],

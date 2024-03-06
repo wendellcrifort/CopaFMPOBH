@@ -1,6 +1,6 @@
 <section class="club-main-stat">
     <div class="container">
-        <div class="row">
+        <div class="row sem-margem">
             <div class="col-md-12">
                 <div class="last-match">
                     <div class="team">
@@ -21,30 +21,37 @@
                 </div>
             </div>
         </div>
-        <div class="broadcast-item">
-            <div id="collapseOne" class="panel-collapse">
-                <div class="item-body">
-                    <div class="row">
-                        <div class="col-xs-6" style="padding-right: 0">
-                            <div class="lineup-list">
-                                <div class="item" *ngFor="let jogador of partida!.timeMandante.jogadores">
-                                    <div class="left" data-toggle="collapse" [attr.data-target]="'#eventos-casa-' + jogador.numero">
-                                        <div class="number"><span>{{jogador.numero}}</span></div>
-                                        <div class="name">{{jogador.nome.split(' ')[0]}}</div>
+        <div class="row sem-margem">
+            <div class="col-md-12">
+                <div class="broadcast-item">
+                    <div id="collapseOne" class="panel-collapse">
+                        <div class="item-body">
+                            <div class="row">
+                                <div class="col-xs-6" style="padding-right: 0">
+                                    <div class="lineup-list">
+                                        <div class="item" *ngFor="let jogador of partida!.timeMandante.jogadores">
+                                            <div class="left" data-toggle="collapse"
+                                                [attr.data-target]="'#eventos-casa-' + jogador.numero">
+                                                <div class="number"><span>{{jogador.numero}}</span></div>
+                                                <div class="name">{{jogador.nome.split(' ')[0]}}</div>
+                                            </div>
+                                            <app-eventos [jogador]="jogador" [time]="'casa'" [partida]="partida!.idPartida"
+                                                [adversario]="partida!.timeVisitante"></app-eventos>
+                                        </div>
                                     </div>
-                                    <app-eventos [jogador]="jogador" [time]="'casa'" [adversario]="partida!.timeVisitante"></app-eventos>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-6" style="padding-left: 0">
-                            <div class="lineup-list">
-                                <div class="item" *ngFor="let jogador of partida!.timeVisitante.jogadores"
-                                    >
-                                    <div class="right" data-toggle="collapse" [attr.data-target]="'#eventos-visitante-' + jogador.numero"    >
-                                        <div class="name">{{jogador.nome.split(' ')[0]}}</div>
-                                        <div class="number"><span>{{jogador.numero}}</span></div>
+                                <div class="col-xs-6" style="padding-left: 0">
+                                    <div class="lineup-list">
+                                        <div class="item" *ngFor="let jogador of partida!.timeVisitante.jogadores">
+                                            <div class="right" data-toggle="collapse"
+                                                [attr.data-target]="'#eventos-visitante-' + jogador.numero">
+                                                <div class="name">{{jogador.nome.split(' ')[0]}}</div>
+                                                <div class="number"><span>{{jogador.numero}}</span></div>
+                                            </div>
+                                            <app-eventos [jogador]="jogador" [time]="'visitante'" [partida]="partida!.idPartida"
+                                                [adversario]="partida!.timeMandante"></app-eventos>
+                                        </div>
                                     </div>
-                                    <app-eventos [jogador]="jogador" [time]="'visitante'" [adversario]="partida!.timeMandante"></app-eventos>
                                 </div>
                             </div>
                         </div>
