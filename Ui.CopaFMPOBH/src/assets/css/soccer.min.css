@@ -7253,10 +7253,10 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1050;
-  display: none;
-  overflow: hidden;
+  /* display: none; */
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
-  outline: 0
+  outline: 0;
 }
 
   .modal.fade .modal-dialog {
@@ -7283,8 +7283,8 @@ button.close {
 
 .modal-dialog {
   position: relative;
-  width: auto;
-  margin: 10px
+  width: 90%;
+  margin: 30px auto auto auto;
 }
 
 .modal-content {
@@ -7334,11 +7334,10 @@ button.close {
 
 .modal-body {
   position: relative;
-  padding: 15px
 }
 
 .modal-footer {
-  padding: 15px;
+  padding: 0 15px 15px 15px;
   text-align: right;
   border-top: 1px solid #e5e5e5
 }
@@ -7366,13 +7365,14 @@ button.close {
 
 @media (min-width:768px) {
   .modal-dialog {
-    width: 600px;
-    margin: 30px auto
+    width: 400px;
+    margin: 30px auto auto auto
   }
 
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    z-index: 101;
   }
 
   .modal-sm {
@@ -16709,12 +16709,12 @@ textarea {
 }
 
 div {
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  color: #fff;
-  line-height: 26px
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #fff;
+    line-height: 26px
 }
 
 ul {
@@ -17181,11 +17181,6 @@ textarea {
   background: #141414;
   width: 100%;
   position: relative;
-  z-index: 100
-}
-
-.is-sticky .main-menu-wrap {
-  z-index: 100 !important
 }
 
 body.admin-bar .is-sticky .main-menu-wrap {
@@ -24980,7 +24975,6 @@ overflow-scroll.table tr td {
 .broadcast-item {
   background: #fff;
   overflow: hidden;
-  margin-bottom: 20px;
   position: relative;
   z-index: 10
 }
@@ -25240,14 +25234,21 @@ overflow-scroll.table tr td {
     }
 
 
+.broadcast-item .lineup-list .icone {
+  font-size: 14px;
+  color: #262626
+}
+
+.broadcast-item .lineup-list .right .name {
+  padding-right: 18px;
+  padding-left: 0
+}
+
 @media (max-width:450px) {
   .broadcast-item .lineup-list .playername {
     width: 180px !important;
   }
 }
-
- 
-
 
   .broadcast-item .lineup-list .name {
     padding-left: 18px;
@@ -25397,8 +25398,7 @@ overflow-scroll.table tr td {
     }
 
 .part-list .item {
-  margin-bottom: 30px;
-  padding: 54px 10px 28px 10px;
+  margin-bottom: 15px;
   text-align: center;
   background: #fff;
   border-radius: 9px;
@@ -25409,14 +25409,13 @@ overflow-scroll.table tr td {
     display: block
   }
 
-  .part-list .item .name {
-    padding-top: 13px;
-    display: block;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #141414;
-    font-family: Montserrat, sans-serif
-  }
+.part-list .item .name {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #141414;
+  font-family: Montserrat, sans-serif
+}
 
 @media (max-width:992px) {
   .broadcast-item .channel:before {
@@ -25583,34 +25582,46 @@ overflow-scroll.table tr td {
     color: #fff
   }
 
+.part-list .row {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.part-list .row .col-xs-6{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.part-list{
+  padding-right: 15px;
+}
+
 .part-list .item {
-  margin-bottom: 30px;
-  padding: 54px 10px 28px 10px;
+  margin-bottom:10px;
   text-align: center;
   background: #fff;
   border-radius: 9px;
   display: block
 }
 
+.part-list .item .logo {
+  display: block
+}
 
-  .part-list .item .logo {
-    display: block
-  }
+.part-list .item .logo img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain
+}
 
-    .part-list .item .logo img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain
-    }
+.part-list .item .name {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #141414;
+  font-family: Montserrat, sans-serif
+}
 
-  .part-list .item .name {
-    padding-top: 13px;
-    display: block;
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #141414;
-    font-family: Montserrat, sans-serif
-  }
 
 @media (max-width:991px) {
   .championship-list .item-head-body {

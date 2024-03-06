@@ -5873,8 +5873,7 @@ button.close {
   bottom: 0;
   left: 0;
   z-index: 1050;
-  display: none;
-  overflow: hidden;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
@@ -5899,8 +5898,7 @@ button.close {
 }
 .modal-dialog {
   position: relative;
-  width: auto;
-  margin: 10px;
+  margin: 30px auto auto auto
 }
 .modal-content {
   position: relative;
@@ -5971,7 +5969,7 @@ button.close {
 @media (min-width: 768px) {
   .modal-dialog {
     width: 600px;
-    margin: 30px auto;
+    margin: 30px auto auto auto
   }
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
