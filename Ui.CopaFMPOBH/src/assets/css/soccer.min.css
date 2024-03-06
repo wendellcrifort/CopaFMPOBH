@@ -17156,7 +17156,7 @@ textarea {
 }
 
 .amateurs-main-match {
-  padding: 67px 50px 67px 50px;
+  padding: 12px 12px 12px 12px;
   font-size: 0;
   background-size: cover
 }
@@ -19597,9 +19597,46 @@ blockquote {
         display: inline-block
       }
 
-        .club-main-stat .last-match .score span:first-child {
-          margin: 0 2px 0 0
-        }
+     
+
+@media (min-width:450px) {
+  .club-main-stat .last-match .score .live {
+    margin: 0 0 6px 0 !important;
+    width: 40%;
+    padding: 0 4px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: #D6001C;
+    height: 32px;
+    line-height: 30px;
+    border-radius: 9px;
+    display: inline-block;
+    bottom: 6px !important;
+  }
+}
+
+@media (max-width:450px){
+  .club-main-stat .last-match .score .live {
+    margin: 0 0 3px 0 !important;
+    width: 60%;
+    padding: 0 0px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background: #D6001C;
+    height: 32px;
+    line-height: 30px;
+    border-radius: 9px;
+    display: inline-block;    
+  }
+}
+
+.club-main-stat .last-match .score span:first-child {
+  margin: 0 2px 0 0
+}
 
 table {
   margin-bottom: 30px;
@@ -37448,4 +37485,9 @@ ul.esport-championship-timline-tabs {
   .esport-team-landing-footer-links ul > li > a > span {
     display: none
   }
+}
+
+.nextMatch {
+  background-color: #fff;
+  border-radius: 10px;
 }
