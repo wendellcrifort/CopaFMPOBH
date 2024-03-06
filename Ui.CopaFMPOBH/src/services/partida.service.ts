@@ -8,7 +8,8 @@ import { Partida } from 'src/models/partida';
 })
 export class PartidaService {
 
-  private apiUrl = 'http://api.copafmpobh.com.br/Partida';
+  // private apiUrl = 'http://api.copafmpobh.com.br/Partida';
+  private apiUrl = 'http://localhost:5097/Partida';
 
   constructor(private http: HttpClient) { }
 

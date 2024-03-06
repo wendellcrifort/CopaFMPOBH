@@ -9,8 +9,8 @@ import { Jogador } from '../models/jogador';
 })
 export class JogadorService {
   
-  // private apiUrl = 'http://localhost:5097/Jogador';
-  private apiUrl = 'http://api.copafmpobh.com.br/Jogador';
+  private apiUrl = 'http://localhost:5097/Jogador';
+  // private apiUrl = 'http://api.copafmpobh.com.br/Jogador';
 
   constructor(private http: HttpClient) { }
 
