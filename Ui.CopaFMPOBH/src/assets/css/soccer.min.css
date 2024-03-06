@@ -19727,6 +19727,18 @@ blockquote p.name {
     display: inline-block;
     bottom: 6px !important;
   }
+
+  .width33 {
+    width: 33%;
+  }
+
+  .width34 {
+    width: 34%;
+  }
+
+  .marginJogadorMarcado{
+      margin-left: 40px;
+  }
 }
 
 @media (max-width:450px) {

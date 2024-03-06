@@ -7,6 +7,7 @@ namespace Application.Services.Partida
     {
         Task<int> CriarPartida(PartidaModel partida);
         Task<List<PartidaViewModel>> BuscarPartidas(string? data);
+        Task<PartidasHomeViewModel> BuscarPartidasHome();
         Task<PartidaViewModel> BuscarPartidaEmAndamento(int idPartida);
         Task FinalizarPartida(int idPartida);
         Task<EventoPlacarViewModel> RegistrarEventoPartida(int idPartida, int idJogador, TipoEventoEnum evento, int? idGoleiro);

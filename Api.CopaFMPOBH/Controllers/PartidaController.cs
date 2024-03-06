@@ -70,5 +70,12 @@ namespace Api.CopaFMPOBH.Controllers
             var evento = await _partidaService.RemoverEventoPartida(idEvento);
             return Ok(evento);
         }
+
+        [HttpGet("[Action]")]
+        public async Task<ActionResult<PartidasHomeViewModel>> BuscarPartidasHome()
+        {
+            var partidas = await _partidaService.BuscarPartidasHome();
+            return Ok(partidas);
+        }
     }
 }
