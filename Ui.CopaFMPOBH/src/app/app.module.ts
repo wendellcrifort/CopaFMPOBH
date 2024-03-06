@@ -14,7 +14,8 @@ import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida
 import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
 import { EventosComponent } from './gerenciar-partida/partida/eventos/eventos.component';
 import { ClassificacaoComponent } from './classificacao/classificacao.component';
-import { GoleiroComponent } from './melhorgoleiro/goleiro.component';
+import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
+import { CriarPartidaComponent } from './criar-partida/criar-partida.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GoleiroComponent } from './melhorgoleiro/goleiro.component';
     PartidaComponent,
     EventosComponent,
     ClassificacaoComponent,
-    GoleiroComponent
+    GoleiroComponent,
+    CriarPartidaComponent
   ],
   imports: [
     CommonModule,
