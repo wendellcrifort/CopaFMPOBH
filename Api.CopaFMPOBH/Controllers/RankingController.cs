@@ -21,7 +21,7 @@ namespace Api.CopaFMPOBH.Controllers
         }
 
         [HttpGet("[Action]")]
-        public async Task<ActionResult<TimeViewModel>> BuscarClassificacao()
+        public async Task<ActionResult<ClassificacaoViewModel>> BuscarClassificacao()
         {
             var classificacao = await _timeService.BuscarClassificacao();
             return Ok(classificacao);

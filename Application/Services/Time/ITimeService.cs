@@ -5,6 +5,6 @@ namespace Application.Services.Time
     public interface ITimeService
     {
         Task<List<TimeViewModel>> BuscarTimes();
-        Task<List<TimeViewModel>> BuscarClassificacao();
+        Task<ClassificacaoViewModel> BuscarClassificacao();
     }
 }

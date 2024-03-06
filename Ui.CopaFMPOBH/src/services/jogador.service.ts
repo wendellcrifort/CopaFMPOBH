@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Time } from 'src/models/time';
-import { Jogador } from '../models/jogador';
+import { JogadoresTime } from '../models/JogadoresTime';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JogadorService {
   
-  private apiUrl = 'http://localhost:5097/Jogador';
-  // private apiUrl = 'http://api.copafmpobh.com.br/Jogador';
+  //private apiUrl = 'http://localhost:5097/Jogador';
+  private apiUrl = 'http://api.copafmpobh.com.br/Jogador';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class JogadorService {
     return this.http.get<Time[]>(`${this.apiUrl}/BuscarTimes`);
   }
 
-  getJogadores(idTime: number): Observable<Jogador[]> {
-    return this.http.get<Jogador[]>(`${this.apiUrl}/BuscarJogadores/${idTime}`);
+  getJogadores(idTime: number): Observable<JogadoresTime> {
+    return this.http.get<JogadoresTime>(`${this.apiUrl}/BuscarJogadores/${idTime}`);    
   }
 }

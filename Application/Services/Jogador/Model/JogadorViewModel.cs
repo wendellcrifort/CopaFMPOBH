@@ -1,4 +1,5 @@
 ﻿using Application.Common.Mappings;
+using Application.Services.Time.Model;
 using AutoMapper;
 
 namespace Application.Services.Jogador.Model
@@ -13,8 +14,10 @@ namespace Application.Services.Jogador.Model
         public int? GolsSofridos { get; set; } = 0;
         public bool EhGoleiro { get; set; } = false;
         public int? CartoesAmarelos { get; set; } = 0;
-        public int? CartoesVemelhos { get; set; } = 0;
+        public int? CartoesVermelhos { get; set; } = 0;
         public bool? Suspenso { get; set; } = false;
+        public int? Jogos { get; set;}
+        public string? Escudo { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -27,8 +30,10 @@ namespace Application.Services.Jogador.Model
                 .ForMember(dest => dest.GolsSofridos, opt => opt.MapFrom(src => src.GolsSofridos))
                 .ForMember(dest => dest.EhGoleiro, opt => opt.MapFrom(src => src.EhGoleiro))
                 .ForMember(dest => dest.CartoesAmarelos, opt => opt.MapFrom(src => src.CartoesAmarelos))
-                .ForMember(dest => dest.CartoesVemelhos, opt => opt.MapFrom(src => src.CartoesVemelhos))
+                .ForMember(dest => dest.CartoesVermelhos, opt => opt.MapFrom(src => src.CartoesVermelhos))
                 .ForMember(dest => dest.Suspenso, opt => opt.MapFrom(src => src.Suspenso))
+                .ForMember(dest => dest.Jogos, opt => opt.MapFrom(src => src.Jogos))
+                .ForMember(dest => dest.Escudo, opt => opt.MapFrom(src => src.Time.Escudo))
                 .ReverseMap();
         }
     }

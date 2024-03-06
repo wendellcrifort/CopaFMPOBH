@@ -1,3 +1,5 @@
+import { Time } from "./time";
+
 export interface Jogador {
   id: number;
   idTime: number;
@@ -9,4 +11,6 @@ export interface Jogador {
   cartoesAmarelos: number;
   cartoesVermelhos: number;
   suspenso: boolean;
+  jogos: number;
+  escudo: string;
 }
