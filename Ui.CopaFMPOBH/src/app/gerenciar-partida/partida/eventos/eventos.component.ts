@@ -3,6 +3,7 @@ import { Evento } from 'src/models/evento';
 import { Jogador } from 'src/models/jogador';
 import { Time } from 'src/models/time';
 import { TipoEvento } from 'src/models/tipoEvento';
+import { AlertService } from 'src/services/alert.service';
 import { PartidaService } from 'src/services/partida.service';
 
 @Component({
@@ -24,20 +25,21 @@ export class EventosComponent {
   public modalConfirmacao = false;
   public contra = false;
 
-  private idJogador : number | null = null;
-  private tipoEvento : TipoEvento | null = null;
+  private idJogador: number | null = null;
+  private tipoEvento: TipoEvento | null = null;
 
-  constructor(private partidaService: PartidaService) { }
+  constructor(private partidaService: PartidaService, private alertService: AlertService) { }
 
   public gol() {
     if (!this.goleiro) {
       this.mostrarMensagemGoleiro = true;
       return;
     }
-    
+
     this.tipoEvento = this.contra ? TipoEvento.GolContra : TipoEvento.GolMarcado;
 
-    this.evento(this.goleiro?.id);
+    var mensagem = `gol ${this.contra ? 'contra' : '' } marcado`;
+    this.evento(mensagem, this.goleiro?.id);
     this.fechaModal();
   }
 
@@ -60,9 +62,9 @@ export class EventosComponent {
     this.mostrarModal = true;
   }
 
-  public confirmaCartao(){
+  public confirmaCartao() {
+    this.evento(`cartão ${this.tipoEvento == TipoEvento.CartaoAmarelo ? 'amarelo' : 'vermelho' } aplicado`);
     this.fechaModal();
-    this.evento();
   }
 
   public fechaModal() {
@@ -78,9 +80,12 @@ export class EventosComponent {
     this.goleiro = goleiro;
   }
 
-  private evento(idGoleiro: number | null = null){    
+  private evento(mensagem : string, idGoleiro: number | null = null) {
     this.partidaService
       .registrarEvento(new Evento(this.partida!, this.idJogador!, this.tipoEvento!, idGoleiro))
-      .subscribe(x => this.partidaAtualizada.emit(x));
+      .subscribe(x => {
+        this.partidaAtualizada.emit(x);
+        this.alertService.showAlertSuccess(mensagem);
+      });
   }
 }

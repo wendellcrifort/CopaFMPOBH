@@ -1,6 +1,15 @@
 <app-menu></app-menu>
 
+<app-loading></app-loading>
+
 <router-outlet></router-outlet>
+
+<div class="fixed-bottom">
+  <div *ngIf="alert" [class]="alert.type === 'success' ? 'alert alert-success' : 'alert alert-danger'" class="text-center" role="alert">
+    {{ alert.message }}
+  </div>
+</div>
+
 
 <!--FOOTER BEGIN-->
 <footer class="footer">
