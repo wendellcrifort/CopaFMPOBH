@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertService } from 'src/services/alert.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'campeonato-ui';
+
+  alert: any;
+
+  constructor(private alertService: AlertService) { }
+
+  ngOnInit(): void {
+    this.alertService.getAlerts().subscribe(alert => {
+      this.alert = alert;
+      setTimeout(() => {
+        this.alert = null;
+      }, 5000);
+    });
+  } 
 }

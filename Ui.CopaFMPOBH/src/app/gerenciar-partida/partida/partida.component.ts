@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventoPartida } from 'src/models/eventoPartida';
 import { Jogador } from 'src/models/jogador';
 import { Partida } from 'src/models/partida';
+import { AlertService } from 'src/services/alert.service';
 import { PartidaService } from 'src/services/partida.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class PartidaComponent implements OnInit {
   public modalFinalizarPartida = false;
   public jogadorSelecionado: Jogador | null = null;
 
-  constructor(private route: ActivatedRoute, private partidaService: PartidaService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private partidaService: PartidaService, private router: Router, private alertService: AlertService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -53,7 +54,8 @@ export class PartidaComponent implements OnInit {
         if (index !== -1) this.eventos!.splice(index, 1);
         this.partida!.golsTimeMandante = x.golsMandante;
         this.partida!.golsTimeVisitante = x.golsVisitante;
-      }
+        this.alertService.showAlertSuccess("evento deletado");
+    }
     );
   }
 
@@ -67,7 +69,10 @@ export class PartidaComponent implements OnInit {
 
   public finalizarPartida() {
     this.fecharModalFinalizar();
-    this.partidaService.finalizarPartida(this.id!).subscribe(() => this.irParaGerenciarPartidas());
+    this.partidaService.finalizarPartida(this.id!).subscribe(() => { 
+      this.irParaGerenciarPartidas() 
+      this.alertService.showAlertSuccess("partida finalizada");
+    });
   }
 
   public selecionarJogador(jogador: Jogador) {
@@ -78,7 +83,10 @@ export class PartidaComponent implements OnInit {
   }
 
   public iniciarPartida(){
-    this.partidaService.inciarPartida(this.id!).subscribe(() => this.partida!.emAndamento = true);
+    this.partidaService.inciarPartida(this.id!).subscribe(() => { 
+      this.partida!.emAndamento = true
+      this.alertService.showAlertSuccess("partida iniciada");
+    });
   }
 
   private irParaGerenciarPartidas() {
