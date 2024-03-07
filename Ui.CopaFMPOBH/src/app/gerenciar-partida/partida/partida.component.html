@@ -10,7 +10,7 @@
                         <a href="about-club.html" class="name">{{partida!.timeMandante.nome}}</a>
                     </div>
                     <div class="score">
-                        <span>{{partida!.timeMandante.golsFeitos}}</span>:<span>{{partida!.timeVisitante.golsFeitos}}</span>
+                        <span>{{partida!.golsTimeMandante}}</span>:<span>{{partida!.golsTimeVisitante}}</span>
                     </div>
                     <div class="team right">
                         <a href="about-club.html"><img
@@ -35,8 +35,9 @@
                                                 <div class="number"><span>{{jogador.numero}}</span></div>
                                                 <div class="name">{{jogador.nome.split(' ')[0]}}</div>
                                             </div>
-                                            <app-eventos [jogador]="jogador" [time]="'casa'" [partida]="partida!.idPartida"
-                                                [adversario]="partida!.timeVisitante"></app-eventos>
+                                            <app-eventos [jogador]="jogador" [time]="'casa'"
+                                                [partida]="partida!.idPartida" [adversario]="partida!.timeVisitante"
+                                                (partidaAtualizada)="atualizaEventos($event)"></app-eventos>
                                         </div>
                                     </div>
                                 </div>
@@ -48,8 +49,9 @@
                                                 <div class="name">{{jogador.nome.split(' ')[0]}}</div>
                                                 <div class="number"><span>{{jogador.numero}}</span></div>
                                             </div>
-                                            <app-eventos [jogador]="jogador" [time]="'visitante'" [partida]="partida!.idPartida"
-                                                [adversario]="partida!.timeMandante"></app-eventos>
+                                            <app-eventos [jogador]="jogador" [time]="'visitante'"
+                                                [partida]="partida!.idPartida" [adversario]="partida!.timeMandante"
+                                                (partidaAtualizada)="atualizaEventos($event)"></app-eventos>
                                         </div>
                                     </div>
                                 </div>
@@ -57,6 +59,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row sem-margem">
+            <div class="col-md-12">
+                <app-historico-eventos 
+                    [eventos]="eventos" 
+                    [partida]="partida"
+                    (deletarEvento)="deletarEvento($event)">
+                </app-historico-eventos>
             </div>
         </div>
     </div>

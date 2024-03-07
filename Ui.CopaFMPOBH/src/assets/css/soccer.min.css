@@ -7296,6 +7296,7 @@ button.close {
   position: relative;
   width: 90%;
   margin: 30px auto auto auto;
+  bottom: 15px
 }
 
 .modal-content {
@@ -7377,7 +7378,8 @@ button.close {
 @media (min-width:768px) {
   .modal-dialog {
     width: 400px;
-    margin: 30px auto auto auto
+    margin: 30px auto auto auto;
+    bottom: 15px;
   }
 
   .modal-content {
@@ -18664,6 +18666,8 @@ ul.team-legend {
 .broadcast-wrap {
   padding-top: 45px;
   padding-bottom: 75px;
+  padding-right: 15px;
+  padding-left: 15px;
   background-size: contain
 }
 
@@ -19660,7 +19664,6 @@ blockquote p.name {
 
 .sem-margem {
   margin: 0px;
-  ;
 }
 
 .club-main-stat .last-match {
@@ -19767,10 +19770,6 @@ table {
   width: 100%
 }
 
-table tr {
-  cursor: pointer
-}
-
 table tr th {
   background: #141414;
   font-size: 10px;
@@ -19829,7 +19828,7 @@ table tr td.none i {
   font-size: 10px
 }
 
-table tr td:last-child span {
+table tr td span {
   width: 40px;
   height: 30px;
   line-height: 28px;
@@ -27298,12 +27297,13 @@ player-hockey-wrap .wrapper-circle {
 }
 
 table th.club {
-  width: 60%;
-  text-align: left
+  
+  text-align: left;
+  padding-left: 20px;
 }
 
 table td.club {
-  width: 60%;
+  
   text-align: left;
   font-size: 12px;
   text-transform: uppercase;
@@ -27317,10 +27317,6 @@ table .club img {
 table {
   margin-bottom: 30px;
   width: 100%
-}
-
-table tr {
-  cursor: pointer
 }
 
 table tr th {
@@ -27381,7 +27377,7 @@ table tr td.none i {
   font-size: 10px
 }
 
-table tr td:last-child span {
+table tr td span {
   width: 40px;
   height: 30px;
   line-height: 28px;

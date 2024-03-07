@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, catchError, of, tap } from 'rxjs';
 import { Evento } from 'src/models/evento';
 import { Partida } from 'src/models/partida';
 import { PartidasHome } from '../models/partidaHome';
+import { EventoPartida } from 'src/models/eventoPartida';
 
 @Injectable({
   providedIn: 'root'
@@ -32,15 +33,20 @@ export class PartidaService {
   obterPartidaPorId(id: number): Observable<Partida> | undefined {
     return this.http.get<Partida>(`${this.apiUrl}/BuscarPartidaEmAndamento/${id}`);
   }
+  
+  obterEventosPartida(id: number): Observable<EventoPartida[]> | undefined {
+    return this.http.get<EventoPartida[]>(`${this.apiUrl}/BuscarEventosPartidas/${id}`);
+  }
 
-  registrarEvento(evento: Evento): void {
-    var url = `${this.apiUrl}/RegistrarEventoPartida?
-    idPartida=${evento.idPartida}
-    &idJogador=${evento.idJogador}
-    &evento=${evento.evento}`;
-    
+  removerEventoPartida(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/RemoverEventoPartida/${id}`);
+  }
+
+  registrarEvento(evento: Evento): Observable<any> {
+    var url = `${this.apiUrl}/RegistrarEventoPartida?idPartida=${evento.idPartida}&idJogador=${evento.idJogador}&evento=${evento.evento}`;
+  
     if(evento.idGoleiro) url += `&idGoleiro=${evento.idGoleiro}`;
 
-    this.http.post<any>(url, this.httpOptions).subscribe();
+    return this.http.post<any>(url, this.httpOptions);
   }
 }

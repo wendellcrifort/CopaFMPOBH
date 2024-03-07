@@ -1,0 +1,16 @@
+<div class="modal" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="display: flex;">
+                <h5 class="modal-title left">{{ titulo }}</h5>
+                <button type="button right" class="close" (click)="onCancelar()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button btn-sm" class="btn btn-secondary" (click)="onCancelar()">cancelar</button>
+                <button type="button btn-sm" class="btn btn-primary" (click)="onConfirmar()">confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>

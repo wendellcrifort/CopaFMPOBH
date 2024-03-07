@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Evento } from 'src/models/evento';
 import { Jogador } from 'src/models/jogador';
 import { Time } from 'src/models/time';
@@ -15,13 +15,16 @@ export class EventosComponent {
   @Input() adversario: Time | null = null;
   @Input() time: string | null = null;
   @Input() partida: number | null = null;
+  @Output() partidaAtualizada = new EventEmitter<any>();
 
   public goleiro: Jogador | null = null;
   public mostrarModal = false;
   public mostrarMensagemGoleiro = false;
+  public modalConfirmacao = false;
 
-  private idJogador = 0;
+  private idJogador : number | null = null;
   private contra = false;
+  private tipoEvento : TipoEvento | null = null;
 
   constructor(private partidaService: PartidaService) { }
 
@@ -30,20 +33,23 @@ export class EventosComponent {
       this.mostrarMensagemGoleiro = true;
       return;
     }
+    
+    this.tipoEvento = this.contra ? TipoEvento.GolContra : TipoEvento.GolMarcado;
 
-    var evento = this.contra ? TipoEvento.GolContra : TipoEvento.GolMarcado;
-    this.partidaService.registrarEvento(this.evento(evento, this.goleiro?.id));
+    this.evento(this.goleiro?.id);
     this.fechaModal();
   }
 
   public amarelo(idJogador: number) {
     this.idJogador = idJogador;
-    this.partidaService.registrarEvento(this.evento(TipoEvento.CartaoAmarelo));
+    this.tipoEvento = TipoEvento.CartaoAmarelo;
+    this.modalConfirmacao = true;
   }
 
   public vermelho(idJogador: number) {
     this.idJogador = idJogador;
-    this.partidaService.registrarEvento(this.evento(TipoEvento.CartaoVermelho));
+    this.modalConfirmacao = true;
+    this.tipoEvento = TipoEvento.CartaoVermelho;
   }
 
   public abrirModalGol(idJogador: number, contra = false) {
@@ -53,10 +59,17 @@ export class EventosComponent {
     this.mostrarModal = true;
   }
 
+  public confirmaCartao(){
+    this.fechaModal();
+    this.evento();
+  }
+
   public fechaModal() {
     this.goleiro = null;
+    this.idJogador = null;
     this.mostrarMensagemGoleiro = false;
     this.mostrarModal = false;
+    this.modalConfirmacao = false;
   }
 
   public definirGoleiro(goleiro: Jogador) {
@@ -64,7 +77,9 @@ export class EventosComponent {
     this.goleiro = goleiro;
   }
 
-  private evento(evento: number, idGoleiro: number | null = null): Evento {
-    return new Evento(this.partida!, this.idJogador, evento, idGoleiro);
+  private evento(idGoleiro: number | null = null){    
+    this.partidaService
+      .registrarEvento(new Evento(this.partida!, this.idJogador!, this.tipoEvento!, idGoleiro))
+      .subscribe(x => this.partidaAtualizada.emit(x));
   }
 }

@@ -75,4 +75,11 @@
         </div>
     </div>
 
+    <app-modal-confimacao 
+        *ngIf="modalConfirmacao" 
+        (cancelar)="fechaModal()" 
+        (confirmar)="confirmaCartao()"
+        titulo="confirmar cartão?">
+    </app-modal-confimacao>
+
 </div>
