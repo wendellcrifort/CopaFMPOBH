@@ -12,18 +12,14 @@ export class HistoricoEventosComponent {
   @Input() partida: Partida | null = null;
   @Output() deletarEvento = new EventEmitter<number>();
 
+  public idEvento = 0;
+  public modalConfirmarDelecao = false;
+
   public obterEscudo(idTime: number) {
     if (this.partida?.timeMandante.id == idTime)
       return this.partida?.timeMandante.escudo;
     else
       return this.partida?.timeVisitante.escudo;
-  }
-
-  public obterTime(idTime: number) {
-    if (this.partida?.timeMandante.id == idTime)
-      return this.partida?.timeMandante.nome;
-    else
-      return this.partida?.timeVisitante.nome;
   }
 
   public obterJogador(idJogador: number, idTime : number) : string {
@@ -33,14 +29,17 @@ export class HistoricoEventosComponent {
       return this.partida?.timeVisitante.jogadores.find(x=>x.id == idJogador)!.nome.split(' ')[0]!;
   }
 
-  public obterCamisa(idJogador: number, idTime : number) : number {
-    if (this.partida?.timeMandante.id == idTime)
-      return this.partida?.timeMandante.jogadores.find(x=>x.id == idJogador)!.numero!;
-    else
-      return this.partida?.timeVisitante.jogadores.find(x=>x.id == idJogador)!.numero!;
+  public abrirModalDeletar(id : number){
+    this.idEvento = id;
+    this.modalConfirmarDelecao = true;
   }
 
-  public deletar(id : number){
-    this.deletarEvento.emit(id);
+  public fecharModal(){
+    this.modalConfirmarDelecao = false;
+  }
+
+  public deletar(){
+    this.fecharModal();
+    this.deletarEvento.emit(this.idEvento);
   }
 }

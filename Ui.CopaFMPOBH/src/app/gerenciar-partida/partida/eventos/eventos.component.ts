@@ -12,6 +12,7 @@ import { PartidaService } from 'src/services/partida.service';
 })
 export class EventosComponent {
   @Input() jogador: Jogador | null = null;
+  @Input() jogadoresTime: Jogador[] | null = null;
   @Input() adversario: Time | null = null;
   @Input() time: string | null = null;
   @Input() partida: number | null = null;
@@ -21,9 +22,9 @@ export class EventosComponent {
   public mostrarModal = false;
   public mostrarMensagemGoleiro = false;
   public modalConfirmacao = false;
+  public contra = false;
 
   private idJogador : number | null = null;
-  private contra = false;
   private tipoEvento : TipoEvento | null = null;
 
   constructor(private partidaService: PartidaService) { }

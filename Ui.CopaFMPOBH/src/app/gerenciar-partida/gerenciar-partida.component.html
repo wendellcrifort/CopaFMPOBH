@@ -1,14 +1,21 @@
 <div class="broadcast-wrap">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h4>Partidas 06/04</h4>
+            <div class="col-xs-6 col-md-9">
+                <h4>Partidas {{data | date: 'dd/MM'}}</h4>
+            </div>
+            <div class="col-xs-6 col-md-3" style="text-align: right;  color: #000;">
+                <div class="form-group" style="padding-top: 20px; margin-top: 10px; text-align: right;">
+                    <input type="date" class="form-control" [ngModel]="data" (change)="onDateChange($event)">
+                    <small id="emailHelp" class="form-text text-muted">buscar outra data</small>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="broadcast-list" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="broadcast-item" *ngFor="let partida of partidas" style="margin-bottom: 15px; padding-top: 15px;">
+                    <div class="broadcast-item" *ngFor="let partida of partidas"
+                        style="margin-bottom: 15px; padding-top: 15px;">
                         <a [routerLink]="['/gerenciarPartida', partida.idPartida]">
                             <div class="item-header" id="headingOne">
                                 <div class="row">

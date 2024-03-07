@@ -55,7 +55,7 @@ namespace Application.Services.Partida
                                          .AsNoTracking()
                                          .Include(i => i.TimeMandante)
                                          .Include(i => i.TimeVisitante)
-                                         .OrderBy(o => o.DataHoraPartida)
+                                         .OrderBy(o => o.DataHoraPartida)                                         
                                          .ToListAsync();
 
             var partidasHome = new PartidasHomeViewModel();
@@ -98,7 +98,7 @@ namespace Application.Services.Partida
             partida.PartidaFinalizada = true;
 
             var partidadeEncerrada = _mapper.Map<Domain.Entities.Partida>(partida);
-            _copaDbContext.Partida.Update(partida);
+            _copaDbContext.Partida.Update(partida);            
             await _copaDbContext.SaveChangesAsync();
 
             await SalvarScoreMandante(partida);
@@ -124,7 +124,7 @@ namespace Application.Services.Partida
                 else
                     timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeMandante);
             }
-            else if (evento == TipoEventoEnum.GolMarcado)
+            else if(evento == TipoEventoEnum.GolMarcado)            
                 timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == goleiro.IdTime);
 
             switch (evento)
@@ -403,27 +403,13 @@ namespace Application.Services.Partida
         {
             var time = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeVisitante);
 
-            var pontos = partida.GolsTimeVisitante > partida.GolsTimeMandante
-                                                            ? 3
-                                                                : partida.GolsTimeMandante == partida.GolsTimeVisitante
-                                                            ? 1
+            var pontos = partida.GolsTimeVisitante > partida.GolsTimeMandante 
+                                                            ? 3 
+                                                                : partida.GolsTimeMandante == partida.GolsTimeVisitante 
+                                                            ? 1 
                                                                 : 0;
 
             time.Pontos += pontos;
-            switch (pontos)
-            {
-                case 3:
-                    time.Vitorias += 1;
-                    break;
-                case 1:
-                    time.Empates += 1;
-                    break;
-                case 0:
-                    time.Derrotas += 1;
-                    break;
-                default:
-                    break;
-            }
 
             _copaDbContext.Time.Update(time);
             await _copaDbContext.SaveChangesAsync();
@@ -433,27 +419,13 @@ namespace Application.Services.Partida
         {
             var time = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeMandante);
 
-            var pontos = partida.GolsTimeMandante > partida.GolsTimeVisitante
-                                ? 3
-                                    : partida.GolsTimeMandante == partida.GolsTimeVisitante
-                                ? 1
+            var pontos = partida.GolsTimeMandante > partida.GolsTimeVisitante   
+                                ? 3 
+                                    : partida.GolsTimeMandante == partida.GolsTimeVisitante 
+                                ? 1 
                                     : 0;
 
             time.Pontos += pontos;
-            switch (pontos)
-            {
-                case 3:
-                    time.Vitorias += 1;
-                    break;
-                case 1:
-                    time.Empates += 1;
-                    break;
-                case 0:
-                    time.Derrotas += 1;
-                    break;
-                default:
-                    break;
-            }
 
             _copaDbContext.Time.Update(time);
             await _copaDbContext.SaveChangesAsync();

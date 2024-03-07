@@ -9,4 +9,6 @@ export interface Partida {
   rodada: number;
   golsTimeMandante: number;
   golsTimeVisitante: number;
+  emAndamento: boolean,
+  partidaFinalizada: boolean
 }

@@ -1,0 +1,9 @@
+div[disabled] {
+    opacity: 0.7; /* Opacidad reducida para simular desactivación */
+    pointer-events: none; /* Evita eventos de ratón */
+}
+
+.score p{
+    margin-bottom: 0px;
+    padding-top: 10px;
+}

@@ -3979,6 +3979,17 @@ fieldset[disabled] .btn-default:hover {
   color: #141414 !important;
 }
 
+.btn-preto {
+  background: #131313 !important;
+  color: #fff !important;
+  border-color: #131313 !important;
+}
+
+.btn-preto:hover {
+  background: #D6001C !important;
+  color: #fff !important;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #337ab7;
@@ -7341,7 +7352,8 @@ button.close {
 
 .modal-title {
   margin: 0;
-  line-height: 1.42857143
+  line-height: 1.42857143;
+  width: 100%
 }
 
 .modal-body {
@@ -27297,13 +27309,13 @@ player-hockey-wrap .wrapper-circle {
 }
 
 table th.club {
-  
+  width: 30px;
   text-align: left;
   padding-left: 20px;
 }
 
 table td.club {
-  
+  width: 30px;
   text-align: left;
   font-size: 12px;
   text-transform: uppercase;
@@ -29950,11 +29962,11 @@ table tr td .organisation-name {
 
 .error-wrap {
   min-height: 600px;
-  position: absolute;
   top: 110px;
   bottom: 110px;
   left: 0;
   right: 0;
+  background:url(../../assets/images/CopaFMPOBH/Site/error-bg.jpg) 50% 50% no-repeat
 }
 
 .error-wrap.offline {}
@@ -30078,7 +30090,7 @@ table tr td .organisation-name {
   .error-wrap .error-title .small-text {
     word-wrap: break-word;
     white-space: pre;
-    text-align: left
+    text-align: center
   }
 
   .error-wrap .error-title .small-text br {
