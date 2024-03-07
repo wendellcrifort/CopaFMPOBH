@@ -17,6 +17,7 @@ import { ClassificacaoComponent } from './classificacao/classificacao.component'
 import { GoleiroComponent } from './melhorgoleiro/goleiro.component';
 import { ModalConfimacaoComponent } from './modal-confimacao/modal-confimacao.component';
 import { HistoricoEventosComponent } from './gerenciar-partida/partida/historico-eventos/historico-eventos.component';
+import { CriarPartidaComponent } from './criar-partida/criar-partida.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HistoricoEventosComponent } from './gerenciar-partida/partida/historico
     ClassificacaoComponent,
     GoleiroComponent,
     ModalConfimacaoComponent,
-    HistoricoEventosComponent
+    HistoricoEventosComponent,
+    CriarPartidaComponent
   ],
   imports: [
     CommonModule,

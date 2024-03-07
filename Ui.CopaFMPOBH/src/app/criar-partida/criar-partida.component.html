@@ -1,0 +1,67 @@
+
+<section class="checkout-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sx-12">
+        <h4>Criar Partida</h4>
+        <div class="customer-info">
+          <form>
+            <div class="row">
+              <div class="col-md-12 col-sx-12">
+                <div class="col-md-4 col-sx-12">
+                  <div class="item">
+                    <label>
+                      <span>Data <i>*</i></span>
+                      <input type="text" name="data">
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sx-12">
+                  <div class="item">
+                    <label>
+                      <span>Hora <i>*</i></span>
+                      <input type="text" name="hora">
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sx-12">
+                  <div class="item">
+                    <label>
+                      <span>Rodada <i>*</i></span>
+                      <input type="text" name="rodada">
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-sx-12">
+                <div class="col-md-6 col-sx-6">
+                  <div class="item fancy-select">
+                    <label>
+                      <span>Mandante <i>*</i></span>
+                      <select class="basic selectTeam input-lg">
+                        <option *ngFor="let time of times" value="{{ time.id }}">{{ time.nome }}</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sx-6">
+                  <div class="item fancy-select">
+                    <label>
+                      <span>Visitante <i>*</i></span>
+                      <select class="basic selectTeam input-lg">
+                        <option *ngFor="let time of times" value="{{ time.id }}">{{ time.nome }}</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12" style="text-align:right">
+                <button type="button" class="btn btn-primary btnCriarPartida">Criar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

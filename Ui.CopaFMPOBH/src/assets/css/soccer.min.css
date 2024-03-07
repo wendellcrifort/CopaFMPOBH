@@ -37624,3 +37624,17 @@ ul.esport-championship-timline-tabs>li>a:before {
   background-color: #fff;
   border-radius: 10px;
 }
+
+.selectTeam{
+    width: 100%;
+    color: #666;
+    border-radius: 0px;
+    border-color: #fff;
+}
+
+.btnCriarPartida {
+  font-weight: bold;
+  margin-right: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
