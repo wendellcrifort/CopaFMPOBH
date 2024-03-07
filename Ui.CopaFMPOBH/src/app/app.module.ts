@@ -8,7 +8,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { MenuComponent } from './menu/menu.component';
 import { TimesComponent } from './times/times.component';
 import { JogadorComponent } from './jogadores/jogadores.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CommonModule, DatePipe } from '@angular/common';
 import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida.component';
 import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
@@ -19,6 +19,8 @@ import { HistoricoEventosComponent } from './gerenciar-partida/partida/historico
 import { CriarPartidaComponent } from './criar-partida/criar-partida.component';
 import { FormsModule } from '@angular/forms';
 import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
+import { LoadingComponent } from './loading/loading.component';
+import { LoadingInterceptor } from 'src/services/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
     GoleiroComponent,
     ModalConfimacaoComponent,
     HistoricoEventosComponent,
-    CriarPartidaComponent
+    CriarPartidaComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +47,14 @@ import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
     HttpClientModule,
     FormsModule    
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

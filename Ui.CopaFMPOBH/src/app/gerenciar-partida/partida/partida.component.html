@@ -1,4 +1,13 @@
 <section class="club-main-stat">
+    <div class="container">
+        <div class="row sem-margem" style="padding-bottom: 15px ;">
+            <div class="col-xs-6">
+                <a routerLink="/gerenciarPartida" class="back">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i> voltar
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="container" *ngIf="partida">
         <div class="row sem-margem">
             <div class="col-md-12">
@@ -75,12 +84,7 @@
                 </app-historico-eventos>
             </div>
         </div>
-        <div class="row sem-margem align-items-center">
-            <div class="col-xs-6">
-                <a routerLink="/gerenciarPartida" class="back">
-                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i> voltar
-                </a>
-            </div>
+        <div class="row sem-margem">
             <div class="col-xs-6 text-right" *ngIf="partida.emAndamento">
                 <button class="button btn btn-secondary" (click)="abrirModalFinalizarPartida()">
                     finalizar
