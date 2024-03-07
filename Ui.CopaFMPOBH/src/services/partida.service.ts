@@ -12,27 +12,27 @@ import { EventoPartida } from 'src/models/eventoPartida';
 export class PartidaService {
   // private apiUrl = 'http://api.copafmpobh.com.br/Partida';
   private apiUrl = 'http://localhost:5097/Partida';
-  
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  
+
   constructor(private http: HttpClient) { }
 
-  obterPartidas(data : string): Observable<Partida[]> {
+  obterPartidas(data: string): Observable<Partida[]> {
     return this.http.get<Partida[]>(`${this.apiUrl}/BuscarPartidas?data=${data}`);
   }
 
-  obterPartidasHome(): Observable<PartidasHome> {    
+  obterPartidasHome(): Observable<PartidasHome> {
     return this.http.get<PartidasHome>(`${this.apiUrl}/BuscarPartidasHome`);
   }
 
   obterPartidaPorId(id: number): Observable<Partida> | undefined {
     return this.http.get<Partida>(`${this.apiUrl}/BuscarPartidaEmAndamento/${id}`);
   }
-  
+
   obterEventosPartida(id: number): Observable<EventoPartida[]> | undefined {
     return this.http.get<EventoPartida[]>(`${this.apiUrl}/BuscarEventosPartidas/${id}`);
   }
@@ -43,13 +43,17 @@ export class PartidaService {
 
   registrarEvento(evento: Evento): Observable<any> {
     var url = `${this.apiUrl}/RegistrarEventoPartida?idPartida=${evento.idPartida}&idJogador=${evento.idJogador}&evento=${evento.evento}`;
-  
-    if(evento.idGoleiro) url += `&idGoleiro=${evento.idGoleiro}`;
+
+    if (evento.idGoleiro) url += `&idGoleiro=${evento.idGoleiro}`;
 
     return this.http.post<any>(url, this.httpOptions);
   }
 
   finalizarPartida(id: number): Observable<any> {
     return this.http.patch(`${this.apiUrl}/FinalizarPartida/${id}`, null);
+  }
+
+  inciarPartida(id: number) {
+    return this.http.post<any>(`${this.apiUrl}/IniciarPartida/${id}`, this.httpOptions);
   }
 }
