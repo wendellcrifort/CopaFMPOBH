@@ -7,7 +7,8 @@ import { JogadorComponent } from './jogadores/jogadores.component';
 import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida.component';
 import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
 import { ClassificacaoComponent } from './classificacao/classificacao.component';
-import { GoleiroComponent } from './melhorgoleiro/goleiro.component';
+import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
+import { CriarPartidaComponent } from './criar-partida/criar-partida.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'jogadores/:id', component: JogadorComponent },
   { path: 'classificacao', component: ClassificacaoComponent },
   { path: 'melhorgoleiro', component: GoleiroComponent },
+  { path: 'criarpartida', component: CriarPartidaComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' } // Rota padrão
 ];
 
