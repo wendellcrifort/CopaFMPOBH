@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Partida } from 'src/models/partida';
 import { PartidaService } from 'src/services/partida.service';
@@ -8,13 +9,25 @@ import { PartidaService } from 'src/services/partida.service';
   styleUrls: ['./gerenciar-partida.component.css']
 })
 export class GerenciarPartidaComponent {
-  partidas: Partida[] = []; 
-
-  constructor(private partidaService : PartidaService){  }
+  public partidas: Partida[] = []; 
+  public data: string;
+  
+  constructor(private partidaService : PartidaService, private datePipe: DatePipe){ 
+    this.data = new Date().toISOString().split('T')[0];
+   }
 
   ngOnInit(): void {
-    this.partidaService.obterPartidas().subscribe(data => {      
-      this.partidas = data
+    this.buscarPartidas();
+  }
+
+  public buscarPartidas(){
+    this.partidaService.obterPartidas(this.datePipe.transform(this.data, 'dd-MM')!.toString()).subscribe(partidas => {      
+      this.partidas = partidas
     });
+  }
+
+  onDateChange(event: any) {
+    this.data = event.target.value;
+    this.buscarPartidas();
   }
 }

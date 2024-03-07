@@ -9,7 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import { TimesComponent } from './times/times.component';
 import { JogadorComponent } from './jogadores/jogadores.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida.component';
 import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
 import { EventosComponent } from './gerenciar-partida/partida/eventos/eventos.component';
@@ -17,6 +17,7 @@ import { ClassificacaoComponent } from './classificacao/classificacao.component'
 import { GoleiroComponent } from './melhorgoleiro/goleiro.component';
 import { ModalConfimacaoComponent } from './modal-confimacao/modal-confimacao.component';
 import { HistoricoEventosComponent } from './gerenciar-partida/partida/historico-eventos/historico-eventos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import { HistoricoEventosComponent } from './gerenciar-partida/partida/historico
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule    
+    HttpClientModule,
+    FormsModule    
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

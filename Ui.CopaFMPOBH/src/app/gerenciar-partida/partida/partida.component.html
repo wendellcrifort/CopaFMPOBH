@@ -1,56 +1,59 @@
 <section class="club-main-stat">
-    <div class="container">
+    <div class="container" *ngIf="partida">
         <div class="row sem-margem">
             <div class="col-md-12">
                 <div class="last-match">
                     <div class="team">
-                        <a href="about-club.html"><img
-                                src="assets/images/CopaFMPOBH/Times/{{ partida!.timeMandante.escudo }}" width="40"
+                        <a><img
+                                src="assets/images/CopaFMPOBH/Times/{{ partida.timeMandante.escudo }}" width="40"
                                 height="40" alt="team-logo"></a>
-                        <a href="about-club.html" class="name">{{partida!.timeMandante.nome}}</a>
+                        <a class="name">{{partida.timeMandante.nome}}</a>
                     </div>
                     <div class="score">
-                        <span>{{partida!.golsTimeMandante}}</span>:<span>{{partida!.golsTimeVisitante}}</span>
+                        <span>{{partida.golsTimeMandante}}</span>:<span>{{partida.golsTimeVisitante}}</span>
+                        <p *ngIf="partida.partidaFinalizada">encerrado</p>
                     </div>
                     <div class="team right">
-                        <a href="about-club.html"><img
-                                src="assets/images/CopaFMPOBH/Times/{{ partida!.timeVisitante.escudo }}" width="40"
+                        <a><img
+                                src="assets/images/CopaFMPOBH/Times/{{ partida.timeVisitante.escudo }}" width="40"
                                 height="40" alt="team-logo"></a>
-                        <a href="about-club.html" class="name">{{partida!.timeVisitante.nome}}</a>
+                        <a class="name">{{partida.timeVisitante.nome}}</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row sem-margem">
+        <div class="row sem-margem" [attr.disabled]="partida.emAndamento ? null : true">
             <div class="col-md-12">
                 <div class="broadcast-item">
                     <div id="collapseOne" class="panel-collapse">
                         <div class="item-body">
                             <div class="row">
-                                <div class="col-xs-6" style="padding-right: 0">
+                                <div class="col-xs-6" style="padding-right: 0; cursor: pointer;">
                                     <div class="lineup-list">
-                                        <div class="item" *ngFor="let jogador of partida!.timeMandante.jogadores">
-                                            <div class="left" data-toggle="collapse"
-                                                [attr.data-target]="'#eventos-casa-' + jogador.numero">
+                                        <div class="item" *ngFor="let jogador of partida.timeMandante.jogadores">
+                                            <div class="left" (click)="selecionarJogador(jogador)">
                                                 <div class="number"><span>{{jogador.numero}}</span></div>
                                                 <div class="name">{{jogador.nome.split(' ')[0]}}</div>
                                             </div>
                                             <app-eventos [jogador]="jogador" [time]="'casa'"
-                                                [partida]="partida!.idPartida" [adversario]="partida!.timeVisitante"
+                                                *ngIf="jogadorSelecionado == jogador" [partida]="partida.idPartida"
+                                                [adversario]="partida.timeVisitante"
+                                                [jogadoresTime]="partida.timeMandante.jogadores"
                                                 (partidaAtualizada)="atualizaEventos($event)"></app-eventos>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-6" style="padding-left: 0">
+                                <div class="col-xs-6" style="padding-left: 0; cursor: pointer;">
                                     <div class="lineup-list">
-                                        <div class="item" *ngFor="let jogador of partida!.timeVisitante.jogadores">
-                                            <div class="right" data-toggle="collapse"
-                                                [attr.data-target]="'#eventos-visitante-' + jogador.numero">
+                                        <div class="item" *ngFor="let jogador of partida.timeVisitante.jogadores">
+                                            <div class="right" (click)="selecionarJogador(jogador)">
                                                 <div class="name">{{jogador.nome.split(' ')[0]}}</div>
                                                 <div class="number"><span>{{jogador.numero}}</span></div>
                                             </div>
                                             <app-eventos [jogador]="jogador" [time]="'visitante'"
-                                                [partida]="partida!.idPartida" [adversario]="partida!.timeMandante"
+                                                *ngIf="jogadorSelecionado == jogador" [partida]="partida.idPartida"
+                                                [adversario]="partida.timeMandante"
+                                                [jogadoresTime]="partida.timeVisitante.jogadores"
                                                 (partidaAtualizada)="atualizaEventos($event)"></app-eventos>
                                         </div>
                                     </div>
@@ -61,14 +64,28 @@
                 </div>
             </div>
         </div>
-        <div class="row sem-margem">
+        <div class="row sem-margem" [attr.disabled]="partida.emAndamento ? null : true">
             <div class="col-md-12">
-                <app-historico-eventos 
-                    [eventos]="eventos" 
-                    [partida]="partida"
-                    (deletarEvento)="deletarEvento($event)">
+                <app-historico-eventos [eventos]="eventos" [partida]="partida" (deletarEvento)="deletarEvento($event)">
                 </app-historico-eventos>
             </div>
         </div>
+        <div class="row sem-margem">
+            <div class="col-xs-6">
+                <a routerLink="/gerenciarPartida" class="button btn btn-primary" (click)="abrirModalFinalizarPartida()">
+                    voltar
+                </a>
+            </div>
+            <div class="col-xs-6 text-right" *ngIf="partida.emAndamento">
+                <button class="button btn btn-preto" (click)="abrirModalFinalizarPartida()">
+                    finalizar
+                </button>
+            </div>
+        </div>
+
+        <app-modal-confimacao *ngIf="modalFinalizarPartida" (cancelar)="fecharModalFinalizar()"
+            (confirmar)="finalizarPartida()" titulo="finalizar partida?">
+        </app-modal-confimacao>
+
     </div>
 </section>

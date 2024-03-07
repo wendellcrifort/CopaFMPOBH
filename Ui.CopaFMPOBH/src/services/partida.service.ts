@@ -10,7 +10,6 @@ import { EventoPartida } from 'src/models/eventoPartida';
   providedIn: 'root'
 })
 export class PartidaService {
-
   // private apiUrl = 'http://api.copafmpobh.com.br/Partida';
   private apiUrl = 'http://localhost:5097/Partida';
   
@@ -22,8 +21,8 @@ export class PartidaService {
   
   constructor(private http: HttpClient) { }
 
-  obterPartidas(): Observable<Partida[]> {
-    return this.http.get<Partida[]>(`${this.apiUrl}/BuscarPartidas`);
+  obterPartidas(data : string): Observable<Partida[]> {
+    return this.http.get<Partida[]>(`${this.apiUrl}/BuscarPartidas?data=${data}`);
   }
 
   obterPartidasHome(): Observable<PartidasHome> {    
@@ -48,5 +47,9 @@ export class PartidaService {
     if(evento.idGoleiro) url += `&idGoleiro=${evento.idGoleiro}`;
 
     return this.http.post<any>(url, this.httpOptions);
+  }
+
+  finalizarPartida(id: number): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/FinalizarPartida/${id}`, null);
   }
 }

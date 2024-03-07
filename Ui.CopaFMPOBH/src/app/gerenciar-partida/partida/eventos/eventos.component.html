@@ -1,4 +1,4 @@
-<div [id]="'eventos-' + time + '-' + jogador!.numero" class="collapse">
+<div >
     <div class="item-body">
         <div class="part-list">
             <div class="row" [ngClass]="{'padding-casa': time == 'casa'}">
@@ -49,13 +49,13 @@
                         <div class="row">
                             <div class="col-xs-12" style="padding-left: 0">
                                 <div class="lineup-list">
-                                    <div class="item" *ngFor="let jogador of adversario?.jogadores"
+                                    <div class="item" *ngFor="let jogador of contra ? jogadoresTime : adversario?.jogadores"
                                         (click)="definirGoleiro(jogador)">
-                                        <div *ngIf="time == 'casa'" class="right">
+                                        <div *ngIf="(time == 'casa' && !contra) || (time != 'casa' && contra)" class="right">
                                             <div class="name">{{jogador.nome.split(' ')[0]}}</div>
                                             <div class="number"><span>{{jogador.numero}}</span></div>
                                         </div>
-                                        <div *ngIf="time != 'casa'" class="left" style="padding-left: 15px;">
+                                        <div *ngIf="(time != 'casa' && !contra) || (time == 'casa' && contra)" class="left" style="padding-left: 15px;">
                                             <div class="number"><span>{{jogador.numero}}</span></div>
                                             <div class="name">{{jogador.nome.split(' ')[0]}}</div>
                                         </div>
