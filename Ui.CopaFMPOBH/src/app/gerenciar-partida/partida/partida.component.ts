@@ -77,6 +77,10 @@ export class PartidaComponent implements OnInit {
       this.jogadorSelecionado = jogador;
   }
 
+  public iniciarPartida(){
+    this.partidaService.inciarPartida(this.id!).subscribe(() => this.partida!.emAndamento = true);
+  }
+
   private irParaGerenciarPartidas() {
     this.router.navigate(['/gerenciarPartida'])
   }

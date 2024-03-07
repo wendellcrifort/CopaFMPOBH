@@ -4,8 +4,7 @@
             <div class="col-md-12">
                 <div class="last-match">
                     <div class="team">
-                        <a><img
-                                src="assets/images/CopaFMPOBH/Times/{{ partida.timeMandante.escudo }}" width="40"
+                        <a><img src="assets/images/CopaFMPOBH/Times/{{ partida.timeMandante.escudo }}" width="40"
                                 height="40" alt="team-logo"></a>
                         <a class="name">{{partida.timeMandante.nome}}</a>
                     </div>
@@ -14,8 +13,7 @@
                         <p *ngIf="partida.partidaFinalizada">encerrado</p>
                     </div>
                     <div class="team right">
-                        <a><img
-                                src="assets/images/CopaFMPOBH/Times/{{ partida.timeVisitante.escudo }}" width="40"
+                        <a><img src="assets/images/CopaFMPOBH/Times/{{ partida.timeVisitante.escudo }}" width="40"
                                 height="40" alt="team-logo"></a>
                         <a class="name">{{partida.timeVisitante.nome}}</a>
                     </div>
@@ -64,20 +62,27 @@
                 </div>
             </div>
         </div>
+        <div class="row sem-margem" *ngIf="!partida.emAndamento && !partida.partidaFinalizada">
+            <div class="col-xs-12" style="padding-top: 15px;">
+                <button type="button" class="btn btn-success btn-lg btn-block" (click)="iniciarPartida()">
+                    iniciar partida
+                </button>
+            </div>
+        </div>
         <div class="row sem-margem" [attr.disabled]="partida.emAndamento ? null : true">
             <div class="col-md-12">
                 <app-historico-eventos [eventos]="eventos" [partida]="partida" (deletarEvento)="deletarEvento($event)">
                 </app-historico-eventos>
             </div>
         </div>
-        <div class="row sem-margem">
+        <div class="row sem-margem align-items-center">
             <div class="col-xs-6">
-                <a routerLink="/gerenciarPartida" class="button btn btn-primary" (click)="abrirModalFinalizarPartida()">
-                    voltar
+                <a routerLink="/gerenciarPartida" class="back">
+                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i> voltar
                 </a>
             </div>
             <div class="col-xs-6 text-right" *ngIf="partida.emAndamento">
-                <button class="button btn btn-preto" (click)="abrirModalFinalizarPartida()">
+                <button class="button btn btn-secondary" (click)="abrirModalFinalizarPartida()">
                     finalizar
                 </button>
             </div>

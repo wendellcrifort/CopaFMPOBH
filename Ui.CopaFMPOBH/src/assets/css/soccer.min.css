@@ -3876,10 +3876,6 @@ textarea.input-lg {
 
 .btn.focus,
 .btn:focus,
-.btn:hover {
-  color: #333;
-  text-decoration: none
-}
 
 .btn.active,
 .btn:active {
@@ -3968,17 +3964,6 @@ fieldset[disabled] .btn-default:hover {
   background-color: #333
 }
 
-.btn-secondary {
-  background: darkgray !important;
-  color: #fff !important;
-  border-color: #131313 !important;
-}
-
-.btn-secondary:hover {
-  background: lightgray !important;
-  color: #141414 !important;
-}
-
 .btn-preto {
   background: #131313 !important;
   color: #fff !important;
@@ -3986,27 +3971,55 @@ fieldset[disabled] .btn-default:hover {
 }
 
 .btn-preto:hover {
-  background: #D6001C !important;
-  color: #fff !important;
+  background: #D6001C ;
+  color: #fff
 }
+
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary.focus,
+.btn-secondary:focus {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #5a6268 !important;
+  border-color: #545b62 !important;
+}
+
+
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #8f081a;
+  border-color: #800a1a
+}
+
 
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4
+  background-color: #D6001C;
+  border-color: #e7324b;
 }
 
 .btn-primary.focus,
 .btn-primary:focus {
   color: #fff;
-  background-color: #286090;
+  background-color: #9b071b !important;
   border-color: #122b40
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74
+  background-color: #8f081a;
+  border-color: #800a1a
 }
 
 .btn-primary.active,
@@ -4027,8 +4040,8 @@ fieldset[disabled] .btn-default:hover {
 .open>.dropdown-toggle.btn-primary:focus,
 .open>.dropdown-toggle.btn-primary:hover {
   color: #fff;
-  background-color: #204d74;
-  border-color: #122b40
+  background-color: #8f081a;
+  border-color: #800a1a
 }
 
 .btn-primary.active,
@@ -4046,12 +4059,12 @@ fieldset[disabled] .btn-default:hover {
 fieldset[disabled] .btn-primary.focus,
 fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary:hover {
-  background-color: #337ab7;
-  border-color: #2e6da4
+  background-color: #8f081a;
+  border-color: #800a1a
 }
 
 .btn-primary .badge {
-  color: #337ab7;
+  color: #D6001C;
   background-color: #fff
 }
 
@@ -4317,7 +4330,7 @@ fieldset[disabled] .btn-danger:hover {
 
 .btn-link {
   font-weight: 400;
-  color: #337ab7;
+  color: #D6001C;
   border-radius: 0
 }
 
@@ -4511,7 +4524,7 @@ tbody.collapse.in {
 .dropdown-menu>.active>a:hover {
   color: #fff;
   text-decoration: none;
-  background-color: #337ab7;
+  background-color: #D6001C;
   outline: 0
 }
 
@@ -17189,16 +17202,9 @@ h5.esport-landing-header {
   padding: 15px 24px 13px 24px;
   border-radius: 9px;
   border: none;
-  background: #D6001C;
   font-size: 16px;
-  color: #141414;
   text-transform: uppercase;
   font-family: Montserrat, sans-serif
-}
-
-.btn:hover {
-  color: #fff;
-  background: #131313
 }
 
 .btn.small {
@@ -25270,16 +25276,6 @@ overflow-scroll.table tr td {
   font-size: 12px
 }
 
-.broadcast-item .item-body .btn .btn-primary:hover {
-  background: #131313;
-  color: #fff
-}
-
-.broadcast-item .item-body .btn .btn-secondary:hover {
-  background: #D6001C;
-  color: #141414
-}
-
 .broadcast-item .lineup-list .row {
   overflow: hidden;
   background: linear-gradient(to right, #f7f7f7 0, #fbfbfb 50%, #f7f7f7 100%)
@@ -29966,7 +29962,6 @@ table tr td .organisation-name {
   bottom: 110px;
   left: 0;
   right: 0;
-  background:url(../../assets/images/CopaFMPOBH/Site/error-bg.jpg) 50% 50% no-repeat
 }
 
 .error-wrap.offline {}
@@ -30007,14 +30002,18 @@ table tr td .organisation-name {
   vertical-align: top
 }
 
-.error-wrap .error-title .back {
-  margin-top: 25px;
-  margin-left: 160px;
+ .back {
   display: inline-block;
   font-size: 16px;
   text-transform: uppercase;
   color: #141414;
   font-family: Montserrat, sans-serif
+}
+
+
+.align-items-center {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
 }
 
 .error-wrap .error-title .back i {
