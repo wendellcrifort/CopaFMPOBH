@@ -3,31 +3,32 @@
         <div class="part-list">
             <div class="row" [ngClass]="{'padding-casa': time == 'casa'}">
                 <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}">
-                    <span class="item" (click)="abrirModal()">
-                        <span class="logo"><img src="assets/images/CopaFMPOBH/Site/gol.png" width="20" height="20"
-                                alt="club-image"></span>
+                    <span class="item" (click)="abrirModalGol(jogador!.id)">
+                        <span class="logo"><i class='far fa-futbol' style='font-size:60px;color:green'></i></span>
                         <span class="icone">Gol</span>
                     </span>
                 </div>
-                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}" (click)="amarelo()">
+                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
+                    (click)="abrirModalGol(jogador!.id, true)">
                     <span class="item">
-                        <span class="logo"><img src="assets/images/CopaFMPOBH/Site/cartao-amarelo.png" width="20"
-                                height="20" alt="club-image"></span>
+                        <span class="logo"><i class='far fa-futbol' style='font-size:60px;color:red'></i></span>
+                        <span class="icone">Gol contra</span>
+                    </span>
+                </div>
+                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
+                    (click)="amarelo(jogador!.id)">
+                    <span class="item">
+                        <span class="logo"><img src="assets/images/CopaFMPOBH/Site/caIcon.png" width="20" height="20"
+                                alt="club-image"></span>
                         <span class="icone">Amarelo</span>
                     </span>
                 </div>
-                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}" (click)="vermelho()">
+                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
+                    (click)="vermelho(jogador!.id)">
                     <span class="item">
-                        <span class="logo"><img src="assets/images/CopaFMPOBH/Site/cartao-vermelho.png" width="20"
-                                height="20" alt="club-image"></span>
+                        <span class="logo"><img src="assets/images/CopaFMPOBH/Site/cvIcon.png" width="20" height="20"
+                                alt="club-image"></span>
                         <span class="icone">Vermelho</span>
-                    </span>
-                </div>
-                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}" (click)="golContra()">
-                    <span class="item">
-                        <span class="logo"><img src="assets/images/CopaFMPOBH/Site/gol-contra.png" width="20"
-                                height="20" alt="club-image"></span>
-                        <span class="icone">Gol contra</span>
                     </span>
                 </div>
             </div>
@@ -48,7 +49,8 @@
                         <div class="row">
                             <div class="col-xs-12" style="padding-left: 0">
                                 <div class="lineup-list">
-                                    <div class="item" *ngFor="let jogador of adversario?.jogadores">
+                                    <div class="item" *ngFor="let jogador of adversario?.jogadores"
+                                        (click)="definirGoleiro(jogador)">
                                         <div *ngIf="time == 'casa'" class="right">
                                             <div class="name">{{jogador.nome.split(' ')[0]}}</div>
                                             <div class="number"><span>{{jogador.numero}}</span></div>
@@ -64,10 +66,20 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button btn-sm" class="btn btn-primary" (click)="fechaModal()">cancelar</button>
+                    <p *ngIf="mostrarMensagemGoleiro" style="color: red;">goleiro não selecionado</p>
+                    <p *ngIf="goleiro" style="color: black;"> {{ goleiro.nome.split(' ')[0] }}</p>
+                    <button type="button btn-sm" class="btn btn-secondary" (click)="fechaModal()">cancelar</button>
+                    <button type="button btn-sm" class="btn btn-primary" (click)="gol()">confirmar</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <app-modal-confimacao 
+        *ngIf="modalConfirmacao" 
+        (cancelar)="fechaModal()" 
+        (confirmar)="confirmaCartao()"
+        titulo="confirmar cartão?">
+    </app-modal-confimacao>
 
 </div>
