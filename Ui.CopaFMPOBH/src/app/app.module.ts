@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
 import { LoadingComponent } from './loading/loading.component';
 import { LoadingInterceptor } from 'src/services/loading.interceptor';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { LoadingInterceptor } from 'src/services/loading.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule    
+    FormsModule,    
+    RouterOutlet,
+    RouterModule
   ],
   providers: [
     DatePipe,
