@@ -2,6 +2,12 @@
 
 /*! * Bootstrap v3.3.7 (http://getbootstrap.com) * Copyright 2011-2016 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE) */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+.vertical-center {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+}
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -19676,8 +19682,8 @@ blockquote p.name {
 }
 
 .club-main-stat {
-  padding-bottom: 80px;
-  padding-top: 80px;
+  padding-bottom: 36px !important;
+  padding-top: 0px !important;
 }
 
 .sem-margem {
@@ -19707,7 +19713,7 @@ blockquote p.name {
   color: #141414
 }
 
-.club-main-stat .last-match .score {
+.score {
   text-align: center;
   width: 25%;
   font-size: 18px;
@@ -19715,9 +19721,9 @@ blockquote p.name {
   color: #141414
 }
 
-.club-main-stat .last-match .score span {
-  margin: 0 0 0 2px;
-  width: 40%;
+.gol {
+  margin: 0 2px 0 2px;
+  width: 35px;
   padding: 0 4px;
   text-align: center;
   font-size: 18px;
@@ -19779,7 +19785,7 @@ blockquote p.name {
   }
 }
 
-.club-main-stat .last-match .score span:first-child {
+.score .gol:first-child {
   margin: 0 2px 0 0
 }
 
@@ -21819,7 +21825,7 @@ overflow-scroll.table tr td {
     width: 100%
   }
 
-  .club-main-stat .last-match .score span {
+  .score .gol {
     width: 28px
   }
 
@@ -22461,7 +22467,7 @@ overflow-scroll.table tr td {
   text-align: center
 }
 
-.event-nav .nav-item .score span {
+.event-nav .nav-item .score .gol {
   margin: 0 10px;
   min-width: 35px;
   padding: 0 10px;
@@ -23019,7 +23025,7 @@ overflow-scroll.table tr td {
   text-align: center
 }
 
-.main-lates-matches .item .score span {
+.main-lates-matches .item .score .gol {
   min-width: 50px;
   padding: 0 10px;
   box-sizing: border-box;
@@ -24020,7 +24026,7 @@ overflow-scroll.table tr td {
   vertical-align: middle
 }
 
-.amateurs-main-match .score span {
+.amateurs-main-match .score .gol {
   padding: 6px 25px 4px 25px;
   font-size: 32px;
   line-height: normal;
@@ -25118,7 +25124,6 @@ overflow-scroll.table tr td {
 }
 
 .broadcast-item {
-  background: #fff;
   overflow: hidden;
   position: relative;
   z-index: 10
@@ -25152,7 +25157,10 @@ overflow-scroll.table tr td {
 
 .broadcast-item .item-head-body {
   position: relative;
-  transition: all .4s
+  transition: all .4s;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Opcional: centraliza horizontalmente */
 }
 
 .broadcast-item .item-head-body>a>img {
@@ -25169,16 +25177,14 @@ overflow-scroll.table tr td {
   background: #4caf50;
   line-height: 30px;
   color: #fff;
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  right: 30px;
+  
+  
   transform: translateY(-50%)
 }
 
 .broadcast-item .vs {
-  display: flex;
-  justify-content: center;
+  margin-right: 5px;
+  margin-left: 5px;
   align-items: center;
   font-size: 12px;
   text-transform: uppercase;
@@ -25188,7 +25194,6 @@ overflow-scroll.table tr td {
 }
 
 .broadcast-item .info {
-  padding-left: 35px;
   display: inline-block;
   vertical-align: middle
 }
@@ -25246,7 +25251,7 @@ overflow-scroll.table tr td {
 }
 
 .broadcast-item .item-body {
-  background: #fff;
+  background: #f7f7f7;
   transition: all .4s
 }
 

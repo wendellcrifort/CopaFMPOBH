@@ -1,88 +1,115 @@
-<section class="club-main-stat">
+<div class="broadcast-wrap" style="padding-top: 0px;">
   <div class="container">
     <div class="row" *ngIf="partidas!.partidaAoVivo !== undefined && partidas!.partidaAoVivo !== null">
       <div class="col-md-12">
-        <div class="last-match">
-          <div class="team width33">
-            <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.partidaAoVivo.timeMandante.escudo }}" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">{{ partidas!.partidaAoVivo.timeMandante.nome }}</a>
-          </div>
-          <div class="score width34">
-            <span class="live">Ao Vivo</span><br />
-            <span>{{ partidas!.partidaAoVivo.golsTimeMandante }}</span>:<span>{{ partidas!.partidaAoVivo.golsTimeVisitante }}</span>
-          </div>
-          <div class="team right width33">
-            <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.partidaAoVivo.timeVisitante.escudo }}" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">{{ partidas!.partidaAoVivo.timeVisitante.nome }}</a>
-          </div>
-        </div>
+        <h4>Ao vivo</h4>
       </div>
-    </div>
-    <div class="col-md-12 col-sm-12 col-xs-12"><h6>Próxima Partida</h6></div>
-    <div class="row">
       <div class="col-md-12">
-        <div class="last-match">
-          <div class="team width33">
-            <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.proximaPartida.timeMandante.escudo }}" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">{{ partidas!.proximaPartida.timeMandante.nome }}</a>
-          </div>
-          <div class="score width34">
-            <span>-</span>:<span>-</span>
-          </div>
-          <div class="team right width33">
-            <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.proximaPartida.timeVisitante.escudo }}" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">{{ partidas!.proximaPartida.timeVisitante.nome }}</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="partidas!.partidasEncerradas !== undefined && partidas!.partidasEncerradas !== null && partidas!.partidasEncerradas.length > 0"><h6>Partidas Encerradas</h6></div>
-
-    <div class="row" *ngFor="let partida of partidas!.partidasEncerradas">
-      <div class="col-md-12">
-        <div class="last-match">
-          <div class="team width33">
-            <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/{{ partida!.timeMandante.escudo }}" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">{{ partida!.timeMandante.nome }}</a><br />
-            <div>
-              <span class="name marginJogadorMarcado">
-                <!--Matheus Lima
-                <i class='far fa-futbol' style='font-size:12px;color:green'></i>
-                <i class='far fa-futbol' style='font-size:12px;color:green'></i>
-                <i class='far fa-futbol' style='font-size:12px;color:green'></i>
-                <i class='far fa-futbol' style='font-size:12px;color:green'></i>
-                <i class='far fa-futbol' style='font-size:12px;color:green'></i>-->
-              </span><br />
+        <div class="broadcast-list" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="broadcast-item">
+            <div class="item-header" id="headingOne">
+              <div class="row align-items-center" style="height: 100px; background-color: #fff;">
+                <div class="col-xs-12 vertical-center">
+                  <div class="vertical-center times">
+                    <a href="matches.html" style="margin-right: 15px;">
+                      <img src="../../assets/images/CopaFMPOBH/Times/{{  partidas!.partidaAoVivo.timeMandante.escudo }}"
+                        width="40" height="40" alt="team-logo1">
+                    </a>
+                    <span class="gol">{{partidas!.partidaAoVivo.timeMandante.golsFeitos}}</span>
+                    <span class="vs">vs</span>
+                    <span class="gol">{{partidas!.partidaAoVivo.timeVisitante.golsFeitos}}</span>
+                    <a href="matches.html" style="margin-left: 15px; margin-right: 15px;">
+                      <img
+                        src="../../assets/images/CopaFMPOBH/Times/{{  partidas!.partidaAoVivo.timeVisitante.escudo }}"
+                        width="40" height="40" alt="team-logo1">
+                    </a>
+                    <span class="info text-center">
+                      <span class="what">Copa FMPOBH</span>
+                      <span class="then">25 sep 2016 / 7:30 PM</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="score width34">
-            <span>{{ partida!.golsTimeMandante }}</span>:<span>{{ partida!.golsTimeVisitante }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Próxima Partida</h4>
+      </div>
+
+      <div class="col-md-12">
+        <div class="broadcast-list" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="broadcast-item">
+            <div class="item-header" id="headingOne" style="padding-left: 30px; padding-right: 30px;">
+              <div class="row align-items-center" style="height: 100px; background-color: #fff;">
+                <div class="col-xs-12 vertical-center">
+                  <div class="vertical-center times">
+                    <a href="matches.html" style="margin-right: 15px;">
+                      <img src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.proximaPartida.timeMandante.escudo }}"
+                        width="40" height="40" alt="team-logo1">
+                    </a>
+
+                    <span class="gol">-</span>
+                    <span class="vs">vs</span>
+                    <span class="gol">-</span>
+
+                    <a href="matches.html" style="margin-left: 15px; margin-right: 15px;">
+                      <img
+                        src="../../assets/images/CopaFMPOBH/Times/{{ partidas!.proximaPartida.timeVisitante.escudo }}"
+                        width="40" height="40" alt="team-logo1">
+                    </a>
+                    <span class="info text-center">
+                      <span class="what">Copa FMPOBH</span>
+                      <span class="then">25 sep 2016 / 7:30 PM</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="team right width33">
-            <a href="#">
-              <img src="../../assets/images/CopaFMPOBH/Times/{{ partida!.timeVisitante.escudo }}" width="40"
-                   height="40" alt="team-logo" />
-            </a>
-            <a href="#" class="name">{{ partida!.timeVisitante.nome }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row"
+      *ngIf="partidas!.partidasEncerradas !== undefined && partidas!.partidasEncerradas !== null && partidas!.partidasEncerradas.length > 0">
+      <div class="col-md-12">
+        <h4>Partidas Encerradas</h4>
+      </div>
+      <div class="col-md-12">
+        <div class="broadcast-list" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="broadcast-item">
+            <div class="item-header" id="headingOne">
+              <div class="row align-items-center" *ngFor="let partida of partidas!.partidasEncerradas"
+                style="height: 100px; background-color: #fff;">
+                <div class="col-xs-12 vertical-center">
+                  <div class="vertical-center times">
+                    <a href="matches.html" style="margin-right: 15px;">
+                      <img src="../../assets/images/CopaFMPOBH/Times/{{ partida!.timeMandante.escudo }}" width="40"
+                        height="40" alt="team-logo1">
+                    </a>
+                    <span class="gol">{{ partida!.golsTimeMandante }}</span>
+                    <span class="vs">vs</span>
+                    <span class="gol">{{ partida!.golsTimeVisitante }}</span>
+                    <a href="matches.html" style="margin-left: 15px; margin-right: 15px;">
+                      <img src="../../assets/images/CopaFMPOBH/Times/{{ partida!.timeVisitante.escudo }}" width="40"
+                        height="40" alt="team-logo1">
+                    </a>
+                    <span class="info text-center">
+                      <span class="what">Copa FMPOBH</span>
+                      <span class="then">25 sep 2016 / 7:30 PM</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>

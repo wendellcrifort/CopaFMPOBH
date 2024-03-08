@@ -1,0 +1,10 @@
+.times{
+    display: flex; 
+    flex-wrap: wrap;
+    margin-left: 25px; 
+    margin-right: 25px;
+}
+
+h4 {
+    padding-bottom: 0 !important;
+}
