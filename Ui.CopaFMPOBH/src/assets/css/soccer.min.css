@@ -19676,8 +19676,8 @@ blockquote p.name {
 }
 
 .club-main-stat {
-  padding-bottom: 80px;
-  padding-top: 80px;
+  padding-bottom: 36px !important;
+  padding-top: 0px !important;
 }
 
 .sem-margem {
@@ -25118,7 +25118,6 @@ overflow-scroll.table tr td {
 }
 
 .broadcast-item {
-  background: #fff;
   overflow: hidden;
   position: relative;
   z-index: 10
@@ -25246,7 +25245,7 @@ overflow-scroll.table tr td {
 }
 
 .broadcast-item .item-body {
-  background: #fff;
+  background: #f7f7f7;
   transition: all .4s
 }
 
