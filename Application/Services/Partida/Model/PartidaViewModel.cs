@@ -16,6 +16,7 @@ namespace Application.Services.Partida.Model
         public bool PartidaFinalizada { get; set; }
         public int GolsTimeMandante { get; set; }
         public int GolsTimeVisitante { get; set; }
+        public List<EventosPartidaViewModel> Eventos { get; set; }
 
         public void Mapping(Profile profile)
         {

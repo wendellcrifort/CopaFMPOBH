@@ -53,9 +53,9 @@ namespace Application.Services.Partida
         {
             var partidas = await _copaDbContext.Partida
                                          .AsNoTracking()
-                                         .Include(i => i.TimeMandante)
-                                         .Include(i => i.TimeVisitante)
-                                         .OrderBy(o => o.DataHoraPartida)                                         
+                                         .Include(i => i.TimeMandante!.Jogadores)
+                                         .Include(i => i.TimeVisitante!.Jogadores)
+                                         .OrderBy(o => o.DataHoraPartida)
                                          .ToListAsync();
 
             var partidasHome = new PartidasHomeViewModel();
@@ -63,6 +63,13 @@ namespace Application.Services.Partida
             partidasHome.PartidaAoVivo = _mapper.Map<PartidaViewModel>(partidas.FirstOrDefault(x => x.EmAndamento));
             partidasHome.ProximaPartida = _mapper.Map<PartidaViewModel>(partidas.FirstOrDefault(x => !x.EmAndamento && !x.PartidaFinalizada));
             partidasHome.PartidasEncerradas = _mapper.Map<List<PartidaViewModel>>(partidas.Where(x => x.PartidaFinalizada));
+
+            if (partidasHome.PartidaAoVivo != null)
+                partidasHome.PartidaAoVivo.Eventos = await BuscarEventosPartida(partidasHome.PartidaAoVivo.IdPartida);
+            if (partidasHome.ProximaPartida != null)
+                partidasHome.ProximaPartida.Eventos = await BuscarEventosPartida(partidasHome.ProximaPartida.IdPartida);
+            foreach(var partida in partidasHome.PartidasEncerradas)
+                partida.Eventos = await BuscarEventosPartida(partida.IdPartida);
 
             return partidasHome;
         }
@@ -98,7 +105,7 @@ namespace Application.Services.Partida
             partida.PartidaFinalizada = true;
 
             var partidadeEncerrada = _mapper.Map<Domain.Entities.Partida>(partida);
-            _copaDbContext.Partida.Update(partida);            
+            _copaDbContext.Partida.Update(partida);
             await _copaDbContext.SaveChangesAsync();
 
             await SalvarScoreMandante(partida);
@@ -124,7 +131,7 @@ namespace Application.Services.Partida
                 else
                     timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeMandante);
             }
-            else if(evento == TipoEventoEnum.GolMarcado)            
+            else if (evento == TipoEventoEnum.GolMarcado)
                 timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == goleiro.IdTime);
 
             switch (evento)
@@ -403,10 +410,10 @@ namespace Application.Services.Partida
         {
             var time = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeVisitante);
 
-            var pontos = partida.GolsTimeVisitante > partida.GolsTimeMandante 
-                                                            ? 3 
-                                                                : partida.GolsTimeMandante == partida.GolsTimeVisitante 
-                                                            ? 1 
+            var pontos = partida.GolsTimeVisitante > partida.GolsTimeMandante
+                                                            ? 3
+                                                                : partida.GolsTimeMandante == partida.GolsTimeVisitante
+                                                            ? 1
                                                                 : 0;
 
             time.Pontos += pontos;
@@ -419,10 +426,10 @@ namespace Application.Services.Partida
         {
             var time = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeMandante);
 
-            var pontos = partida.GolsTimeMandante > partida.GolsTimeVisitante   
-                                ? 3 
-                                    : partida.GolsTimeMandante == partida.GolsTimeVisitante 
-                                ? 1 
+            var pontos = partida.GolsTimeMandante > partida.GolsTimeVisitante
+                                ? 3
+                                    : partida.GolsTimeMandante == partida.GolsTimeVisitante
+                                ? 1
                                     : 0;
 
             time.Pontos += pontos;

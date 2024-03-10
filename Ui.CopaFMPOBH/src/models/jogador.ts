@@ -1,3 +1,4 @@
+import { EventoPartida } from "./eventoPartida";
 import { Time } from "./time";
 
 export interface Jogador {

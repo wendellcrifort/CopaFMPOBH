@@ -1,75 +1,69 @@
-<div id="times">
-  <section class="club-main-stat">
-    <div class="container">
-      <h6 style="padding-left: 15px;">tabelas</h6>
-      <div class="broadcast-item">
-        <div class="item-body">
-          <div class="row" style="margin: 0;">
-              <div class="col-xs-12 col-md-6" style="margin: 15px 0 15px 0;">
-              <div class="lineup-list">
+<section class="club-main-stat">
+  <div class="container">
+    <h6 style="padding-left: 15px;">tabelas</h6>
+    <div class="broadcast-item">
+      <div class="item-body">
+        <div class="row" style="margin: 0;">
+          <div class="col-xs-12 col-md-6" style="margin: 15px 0 15px 0;">
+            <div class="lineup-list">
+              <div class="left">
+                <div class="number col-xs-12 col-md-12" style="width: 100% !important; font-weight: bold"><span> GRUPO A
+                  </span></div>
+                <div class="number paddingZero col-xs-1" style="font-weight: bold"><span> - </span></div>
+                <div class="name width32 nameTeam col-xs-3" style="font-weight: bold">Time</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">P</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">V</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">E</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">D</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">GF</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">GS</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">SG</div>
+              </div>
+              <div class="item" *ngFor="let time of classificacao!.grupoA">
                 <div class="left">
-                  <div class="number col-xs-12 col-md-12" style="width: 100% !important; font-weight: bold"><span> GRUPO A </span></div>
-                  <div class="number paddingZero col-xs-1" style="font-weight: bold"><span> - </span></div>
-                  <div class="name width32 nameTeam col-xs-3" style="font-weight: bold">Time</div>
-                  <div class="name paddingZero col-xs-1"style="font-weight: bold">P</div>                  
-                  <div class="name paddingZero col-xs-1"style="font-weight: bold">V</div>
-                  <div class="name paddingZero col-xs-1"style="font-weight: bold">E</div>
-                  <div class="name paddingZero col-xs-1"style="font-weight: bold">D</div>
-                  <div class="name paddingZero col-xs-1"style="font-weight: bold">GF</div>
-                  <div class="name paddingZero col-xs-1"style="font-weight: bold">GS</div>
-                  <div class="name paddingZero col-xs-1"style="font-weight: bold">SG</div>
-                </div>
-                <div class="item" *ngFor="let time of classificacao!.grupoA">
-                  <div class="left">
-                    <div class="number paddingZero col-xs-1">
-                      <img src="assets/images/CopaFMPOBH/Times/{{ time.escudo }}"
-                           width="24"
-                           height="24"
-                           alt="team-logo">
-                    </div>
-                    <div class="name width32 nameTeam col-xs-3">{{time.nome}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.pontos}}</div>                    
-                    <div class="name paddingZero col-xs-1">{{time.vitorias}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.empates}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.derrotas}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.golsFeitos}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.golsSofridos}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.saldoGols}}</div>
+                  <div class="number paddingZero col-xs-1">
+                    <img src="assets/images/CopaFMPOBH/Times/{{ time.escudo }}" width="24" height="24" alt="team-logo">
                   </div>
+                  <div class="name width32 nameTeam col-xs-3">{{time.nome}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.pontos}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.vitorias}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.empates}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.derrotas}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.golsFeitos}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.golsSofridos}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.saldoGols}}</div>
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-md-6" style="margin: 15px 0 15px 0;">
-              <div class="lineup-list">
+          </div>
+          <div class="col-xs-12 col-md-6" style="margin: 15px 0 15px 0;">
+            <div class="lineup-list">
+              <div class="left">
+                <div class="number col-xs-12 col-md-12" style="width: 100% !important; font-weight: bold"><span> GRUPO B
+                  </span></div>
+                <div class="number paddingZero col-xs-1" style="font-weight: bold"><span> - </span></div>
+                <div class="name width32 nameTeam col-xs-3" style="font-weight: bold">Time</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">P</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">V</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">E</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">D</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">GF</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">GS</div>
+                <div class="name paddingZero col-xs-1" style="font-weight: bold">SG</div>
+              </div>
+              <div class="item" *ngFor="let time of classificacao!.grupoB">
                 <div class="left">
-                  <div class="number col-xs-12 col-md-12" style="width: 100% !important; font-weight: bold"><span> GRUPO B </span></div>
-                  <div class="number paddingZero col-xs-1" style="font-weight: bold"><span> - </span></div>
-                  <div class="name width32 nameTeam col-xs-3" style="font-weight: bold">Time</div>
-                  <div class="name paddingZero col-xs-1" style="font-weight: bold">P</div>
-                  <div class="name paddingZero col-xs-1" style="font-weight: bold">V</div>
-                  <div class="name paddingZero col-xs-1" style="font-weight: bold">E</div>
-                  <div class="name paddingZero col-xs-1" style="font-weight: bold">D</div>
-                  <div class="name paddingZero col-xs-1" style="font-weight: bold">GF</div>
-                  <div class="name paddingZero col-xs-1" style="font-weight: bold">GS</div>
-                  <div class="name paddingZero col-xs-1" style="font-weight: bold">SG</div>
-                </div>
-                <div class="item" *ngFor="let time of classificacao!.grupoB">
-                  <div class="left">
-                    <div class="number paddingZero col-xs-1">
-                      <img src="assets/images/CopaFMPOBH/Times/{{ time.escudo }}"
-                           width="24"
-                           height="24"
-                           alt="team-logo">
-                    </div>
-                    <div class="name width32 nameTeam col-xs-3">{{time.nome}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.pontos}}</div>                    
-                    <div class="name paddingZero col-xs-1">{{time.vitorias}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.empates}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.derrotas}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.golsFeitos}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.golsSofridos}}</div>
-                    <div class="name paddingZero col-xs-1">{{time.saldoGols}}</div>
+                  <div class="number paddingZero col-xs-1">
+                    <img src="assets/images/CopaFMPOBH/Times/{{ time.escudo }}" width="24" height="24" alt="team-logo">
                   </div>
+                  <div class="name width32 nameTeam col-xs-3">{{time.nome}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.pontos}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.vitorias}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.empates}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.derrotas}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.golsFeitos}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.golsSofridos}}</div>
+                  <div class="name paddingZero col-xs-1">{{time.saldoGols}}</div>
                 </div>
               </div>
             </div>
@@ -77,5 +71,5 @@
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
