@@ -22,6 +22,7 @@ import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
 import { LoadingComponent } from './loading/loading.component';
 import { LoadingInterceptor } from 'src/services/loading.interceptor';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { ItemPartidaComponent } from './inicio/item-partida/item-partida.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { RouterModule, RouterOutlet } from '@angular/router';
     ModalConfimacaoComponent,
     HistoricoEventosComponent,
     CriarPartidaComponent,
-    LoadingComponent
+    LoadingComponent,
+    ItemPartidaComponent
   ],
   imports: [
     CommonModule,

@@ -1,3 +1,4 @@
+import { EventoPartida } from "./eventoPartida";
 import { Time } from "./time";
 
 export interface Partida {
@@ -11,4 +12,5 @@ export interface Partida {
   golsTimeVisitante: number;
   emAndamento: boolean,
   partidaFinalizada: boolean
+  eventos: EventoPartida[]
 }

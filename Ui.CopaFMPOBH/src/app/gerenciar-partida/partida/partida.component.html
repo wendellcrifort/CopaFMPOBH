@@ -37,7 +37,7 @@
                             <div class="row">
                                 <div class="col-xs-6" style="padding-right: 0; cursor: pointer;">
                                     <div class="lineup-list">
-                                        <div class="item" *ngFor="let jogador of partida.timeMandante.jogadores">
+                                        <div class="item" *ngFor="let jogador of partida.timeMandante.jogadores" [attr.disabled]="jogador.suspenso ? true : null">
                                             <div class="left" (click)="selecionarJogador(jogador)">
                                                 <div class="number"><span>{{jogador.numero}}</span></div>
                                                 <div class="name">{{jogador.nome.split(' ')[0]}}</div>
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col-xs-6" style="padding-left: 0; cursor: pointer;">
                                     <div class="lineup-list">
-                                        <div class="item" *ngFor="let jogador of partida.timeVisitante.jogadores">
+                                        <div class="item" *ngFor="let jogador of partida.timeVisitante.jogadores" [attr.disabled]="jogador.suspenso ? true : null">
                                             <div class="right" (click)="selecionarJogador(jogador)">
                                                 <div class="name">{{jogador.nome.split(' ')[0]}}</div>
                                                 <div class="number"><span>{{jogador.numero}}</span></div>
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="row sem-margem">
-            <div class="col-xs-6 text-right" *ngIf="partida.emAndamento">
+            <div class="col-xs-12 text-right" *ngIf="partida.emAndamento">
                 <button class="button btn btn-secondary" (click)="abrirModalFinalizarPartida()">
                     finalizar
                 </button>
