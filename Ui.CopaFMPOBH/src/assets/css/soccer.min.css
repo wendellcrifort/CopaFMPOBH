@@ -4,8 +4,8 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 .vertical-center {
   display: flex;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
 }
 
 html {
@@ -3977,7 +3977,7 @@ fieldset[disabled] .btn-default:hover {
 }
 
 .btn-preto:hover {
-  background: #D6001C ;
+  background: #D6001C;
   color: #fff
 }
 
@@ -19763,8 +19763,8 @@ blockquote p.name {
     width: 34%;
   }
 
-  .marginJogadorMarcado{
-      margin-left: 40px;
+  .marginJogadorMarcado {
+    margin-left: 40px;
   }
 }
 
@@ -23038,6 +23038,31 @@ overflow-scroll.table tr td {
   border-radius: 10px
 }
 
+
+@media (max-width:992px) {
+  .broadcast-item .item-header .item-head-body .col-md-3 {
+    max-width: 101px !important;
+  }
+}
+
+
+@media (max-width:380px) {
+  .broadcast-wrap .col-md-12{ 
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  .broadcast-item .item-header .item-head-body .col-md-3 {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .gol {
+    margin: 0;
+    width: 25px;
+  }
+}
+
 .main-lates-matches .item .game-result {
   font-size: 10px;
   color: #999;
@@ -25159,8 +25184,10 @@ overflow-scroll.table tr td {
   position: relative;
   transition: all .4s;
   display: flex;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Opcional: centraliza horizontalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
+  justify-content: center;
+  /* Opcional: centraliza horizontalmente */
 }
 
 .broadcast-item .item-head-body>a>img {
@@ -25177,8 +25204,8 @@ overflow-scroll.table tr td {
   background: #4caf50;
   line-height: 30px;
   color: #fff;
-  
-  
+
+
   transform: translateY(-50%)
 }
 
@@ -25215,7 +25242,8 @@ overflow-scroll.table tr td {
   line-height: normal;
   display: block;
   font-family: Montserrat, sans-serif;
-  transition: all .4s
+  transition: all .4s;
+  padding-top: 10px
 }
 
 .broadcast-item .channel {
@@ -30007,7 +30035,7 @@ table tr td .organisation-name {
   vertical-align: top
 }
 
- .back {
+.back {
   display: inline-block;
   font-size: 16px;
   text-transform: uppercase;
@@ -30018,7 +30046,8 @@ table tr td .organisation-name {
 
 .align-items-center {
   display: flex;
-  align-items: center; /* Centraliza verticalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
 }
 
 .error-wrap .error-title .back i {
@@ -37641,11 +37670,11 @@ ul.esport-championship-timline-tabs>li>a:before {
   border-radius: 10px;
 }
 
-.selectTeam{
-    width: 100%;
-    color: #666;
-    border-radius: 0px;
-    border-color: #fff;
+.selectTeam {
+  width: 100%;
+  color: #666;
+  border-radius: 0px;
+  border-color: #fff;
 }
 
 .btnCriarPartida {

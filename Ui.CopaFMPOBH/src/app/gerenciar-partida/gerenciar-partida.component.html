@@ -15,18 +15,18 @@
             <div class="col-md-12">
                 <div class="broadcast-list" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="broadcast-item" *ngFor="let partida of partidas"
-                        style="margin-bottom: 15px; padding-top: 15px;">
+                        style="padding-top: 15px;">
                         <a [routerLink]="['/gerenciarPartida', partida.idPartida]">
                             <div class="item-header" id="headingOne">
-                                <div class="row">
+                                <div class="row" style="background-color: #fff; cursor: pointer;">
                                     <div class="part-list col-sm-12">
-                                        <div class="item-head-body">
+                                        <div class="item-head-body" style="padding-top: 15px; padding-bottom: 0;">
                                             <div class="col-md-3">
                                                 <span class="item">
                                                     <span class="logo"><img
                                                             src="assets/images/CopaFMPOBH/Times/{{ partida.timeMandante.escudo }}"
                                                             width="80" height="80" alt="club-image"></span>
-                                                    <span class="name">{{partida.timeMandante.nome}}</span>
+                                                    <span class="name" style="word-wrap: break-word;">{{partida.timeMandante.nome}}</span>
                                                 </span>
                                             </div>
                                             <span class="info">
@@ -38,7 +38,7 @@
                                                     <span class="logo"><img
                                                             src="assets/images/CopaFMPOBH/Times/{{ partida.timeVisitante.escudo }}"
                                                             width="80" height="80" alt="club-image"></span>
-                                                    <span class="name">{{partida.timeVisitante.nome}}</span>
+                                                    <span class="name" style="word-wrap: break-word;">{{partida.timeVisitante.nome}}</span>
                                                 </span>
                                             </div>
                                         </div>
