@@ -1,6 +1,6 @@
 <div class="broadcast-wrap" style="padding-top: 0px;">
   <div class="container">
-    <div class="row" *ngIf="partidas!.partidaAoVivo !== undefined && partidas!.partidaAoVivo !== null">
+    <div class="row" *ngIf="partidas?.partidaAoVivo !== undefined && partidas?.partidaAoVivo !== null">
       <div class="col-md-12">
         <h4>Ao vivo</h4>
       </div>
@@ -8,7 +8,7 @@
       </app-item-partida>
     </div>
 
-    <div class="row" *ngIf="partidas!.proximaPartida !== undefined && partidas!.proximaPartida !== null">
+    <div class="row" *ngIf="partidas?.proximaPartida !== undefined && partidas?.proximaPartida !== null">
       <div class="col-md-12">
         <h4>Próxima Partida</h4>
       </div>
@@ -16,7 +16,7 @@
       </app-item-partida>
     </div>
 
-    <div class="row" *ngIf="partidas!.partidasEncerradas !== undefined && partidas!.partidasEncerradas !== null && partidas!.partidasEncerradas.length > 0">
+    <div class="row" *ngIf="partidas?.partidasEncerradas !== undefined && partidas?.partidasEncerradas !== null && partidas?.partidasEncerradas!.length > 0">
       <div class="col-md-12">
         <h4>Partidas Encerradas</h4>
       </div>
