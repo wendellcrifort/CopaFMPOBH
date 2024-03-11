@@ -417,6 +417,7 @@ namespace Application.Services.Partida
                                                                 : 0;
 
             time.Pontos += pontos;
+            AddResultado(time, pontos);
 
             _copaDbContext.Time.Update(time);
             await _copaDbContext.SaveChangesAsync();
@@ -433,9 +434,28 @@ namespace Application.Services.Partida
                                     : 0;
 
             time.Pontos += pontos;
+            AddResultado(time, pontos);
 
             _copaDbContext.Time.Update(time);
             await _copaDbContext.SaveChangesAsync();
+        }
+
+        private static void AddResultado(Domain.Entities.Time time, int pontos)
+        {
+            switch (pontos)
+            {
+                case 3:
+                    time.Vitorias += 1;
+                    break;
+                case 1:
+                    time.Empates += 1;
+                    break;
+                case 0:
+                    time.Derrotas += 1;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
