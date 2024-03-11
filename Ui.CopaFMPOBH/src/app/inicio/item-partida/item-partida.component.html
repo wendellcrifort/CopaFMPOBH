@@ -1,114 +1,114 @@
 <div class="col-md-12">
-    <div class="broadcast-list" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="broadcast-item">
-            <div class="item-header" id="headingOne">
-                <div class="row align-items-center" style="height: 100px; background-color: #fff; cursor: pointer;"
-                    (click)="selecionarPartida(partida!)">
-                    <div class="col-xs-12 vertical-center">
-                        <div class="vertical-center times">
-                            <a href="matches.html" style="margin-right: 15px;">
-                                <img src="../../assets/images/CopaFMPOBH/Times/{{  partida!.timeMandante.escudo }}"
-                                    width="40" height="40" alt="team-logo1">
-                            </a>
-                            <span class="gol">{{partida!.timeMandante.golsFeitos}}</span>
-                            <span class="vs">vs</span>
-                            <span class="gol">{{partida!.timeVisitante.golsFeitos}}</span>
-                            <a href="matches.html" style="margin-left: 15px; margin-right: 15px;">
-                                <img src="../../assets/images/CopaFMPOBH/Times/{{  partida!.timeVisitante.escudo }}"
-                                    width="40" height="40" alt="team-logo1">
-                            </a>
-                            <span class="info text-center">
-                                <span class="what">Copa FMPOBH</span>
-                                <span class="then">{{ partida?.dataPartida?.replace('-', '/') }} -
-                                    {{partida?.horaPartida}}</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+  <div class="broadcast-list" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="broadcast-item">
+      <div class="item-header" id="headingOne">
+        <div class="row" style="background-color: #fff; cursor: pointer;" (click)="selecionarPartida(partida!)">
+          <div class="part-list col-sm-12">
+            <div class="item-head-body" style="padding-top: 15px; padding-bottom: 0;">
+              <div class="col-md-3">
+                <span class="item">
+                  <span class="logo"><img src="assets/images/CopaFMPOBH/Times/{{ partida!.timeMandante.escudo }}"
+                      width="80" height="80" alt="club-image"></span>
+                  <span class="name">{{partida!.timeMandante.nome}}</span>
+                </span>
+              </div>
+              <span class="info text-center">
+                <span class="gol">{{partida!.timeMandante.golsFeitos}}</span>
+                <span class="vs">vs</span>
+                <span class="gol">{{partida!.timeVisitante.golsFeitos}}</span>
+                <span class="then">{{partida!.horaPartida}}</span>
+              </span>
+              <div class="col-md-3">
+                <span class="item">
+                  <span class="logo"><img src="assets/images/CopaFMPOBH/Times/{{ partida!.timeVisitante.escudo }}"
+                      width="80" height="80" alt="club-image"></span>
+                  <span class="name">{{partida!.timeVisitante.nome}}</span>
+                </span>
+              </div>
             </div>
-            <div class="item-body" *ngIf="partida == partidaSelecionada">
-                <div class="row">
-                    <div class="lineup-list">
-                        <div class="col-xs-6">
-                            <div class="lineup-list">
-                                <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeMandante)">
-                                    <div class="left">
-                                        <div class="number"><span>{{jogador.numero}} </span></div>
-                                        <div class="name">{{jogador.nome.split(' ')[0]}}
-                                            <ng-container *ngFor="let evento of jogador.eventosAgrupados | keyvalue">
-                                                <ng-container *ngIf="evento.key === 'CartaoAmarelo'">
-                                                  <ng-container *ngFor="let _ of [].constructor(evento.value)">
-                                                    <i class='far fa-square'
-                                                       style='font-size:15px;color:yellow;background-color:yellow;border-radius:20%;'></i>
-                                                  </ng-container>
-                                                </ng-container>
-                                                <ng-container *ngIf="evento.key === 'CartaoVermelho'">
-                                                  <ng-container *ngFor="let _ of [].constructor(evento.value)">
-                                                    <i class='far fa-square'
-                                                       style='font-size:15px;color:red;background-color:red;border-radius:20%;'></i>
-                                                  </ng-container>
-                                                </ng-container>
-                                                <ng-container *ngIf="evento.key === 'GolMarcado'">
-                                                  <ng-container *ngFor="let _ of [].constructor(evento.value)">
-                                                    <i class='far fa-futbol'
-                                                       style='font-size:15px;color:green'></i>
-                                                  </ng-container>
-                                                </ng-container>
-                                                <ng-container *ngIf="evento.key === 'GolContra'">
-                                                  <ng-container *ngFor="let _ of [].constructor(evento.value)">
-                                                    <i class='far fa-futbol'
-                                                       style='font-size:15px;color:red'></i>
-                                                  </ng-container>
-                                                </ng-container>
-                                              </ng-container>
-                                              
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="lineup-list">
-                                <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeVisitante)">
-                                    <div class="right">
-                                        <div class="name">
-                                            <ng-container *ngFor="let evento of jogador.eventosAgrupados | keyvalue">
-                                                <ng-container *ngIf="evento.key === 'CartaoAmarelo'">
-                                                  <ng-container *ngFor="let _ of [].constructor(evento.value)">
-                                                    <i class='far fa-square'
-                                                       style='font-size:15px;color:yellow;background-color:yellow;border-radius:20%;'></i>
-                                                  </ng-container>
-                                                </ng-container>
-                                                <ng-container *ngIf="evento.key === 'CartaoVermelho'">
-                                                  <ng-container *ngFor="let _ of [].constructor(evento.value)">
-                                                    <i class='far fa-square'
-                                                       style='font-size:15px;color:red;background-color:red;border-radius:20%;'></i>
-                                                  </ng-container>
-                                                </ng-container>
-                                                <ng-container *ngIf="evento.key === 'GolMarcado'">
-                                                  <ng-container *ngFor="let _ of [].constructor(evento.value)">
-                                                    <i class='far fa-futbol'
-                                                       style='font-size:15px;color:green'></i>
-                                                  </ng-container>
-                                                </ng-container>
-                                                <ng-container *ngIf="evento.key === 'GolContra'">
-                                                  <ng-container *ngFor="let _ of [].constructor(evento.value)">
-                                                    <i class='far fa-futbol'
-                                                       style='font-size:15px;color:red'></i>
-                                                  </ng-container>
-                                                </ng-container>
-                                              </ng-container>                                            
-                                            {{jogador.nome.split(' ')[0]}}
-                                        </div>
-                                        <div class="number"><span>{{jogador.numero}}</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="item-body" *ngIf="partida == partidaSelecionada">
+        <div class="row">
+          <div class="lineup-list">
+            <div class="col-xs-6">
+              <div class="lineup-list">
+                <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeMandante)">
+                  <div class="left">
+                    <div class="number"><span>{{jogador.numero}} </span></div>
+                    <div class="name">{{jogador.nome.split(' ')[0]}}
+                      <ng-container *ngFor="let evento of jogador.eventosAgrupados | keyvalue">
+                        <ng-container *ngIf="evento.key === 'CartaoAmarelo'">
+                          <ng-container *ngFor="let _ of [].constructor(evento.value)">
+                            <i class='far fa-square'
+                              style='font-size:15px;color:yellow;background-color:yellow;border-radius:20%;'></i>
+                          </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="evento.key === 'CartaoVermelho'">
+                          <ng-container *ngFor="let _ of [].constructor(evento.value)">
+                            <i class='far fa-square'
+                              style='font-size:15px;color:red;background-color:red;border-radius:20%;'></i>
+                          </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="evento.key === 'GolMarcado'">
+                          <ng-container *ngFor="let _ of [].constructor(evento.value)">
+                            <i class='far fa-futbol' style='font-size:15px;color:green'></i>
+                          </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="evento.key === 'GolContra'">
+                          <ng-container *ngFor="let _ of [].constructor(evento.value)">
+                            <i class='far fa-futbol' style='font-size:15px;color:red'></i>
+                          </ng-container>
+                        </ng-container>
+                      </ng-container>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="lineup-list">
+                <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeVisitante)">
+                  <div class="right">
+                    <div class="name">
+                      <ng-container *ngFor="let evento of jogador.eventosAgrupados | keyvalue">
+                        <ng-container *ngIf="evento.key === 'CartaoAmarelo'">
+                          <ng-container *ngFor="let _ of [].constructor(evento.value)">
+                            <i class='far fa-square'
+                              style='font-size:15px;color:yellow;background-color:yellow;border-radius:20%;'></i>
+                          </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="evento.key === 'CartaoVermelho'">
+                          <ng-container *ngFor="let _ of [].constructor(evento.value)">
+                            <i class='far fa-square'
+                              style='font-size:15px;color:red;background-color:red;border-radius:20%;'></i>
+                          </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="evento.key === 'GolMarcado'">
+                          <ng-container *ngFor="let _ of [].constructor(evento.value)">
+                            <i class='far fa-futbol' style='font-size:15px;color:green'></i>
+                          </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="evento.key === 'GolContra'">
+                          <ng-container *ngFor="let _ of [].constructor(evento.value)">
+                            <i class='far fa-futbol' style='font-size:15px;color:red'></i>
+                          </ng-container>
+                        </ng-container>
+                      </ng-container>
+                      {{jogador.nome.split(' ')[0]}}
+                    </div>
+                    <div class="number"><span>{{jogador.numero}}</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
+  </div>
 </div>
