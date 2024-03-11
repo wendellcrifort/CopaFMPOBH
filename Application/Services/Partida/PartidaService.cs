@@ -58,6 +58,8 @@ namespace Application.Services.Partida
                                          .OrderBy(o => o.DataHoraPartida)
                                          .ToListAsync();
 
+            var eventos = await BuscarEventosPartidas(partidas.Select(x => x.Id).ToList());
+
             var partidasHome = new PartidasHomeViewModel();
 
             partidasHome.PartidaAoVivo = _mapper.Map<PartidaViewModel>(partidas.FirstOrDefault(x => x.EmAndamento));
@@ -65,11 +67,10 @@ namespace Application.Services.Partida
             partidasHome.PartidasEncerradas = _mapper.Map<List<PartidaViewModel>>(partidas.Where(x => x.PartidaFinalizada));
 
             if (partidasHome.PartidaAoVivo != null)
-                partidasHome.PartidaAoVivo.Eventos = await BuscarEventosPartida(partidasHome.PartidaAoVivo.IdPartida);
-            if (partidasHome.ProximaPartida != null)
-                partidasHome.ProximaPartida.Eventos = await BuscarEventosPartida(partidasHome.ProximaPartida.IdPartida);
+                partidasHome.PartidaAoVivo.Eventos = eventos.Where(x => x.IdPartida == partidasHome.PartidaAoVivo.IdPartida).ToList();
+            
             foreach(var partida in partidasHome.PartidasEncerradas)
-                partida.Eventos = await BuscarEventosPartida(partida.IdPartida);
+                partida.Eventos = eventos.Where(x => x.IdPartida == partida.IdPartida).ToList();
 
             return partidasHome;
         }
@@ -92,6 +93,16 @@ namespace Application.Services.Partida
             var eventos = await _copaDbContext.EventosPartida
                                               .AsNoTracking()
                                               .Where(x => x.IdPartida == idPartida)
+                                              .ToListAsync();
+
+            return _mapper.Map<List<EventosPartidaViewModel>>(eventos);
+        }
+
+        private async Task<List<EventosPartidaViewModel>> BuscarEventosPartidas(List<int> idsPartida)
+        {
+            var eventos = await _copaDbContext.EventosPartida
+                                              .AsNoTracking()
+                                              .Where(x => idsPartida.Contains(x.IdPartida))
                                               .ToListAsync();
 
             return _mapper.Map<List<EventosPartidaViewModel>>(eventos);
