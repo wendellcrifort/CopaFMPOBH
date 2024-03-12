@@ -35,7 +35,7 @@
           <div class="lineup-list">
             <div class="col-xs-6">
               <div class="lineup-list">
-                <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeMandante)">
+                <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeMandante, partida!.timeVisitante)">
                   <div class="left">
                     <div class="number"><span>{{jogador.numero}} </span></div>
                     <div class="name">{{jogador.nome.split(' ')[0]}}
@@ -71,7 +71,7 @@
             </div>
             <div class="col-xs-6">
               <div class="lineup-list">
-                <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeVisitante)">
+                <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeVisitante, partida!.timeMandante)">
                   <div class="right">
                     <div class="name">
                       <ng-container *ngFor="let evento of jogador.eventosAgrupados | keyvalue">

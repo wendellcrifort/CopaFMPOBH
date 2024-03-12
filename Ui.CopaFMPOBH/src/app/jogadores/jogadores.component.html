@@ -1,42 +1,48 @@
-<div id="times">
-  <section class="club-main-stat">
-    <div class="container">
-      <div class="broadcast-item">
-        <div class="item-body">
-          <div class="row">
-            <div class="col-xs-12" style="padding-right: 0">
-              <div class="lineup-list">
-                <div class="left">
-                  <div class="col-xs-6">
-                    <img src="assets/images/CopaFMPOBH/Times/{{ jogadoresTime!.time.escudo }}" width="200" height="200"
-                         alt="team-logo">
+<section class="club-main-stat">
+  <div class="container" *ngIf="jogadoresTime">
+    <div class="row col-md-12" >
+      <h6 style="padding-left: 15px;">{{jogadoresTime!.time.nome}}</h6>
+    </div>
+    <div class="broadcast-item">
+      <div class="item-body">
+        <div class="row">
+          <div class="col-xs-12" style="padding-right: 0">
+            <div class="lineup-list">
+              <div class="left">
+                <div class="col-xs-6">
+                  <img src="assets/images/CopaFMPOBH/Times/{{ jogadoresTime!.time.escudo }}" width="200" height="200"
+                    alt="team-logo">
+                </div>
+                <div class="col-xs-6">
+                  <div class="col-md-12" style="height:70px;">
+                    <div class="number" style="width: 100% !important; font-weight: bold"><span> GRUPO {{
+                        jogadoresTime!.time.grupo }}</span></div>
                   </div>
-                  <div class="col-xs-6">
-                    <div class="col-md-12" style="height:70px;">
-                      <div class="number" style="width: 100% !important; font-weight: bold"><span> GRUPO {{ jogadoresTime!.time.grupo }}</span></div>
+                  <div class="col-md-12" style="height:70px;">
+                    <div class="col-xs-6">
+                      <div class="name" style="padding-left:0px!important"><span><i class='far fa-futbol'
+                            style='font-size:24px;color:green'></i> {{ jogadoresTime!.time.golsFeitos }}</span></div>
                     </div>
-                    <div class="col-md-12" style="height:70px;">
-                      <div class="col-xs-6">
-                        <div class="name" style="padding-left:0px!important"><span><i class='far fa-futbol' style='font-size:24px;color:green'></i> {{ jogadoresTime!.time.golsFeitos }}</span></div>
-                      </div>
-                      <div class="col-xs-6">
-                        <div class="name" style="padding-left:0px!important"><span><i class='far fa-futbol' style='font-size:24px;color:red'></i> {{ jogadoresTime!.time.golsSofridos }}</span></div>
+                    <div class="col-xs-6">
+                      <div class="name" style="padding-left:0px!important"><span><i class='far fa-futbol'
+                            style='font-size:24px;color:red'></i> {{ jogadoresTime!.time.golsSofridos }}</span></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12" style="height:70px;">
+                    <div class="col-xs-6">
+                      <div class="name" style="padding-left:0px!important">
+                        <span>
+                          <img src="../../assets/images/CopaFMPOBH/Site/caIcon.png" height="35" /> {{
+                          jogadoresTime!.time.cartoesAmarelos }}
+                        </span>
                       </div>
                     </div>
-                    <div class="col-md-12" style="height:70px;">
-                      <div class="col-xs-6">
-                        <div class="name" style="padding-left:0px!important">
-                          <span>
-                            <img src="../../assets/images/CopaFMPOBH/Site/caIcon.png" height="35" /> {{ jogadoresTime!.time.cartoesAmarelos }}
-                          </span>
-                        </div>
-                      </div>
-                      <div class="col-xs-6">
-                        <div class="name" style="padding-left:0px!important">
-                          <span>
-                            <img src="../../assets/images/CopaFMPOBH/Site/cvIcon.png" height="35" /> {{ jogadoresTime!.time.cartoesVermelhos }}
-                          </span>
-                        </div>
+                    <div class="col-xs-6">
+                      <div class="name" style="padding-left:0px!important">
+                        <span>
+                          <img src="../../assets/images/CopaFMPOBH/Site/cvIcon.png" height="35" /> {{
+                          jogadoresTime!.time.cartoesVermelhos }}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -44,27 +50,28 @@
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col-xs-12" style="padding-right: 0">
-              <div class="lineup-list">
+        <div class="row">
+          <div class="col-xs-12" style="padding-right: 0">
+            <div class="lineup-list">
+              <div class="left">
+                <div class="number col-xs-1" style="font-weight: bold"><span>N</span></div>
+                <div class="playername name col-xs-7" style="font-weight: bold">Nome</div>
+                <div class="name col-xs-1" style="font-weight: bold">GF</div>
+                <div class="name col-xs-1" style="font-weight: bold">GS</div>
+                <div class="name col-xs-1" style="font-weight: bold">CA</div>
+                <div class="name col-xs-1" style="font-weight: bold">CV</div>
+              </div>
+              <div class="item" *ngFor="let jogador of jogadoresTime!.jogadores">
                 <div class="left">
-                  <div class="number col-xs-1" style="font-weight: bold"><span>N</span></div>
-                  <div class="playername name col-xs-7" style="font-weight: bold">Nome</div>
-                  <div class="name col-xs-1" style="font-weight: bold">GF</div>
-                  <div class="name col-xs-1" style="font-weight: bold">GS</div>
-                  <div class="name col-xs-1" style="font-weight: bold">CA</div>
-                  <div class="name col-xs-1" style="font-weight: bold">CV</div>
-                </div>
-                <div class="item" *ngFor="let jogador of jogadoresTime!.jogadores">
-                  <div class="left">
-                    <div class="number col-xs-1"><span>{{jogador.numero}}</span></div>
-                    <div class="playername name col-xs-7">{{jogador.nome.split(' ')[0] + ' ' + jogador.nome.split(' ')[1]}}</div>
-                    <div class="name col-xs-1">{{jogador.golsMarcados}}</div>
-                    <div class="name col-xs-1">{{jogador.golsSofridos}}</div>
-                    <div class="name col-xs-1">{{jogador.cartoesAmarelos}}</div>
-                    <div class="name col-xs-1">{{jogador.cartoesVermelhos}}</div>
-                  </div>
+                  <div class="number col-xs-1"><span>{{jogador.numero}}</span></div>
+                  <div class="playername name col-xs-7">{{jogador.nome.split(' ')[0] + ' ' + jogador.nome.split('
+                    ')[1]}}</div>
+                  <div class="name col-xs-1">{{jogador.golsMarcados}}</div>
+                  <div class="name col-xs-1">{{jogador.golsSofridos}}</div>
+                  <div class="name col-xs-1">{{jogador.cartoesAmarelos}}</div>
+                  <div class="name col-xs-1">{{jogador.cartoesVermelhos}}</div>
                 </div>
               </div>
             </div>
@@ -72,5 +79,5 @@
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>

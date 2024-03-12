@@ -17,14 +17,32 @@ export class ItemPartidaComponent {
     this.partidaSelecionada = partida == this.partidaSelecionada ? null : partida;
   }
 
-  eventos(partida: Partida, time: Time): EventosJogador[] {
+  eventos(partida: Partida, time: Time, adversario : Time): EventosJogador[] {
     const eventosJogadores: EventosJogador[] = [];
   
     time.jogadores.forEach(jogador => {
       const eventosAgrupados: { [descricaoEvento: string]: number } = {};
   
       partida.eventos.forEach(evento => {
-        if (evento.idJogador === jogador.id) {
+        if (evento.descricaoEvento != 'GolContra' && evento.idJogador === jogador.id) {
+          if (eventosAgrupados[evento.descricaoEvento]) {
+            eventosAgrupados[evento.descricaoEvento]++;
+          } else {
+            eventosAgrupados[evento.descricaoEvento] = 1;
+          }
+        }
+      });
+  
+      if (Object.keys(eventosAgrupados).length > 0) {
+        eventosJogadores.push(new Implementacao(jogador.nome, jogador.numero, eventosAgrupados));
+      }
+    });
+
+    adversario.jogadores.forEach(jogador => {
+      const eventosAgrupados: { [descricaoEvento: string]: number } = {};
+  
+      partida.eventos.forEach(evento => {
+        if (evento.descricaoEvento == 'GolContra' && evento.idJogador === jogador.id) {
           if (eventosAgrupados[evento.descricaoEvento]) {
             eventosAgrupados[evento.descricaoEvento]++;
           } else {
