@@ -8241,11 +8241,10 @@ button.close {
   }
 }
 
-@media (max-width:450px) {
+@media (max-width:515px) {
   .paddingZero {
     padding-left: 0px !important;
     padding-right: 0px !important;
-    width: 27px !important;
     text-align: center !important;
   }
 
@@ -8260,7 +8259,7 @@ button.close {
   }
 }
 
-@media (min-width:450px) {
+@media (min-width:515px) {
   .width32 {
     width: 32% !important;
   }
@@ -25333,7 +25332,7 @@ overflow-scroll.table tr td {
   .broadcast-item .lineup-list .number img {
     z-index: 5;
     position: absolute;
-    left: 5px;
+    left: 10px;
     top: 5px;
     bottom: 0;
     /*width: 50px;
