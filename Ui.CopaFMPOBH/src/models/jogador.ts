@@ -14,4 +14,5 @@ export interface Jogador {
   suspenso: boolean;
   jogos: number;
   escudo: string;
+  igreja: string;
 }

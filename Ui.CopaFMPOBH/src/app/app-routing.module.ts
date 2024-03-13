@@ -9,6 +9,8 @@ import { PartidaComponent } from './gerenciar-partida/partida/partida.component'
 import { ClassificacaoComponent } from './classificacao/classificacao.component';
 import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
 import { CriarPartidaComponent } from './criar-partida/criar-partida.component';
+import { CadastroJogadorComponent } from './cadastro-jogador/cadastro-jogador.component';
+
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -20,6 +22,7 @@ const routes: Routes = [
   { path: 'classificacao', component: ClassificacaoComponent },
   { path: 'melhorgoleiro', component: GoleiroComponent },
   { path: 'criarpartida', component: CriarPartidaComponent },
+  { path: 'cadastroJogador', component: CadastroJogadorComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' } // Rota padrão
 ];
 
