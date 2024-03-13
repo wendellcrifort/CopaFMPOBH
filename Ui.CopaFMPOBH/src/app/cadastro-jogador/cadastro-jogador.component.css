@@ -1,0 +1,47 @@
+
+.container{
+     margin: 0 auto;
+     width: 90%;
+}
+.part-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+
+}
+input{
+    margin:10px 0;
+}
+
+input[type=number]{
+    width: 80px !important;
+}
+
+input[type=text]{
+
+    width: 300px;
+}
+
+select {
+    color:grey !important;
+    margin: 10px 0px;
+    padding: 15px 10px;
+    border:none;
+}
+
+select > option {
+    height: 50px;
+}
+
+.check{
+    color: gray;
+}
+
+.iputs-menores{
+    display: flex;
+    justify-content: space-between;
+    min-width: 180px;
+}
+

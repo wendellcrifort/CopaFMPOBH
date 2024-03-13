@@ -23,6 +23,8 @@ import { LoadingComponent } from './loading/loading.component';
 import { LoadingInterceptor } from 'src/services/loading.interceptor';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { ItemPartidaComponent } from './inicio/item-partida/item-partida.component';
+import { CadastroJogadorComponent } from './cadastro-jogador/cadastro-jogador.component';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { ItemPartidaComponent } from './inicio/item-partida/item-partida.compone
     HistoricoEventosComponent,
     CriarPartidaComponent,
     LoadingComponent,
-    ItemPartidaComponent
+    ItemPartidaComponent,
+    CadastroJogadorComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +53,8 @@ import { ItemPartidaComponent } from './inicio/item-partida/item-partida.compone
     HttpClientModule,
     FormsModule,    
     RouterOutlet,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [
     DatePipe,
