@@ -17759,8 +17759,24 @@ body.admin-bar .is-sticky .main-menu-wrap {
   padding-bottom: 50px
 }
 
+@media (max-width:767px) {
+  .main-stuff-slider .nav-arrow {
+    width: 40px !important;
+  }
+  .main-stuff-slider .nav-arrow.right-arrow {
+    padding-right: 15px !important;
+  }
+}
+
+@media (max-width:500px) {
+  .main-stuff-slider .nav-arrow {
+    width: 30px !important;
+  }
+}
+
+
 .main-club-stuff {
-  padding: 56px 0 100px 0;
+  padding: 56px 0 56px 0;
   background-size: cover
 }
 
@@ -21353,9 +21369,6 @@ overflow-scroll.table tr td {
     width: auto
   }
 
-  .main-club-stuff {
-    padding: 0
-  }
 }
 
 @media (max-width:1200px) {
@@ -21750,9 +21763,6 @@ overflow-scroll.table tr td {
     float: none
   }
 
-  .main-club-stuff {
-    padding: 0
-  }
 
   .champ-nav-list {
     text-align: center

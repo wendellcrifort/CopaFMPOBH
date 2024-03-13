@@ -21,8 +21,12 @@ export class PartidaService {
 
   constructor(private http: HttpClient) { }
 
-  obterPartidas(data: string): Observable<Partida[]> {
-    return this.http.get<Partida[]>(`${this.apiUrl}/BuscarPartidas?data=${data}`);
+  obterPartidas(data?: string): Observable<Partida[]> {
+    var url = `${this.apiUrl}/BuscarPartidas`;
+
+    if (data) url += `?data=${data}`;
+    
+    return this.http.get<Partida[]>(url);
   }
 
   obterPartidasHome(): Observable<PartidasHome> {
