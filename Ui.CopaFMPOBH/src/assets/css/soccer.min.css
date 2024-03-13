@@ -17243,7 +17243,7 @@ h5.esport-landing-header {
   position: relative
 }
 
-input[type=text] {
+input[type=text] ,input[type=number]{
   padding: 15px 10px;
   border: 1px solid transparent;
   width: 100%;
