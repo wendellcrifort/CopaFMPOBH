@@ -28,10 +28,6 @@ namespace Application.Services.Time
         {
             var times = await _copaDbContext.Time
                                             .AsNoTracking()
-                                            .OrderByDescending(o => o.Pontos)
-                                            .ThenByDescending(o => o.Vitorias)
-                                            .ThenByDescending(o => o.GolsFeitos)
-                                            .ThenByDescending(o => o.SaldoGols)
                                             .ToListAsync();
 
             var classificacao = new ClassificacaoViewModel();
@@ -41,6 +37,7 @@ namespace Application.Services.Time
                                                      .ThenByDescending(o => o.Vitorias)
                                                      .ThenByDescending(o => o.GolsFeitos)
                                                      .ThenByDescending(o => o.SaldoGols)
+                                                     .ThenBy(o => o.Nome)
                                                      .ToList());
 
             classificacao.GrupoB = _mapper.Map<List<TimeViewModel>>(
@@ -49,6 +46,7 @@ namespace Application.Services.Time
                                                      .ThenByDescending(o => o.Vitorias)
                                                      .ThenByDescending(o => o.GolsFeitos)
                                                      .ThenByDescending(o => o.SaldoGols)
+                                                     .ThenBy(o => o.Nome)
                                                      .ToList());
 
             return classificacao;
