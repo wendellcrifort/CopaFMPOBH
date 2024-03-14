@@ -19821,7 +19821,7 @@ table tr th {
 table tr th:first-child {}
 
 table tr td {
-  padding: 0 20px;
+  padding: 0 10px;
   height: 50px;
   line-height: normal;
   border-bottom: 1px solid #e6e6e6;
@@ -27381,7 +27381,7 @@ table tr th {
 table tr th:first-child {}
 
 table tr td {
-  padding: 0 20px;
+  padding: 0 10px;
   height: 50px;
   line-height: normal;
   border-bottom: 1px solid #e6e6e6;

@@ -20,5 +20,14 @@ export class GoleiroComponent {
       this.classificacaoService.getMelhorGoleiro()?.subscribe(x => this.goleiros = x);
     });
   }
+
+  public nomeJogador(nome: string){
+    const [primeiroNome, ...partesRestantes] = nome.trim().split(" ");
+    const ultimoNome = partesRestantes.pop() || '';
+    const nomeCompleto = [primeiroNome, ultimoNome].join(" ");
+
+    return nomeCompleto;
+  }
+  
 }
 

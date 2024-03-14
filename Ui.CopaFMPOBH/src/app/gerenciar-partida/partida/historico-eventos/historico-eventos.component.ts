@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { EventoPartida } from 'src/models/eventoPartida';
+import { Jogador } from 'src/models/jogador';
 import { Partida } from 'src/models/partida';
 
 @Component({
@@ -24,9 +25,24 @@ export class HistoricoEventosComponent {
 
   public obterJogador(idJogador: number, idTime : number) : string {
     if (this.partida?.timeMandante.id == idTime)
-      return this.partida?.timeMandante.jogadores.find(x=>x.id == idJogador)!.nome.split(' ')[0];
+      return this.nomeJogador(this.partida!.timeMandante.jogadores.find(x=>x.id == idJogador)!.nome);
     else
-      return this.partida?.timeVisitante.jogadores.find(x=>x.id == idJogador)!.nome.split(' ')[0]!;
+      return this.nomeJogador(this.partida!.timeVisitante.jogadores.find(x=>x.id == idJogador)!.nome!);
+  }
+
+  public obterNumero(idJogador: number, idTime : number) : number {
+    if (this.partida?.timeMandante.id == idTime)
+      return this.partida!.timeMandante.jogadores.find(x=>x.id == idJogador)!.numero;
+    else
+      return this.partida!.timeVisitante.jogadores.find(x=>x.id == idJogador)!.numero!;
+  }
+
+  public nomeJogador(nome: string){
+    const [primeiroNome, ...partesRestantes] = nome.trim().split(" ");
+    const ultimoNome = partesRestantes.pop() || '';
+    const nomeCompleto = [primeiroNome, ultimoNome].join(" ");
+
+    return nomeCompleto;
   }
 
   public abrirModalDeletar(id : number){

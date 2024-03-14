@@ -1,8 +1,5 @@
 <section class="club-main-stat">
   <div class="container" *ngIf="jogadoresTime">
-    <div class="row col-md-12" >
-      <h6 style="padding-left: 15px;">{{jogadoresTime!.time.nome}}</h6>
-    </div>
     <div class="broadcast-item">
       <div class="item-body">
         <div class="row">
@@ -66,8 +63,7 @@
               <div class="item" *ngFor="let jogador of jogadoresTime!.jogadores">
                 <div class="left">
                   <div class="number col-xs-1"><span>{{jogador.numero}}</span></div>
-                  <div class="playername name col-xs-7">{{jogador.nome.split(' ')[0] + ' ' + jogador.nome.split('
-                    ')[1]}}</div>
+                  <div class="playername name col-xs-7">{{nomeJogador(jogador.nome)}}</div>
                   <div class="name col-xs-1">{{jogador.golsMarcados}}</div>
                   <div class="name col-xs-1">{{jogador.golsSofridos}}</div>
                   <div class="name col-xs-1">{{jogador.cartoesAmarelos}}</div>

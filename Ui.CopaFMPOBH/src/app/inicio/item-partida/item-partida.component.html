@@ -38,7 +38,7 @@
                 <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeMandante, partida!.timeVisitante)">
                   <div class="left">
                     <div class="number"><span>{{jogador.numero}} </span></div>
-                    <div class="name">{{jogador.nome.split(' ')[0]}}
+                    <div class="name">{{nomeJogador(jogador.nome)}}
                       <ng-container *ngFor="let evento of jogador.eventosAgrupados | keyvalue">
                         <ng-container *ngIf="evento.key === 'CartaoAmarelo'">
                           <ng-container *ngFor="let _ of [].constructor(evento.value)">

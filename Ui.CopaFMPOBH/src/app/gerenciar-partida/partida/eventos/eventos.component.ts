@@ -80,6 +80,14 @@ export class EventosComponent {
     this.goleiro = goleiro;
   }
 
+  public nomeJogador(nome: string){
+    const [primeiroNome, ...partesRestantes] = nome.trim().split(" ");
+    const ultimoNome = partesRestantes.pop() || '';
+    const nomeCompleto = [primeiroNome, ultimoNome].join(" ");
+
+    return nomeCompleto;
+  }
+
   private evento(mensagem : string, idGoleiro: number | null = null) {
     this.partidaService
       .registrarEvento(new Evento(this.partida!, this.idJogador!, this.tipoEvento!, idGoleiro))
