@@ -9,20 +9,23 @@ import { PartidaService } from 'src/services/partida.service';
   styleUrls: ['./gerenciar-partida.component.css']
 })
 export class GerenciarPartidaComponent {
-  public partidas: Partida[] = []; 
+  public partidas: Partida[] = [];
   public data: string;
-  
-  constructor(private partidaService : PartidaService, private datePipe: DatePipe){ 
+
+  constructor(private partidaService: PartidaService, private datePipe: DatePipe) {
     this.data = new Date().toISOString().split('T')[0];
-   }
+  }
 
   ngOnInit(): void {
     this.buscarPartidas();
   }
 
-  public buscarPartidas(){
-    this.partidaService.obterPartidas(this.datePipe.transform(this.data, 'dd-MM')!.toString()).subscribe(partidas => {      
-      this.partidas = partidas
+  public buscarPartidas() {
+    this.partidaService.obterPartidas(this.datePipe.transform(this.data, 'dd-MM')!.toString()).subscribe(partidas => {
+      this.partidas = partidas.sort((p1, p2) => {
+        if (p1.horaPartida < p2.horaPartida) return -1;
+        else return 1;
+      })
     });
   }
 

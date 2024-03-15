@@ -5,7 +5,7 @@
         <div class="row" style="background-color: #fff; cursor: pointer;" (click)="selecionarPartida(partida!)">
           <div class="part-list col-sm-12">
             <div class="item-head-body" style="padding-top: 15px; padding-bottom: 0;">
-              <div class="col-md-3">
+              <div class="col-md-3" style="min-width: 100px;">
                 <span class="item">
                   <span class="logo"><img src="assets/images/CopaFMPOBH/Times/{{ partida!.timeMandante.escudo }}"
                       width="80" height="80" alt="club-image"></span>
@@ -16,9 +16,9 @@
                 <span class="gol">{{partida!.golsTimeMandante}}</span>
                 <span class="vs">vs</span>
                 <span class="gol">{{partida!.golsTimeVisitante}}</span>
-                <span class="then">{{partida!.horaPartida}}</span>
+                <span class="then">{{partida!.dataPartida.replace('-', '/')}} - {{partida!.horaPartida}}</span>
               </span>
-              <div class="col-md-3">
+              <div class="col-md-3" style="min-width: 102px;">
                 <span class="item">
                   <span class="logo"><img src="assets/images/CopaFMPOBH/Times/{{ partida!.timeVisitante.escudo }}"
                       width="80" height="80" alt="club-image"></span>
@@ -38,7 +38,7 @@
                 <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeMandante, partida!.timeVisitante)">
                   <div class="left">
                     <div class="number"><span>{{jogador.numero}} </span></div>
-                    <div class="name">{{jogador.nome.split(' ')[0]}}
+                    <div class="name">{{nomeJogador(jogador.nome)}}
                       <ng-container *ngFor="let evento of jogador.eventosAgrupados | keyvalue">
                         <ng-container *ngIf="evento.key === 'CartaoAmarelo'">
                           <ng-container *ngFor="let _ of [].constructor(evento.value)">

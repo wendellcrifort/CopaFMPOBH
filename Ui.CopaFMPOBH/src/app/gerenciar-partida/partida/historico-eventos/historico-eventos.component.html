@@ -5,14 +5,16 @@
             <tr>
                 <th class="club">Time</th>
                 <th>Jogador</th>
-                <th>Evento</th>
-                <th>Deletar</th>
+                <th>Nº</th>
+                <th></th>
+                <th></th>
             </tr>
             <tr *ngFor="let evento of eventos">
                 <td class="club"><img src="assets/images/CopaFMPOBH/Times/{{ obterEscudo(evento.idTime) }}" width="30"
                         height="30" alt="trophy">
                 </td>
                 <td>{{obterJogador(evento.idJogador, evento.idTime)}}</td>
+                <td>{{obterNumero(evento.idJogador, evento.idTime)}}</td>
                 <td>
                     <div *ngIf="evento.descricaoEvento == 'CartaoAmarelo'" class="card yellow"><i class='far fa-square'
                             style='font-size:15px;color:yellow;background-color:yellow;border-radius:20%;'></i></div>
@@ -23,7 +25,7 @@
                     <div *ngIf="evento.descricaoEvento == 'GolContra'" class="goal"><i class='far fa-futbol'
                             style='font-size:15px;color:red'></i></div>
                 </td>
-                <td class="d-sm-none d-md-block"><button class="btn-link" style="width: 40px; height: auto;"
+                <td class="d-sm-none d-md-block"><button class="btn-link" style="height: auto;"
                         (click)="abrirModalDeletar(evento.id)">
                         <i class='fa fa-trash' style='font-size:20px;color:red'></i>
                     </button>
