@@ -17766,6 +17766,10 @@ body.admin-bar .is-sticky .main-menu-wrap {
   .main-stuff-slider .nav-arrow.right-arrow {
     padding-right: 15px !important;
   }
+
+  .main-stuff-slider .nav-arrow.left-arrow {
+    padding-left: 15px !important;
+  }
 }
 
 @media (max-width:500px) {
