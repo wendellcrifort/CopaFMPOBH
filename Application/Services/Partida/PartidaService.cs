@@ -62,14 +62,14 @@ namespace Application.Services.Partida
 
             var partidasHome = new PartidasHomeViewModel();
 
-            partidasHome.PartidaAoVivo = _mapper.Map<PartidaViewModel>(partidas.FirstOrDefault(x => x.EmAndamento));
+            partidasHome.PartidasAoVivo = _mapper.Map<List<PartidaViewModel>>(partidas.Where(x => x.EmAndamento));
             partidasHome.ProximaPartida = _mapper.Map<PartidaViewModel>(partidas.FirstOrDefault(x => !x.EmAndamento && !x.PartidaFinalizada));
             partidasHome.PartidasEncerradas = _mapper.Map<List<PartidaViewModel>>(partidas.Where(x => x.PartidaFinalizada));
 
-            if (partidasHome.PartidaAoVivo != null)
-                partidasHome.PartidaAoVivo.Eventos = eventos.Where(x => x.IdPartida == partidasHome.PartidaAoVivo.IdPartida).ToList();
-            
-            foreach(var partida in partidasHome.PartidasEncerradas)
+            foreach (var partida in partidasHome.PartidasAoVivo)
+                partida.Eventos = eventos.Where(x => x.IdPartida == partida.IdPartida).ToList();
+
+            foreach (var partida in partidasHome.PartidasEncerradas)
                 partida.Eventos = eventos.Where(x => x.IdPartida == partida.IdPartida).ToList();
 
             return partidasHome;

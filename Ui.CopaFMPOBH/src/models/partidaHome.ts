@@ -1,7 +1,7 @@
 import { Partida } from "./partida";
 
 export interface PartidasHome {
-  partidaAoVivo: Partida;
+  partidasAoVivo: Partida[];
   proximaPartida: Partida;
   partidasEncerradas: Partida[];
 }

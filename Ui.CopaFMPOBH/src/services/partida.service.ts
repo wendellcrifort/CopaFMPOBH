@@ -10,8 +10,8 @@ import { EventoPartida } from 'src/models/eventoPartida';
   providedIn: 'root'
 })
 export class PartidaService {
-  private apiUrl = 'http://api.copafmpobh.com.br/Partida';
-  //private apiUrl = 'http://localhost:5097/Partida';
+  private apiUrl = 'https://api.copafmpobh.com.br/Partida';
+  ///private apiUrl = 'http://localhost:5097/Partida';
 
   httpOptions = {
     headers: new HttpHeaders({
