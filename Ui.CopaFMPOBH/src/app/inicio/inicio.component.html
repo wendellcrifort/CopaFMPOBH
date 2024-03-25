@@ -11,9 +11,10 @@
     <div class="row" *ngIf="partidas?.proximaPartida !== undefined && partidas?.proximaPartida !== null">
       <div class="col-md-12">
         <h4>Próxima Partida</h4>
+        <a href="https://maps.app.goo.gl/x4okQ1DVNS4VxwyN7" target="_blank"><span >Centro Esportivo Chiodi - Av. Sideral, 60 - Me. Gertrudes, Belo Horizonte</span></a>
       </div>
       <app-item-partida [partida]="partidas!.proximaPartida">
-      </app-item-partida>
+      </app-item-partida>      
     </div>
 
     <div class="row" *ngIf="partidas?.partidasEncerradas !== undefined && partidas?.partidasEncerradas !== null && partidas?.partidasEncerradas!.length > 0">
