@@ -44,6 +44,7 @@ namespace Application.Services.Jogador
                                                 .AsNoTracking()
                                                 .Where(x => x.GolsMarcados > 0)
                                                 .OrderByDescending(o => o.GolsMarcados)
+                                                .ThenBy(o => o.Nome)
                                                 .ToListAsync();
 
             return _mapper.Map<List<JogadorViewModel>>(jogadores);
