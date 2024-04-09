@@ -60,4 +60,8 @@ export class PartidaService {
   inciarPartida(id: number) {
     return this.http.post<any>(`${this.apiUrl}/IniciarPartida/${id}`, this.httpOptions);
   }
+
+  salvarSumula(idPartida: number, formData: FormData) {
+    return this.http.post<any>(`${this.apiUrl}/Sumula/${idPartida}`, formData)
+  }
 }

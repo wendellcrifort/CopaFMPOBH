@@ -92,6 +92,21 @@
             </div>
         </div>
 
+        <div class="row sem-margem">
+            <div class="col-xs-12" *ngIf="partida.partidaFinalizada">
+                <input id="fileInput" type="file" #fileInput (change)="onFileSelected($event)" style="display: none;" />
+                <button (click)="escolherArquivo()"class="button btn btn-secondary">
+                    inserir súmula
+                </button>
+                <span style="color: #000; margin-left: 10px;">{{ nomeArquivoSumula }}</span>
+            </div>
+            <div class="col-xs-12" style="margin-top: 15px;" *ngIf="nomeArquivoSumula">
+                <button (click)="salvarArquivo()"class="button btn btn-primary">
+                    salvar súmula
+                </button>
+            </div>
+        </div>
+
         <app-modal-confimacao *ngIf="modalFinalizarPartida" (cancelar)="fecharModalFinalizar()"
             (confirmar)="finalizarPartida()" titulo="finalizar partida?">
         </app-modal-confimacao>

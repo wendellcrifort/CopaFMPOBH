@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { error } from 'jquery';
 import { EventoPartida } from 'src/models/eventoPartida';
 import { Jogador } from 'src/models/jogador';
 import { Partida } from 'src/models/partida';
@@ -19,6 +20,8 @@ export class PartidaComponent implements OnInit {
 
   public modalFinalizarPartida = false;
   public jogadorSelecionado: Jogador | null = null;
+  public nomeArquivoSumula: string = '';
+  public selectedFile: File | undefined;
 
   constructor(private route: ActivatedRoute, private partidaService: PartidaService, private router: Router, private alertService: AlertService) { }
 
@@ -91,5 +94,31 @@ export class PartidaComponent implements OnInit {
 
   private irParaGerenciarPartidas() {
     this.router.navigate(['/gerenciarPartida'])
+  }
+
+  public escolherArquivo() {
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    fileInput.click();
+  }
+  
+  public onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    this.nomeArquivoSumula = this.selectedFile?.name ?? '';
+  }
+
+  public salvarArquivo() {
+    if (!this.selectedFile) {
+      console.error('Nenhum arquivo selecionado.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+    this.partidaService.salvarSumula(this.partida!.idPartida, formData)
+      .subscribe({
+        next: response => console.log('Arquivo enviado com sucesso:', response),
+        error: err => console.error('Observable emitted an error: ' + err)
+        }
+      );
   }
 }
