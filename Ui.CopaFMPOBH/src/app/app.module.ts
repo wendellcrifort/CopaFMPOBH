@@ -24,7 +24,8 @@ import { LoadingInterceptor } from 'src/services/loading.interceptor';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { ItemPartidaComponent } from './inicio/item-partida/item-partida.component';
 import { CadastroJogadorComponent } from './cadastro-jogador/cadastro-jogador.component';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { ArtilheirosComponent } from './artilheiros/artilheiros.component'
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     CriarPartidaComponent,
     LoadingComponent,
     ItemPartidaComponent,
-    CadastroJogadorComponent
+    CadastroJogadorComponent,
+    ArtilheirosComponent
   ],
   imports: [
     CommonModule,

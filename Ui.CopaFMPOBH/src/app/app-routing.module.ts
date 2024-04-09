@@ -10,6 +10,7 @@ import { ClassificacaoComponent } from './classificacao/classificacao.component'
 import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
 import { CriarPartidaComponent } from './criar-partida/criar-partida.component';
 import { CadastroJogadorComponent } from './cadastro-jogador/cadastro-jogador.component';
+import { ArtilheirosComponent } from './artilheiros/artilheiros.component'
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'melhorgoleiro', component: GoleiroComponent },
   { path: 'criarpartida', component: CriarPartidaComponent },
   { path: 'cadastroJogador', component: CadastroJogadorComponent },
+  { path: 'artilheiros', component: ArtilheirosComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' } // Rota padrão
 ];
 
