@@ -255,6 +255,11 @@ namespace Application.Services.Partida
             await _copaDbContext.SaveChangesAsync();
         }
 
+        public async Task SalvarSumula() 
+        {
+
+        }
+
         private async Task RemoverCartaoAmarelo(Domain.Entities.Jogador jogador)
         {
             var time = await _copaDbContext.Time.FirstAsync(x => x.Id == jogador.IdTime);

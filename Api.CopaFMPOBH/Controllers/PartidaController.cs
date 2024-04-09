@@ -77,5 +77,11 @@ namespace Api.CopaFMPOBH.Controllers
             var partidas = await _partidaService.BuscarPartidasHome();
             return Ok(partidas);
         }
+
+        [HttpPost("[Action]")]
+        public async Task<ActionResult> SalvarSumula()
+        {
+            return Ok();
+        }
     }
 }

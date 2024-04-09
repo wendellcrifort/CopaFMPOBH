@@ -40,10 +40,10 @@ namespace Application.Services.Jogador
         public async Task<List<JogadorViewModel>> BuscarArtilheiros()
         {
             var jogadores = await _copaDbContext.Jogador
+                                                .Include(i => i.Time)
                                                 .AsNoTracking()
                                                 .Where(x => x.GolsMarcados > 0)
                                                 .OrderByDescending(o => o.GolsMarcados)
-                                                .OrderBy(o => o.Jogos)
                                                 .ToListAsync();
 
             return _mapper.Map<List<JogadorViewModel>>(jogadores);
