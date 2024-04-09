@@ -17,7 +17,7 @@ export class ArtilheirosComponent {
 
     ngOnInit(): void {
         this.route.params.subscribe(params => {
-            this.classificacaoService.getArtilheiros()?.subscribe(x => this.jogadores = x);
+            this.classificacaoService.getArtilheiros()?.subscribe(x => { this.jogadores = x, console.log(x) });
         });
     }
 

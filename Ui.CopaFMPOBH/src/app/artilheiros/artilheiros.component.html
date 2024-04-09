@@ -18,11 +18,9 @@
               </div>
               <div class="item" *ngFor="let jogador of jogadores">
                 <div class="left">
-                  <div class="number col-xs-1">
-                    <div class="number paddingZero leftNumber col-xs-1">
+                    <div class="number paddingZero col-xs-1">
                       <img src="assets/images/CopaFMPOBH/Times/{{ jogador.escudo }}" width="24" height="24">
                     </div>
-                  </div>
                   <div class="playername name col-xs-6">{{ nomeJogador(jogador.nome) }}</div>
                   <div class="name col-xs-3" style="text-align:center"> {{jogador.golsMarcados}} </div>
 
