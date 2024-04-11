@@ -79,9 +79,16 @@ namespace Api.CopaFMPOBH.Controllers
         }
 
         [HttpPost("[Action]")]
-        public async Task<ActionResult> SalvarSumula()
+        public async Task<ActionResult> SalvarSumula(SumulaModel sumula)
         {
+            await _partidaService.SalvarSumula(sumula);
             return Ok();
+        }
+
+        [HttpGet("[Action]")]
+        public async Task<ActionResult<List<SumulaViewModel>>> BuscarSumulas()
+        {            
+            return Ok(await _partidaService.BuscarSumula());
         }
     }
 }
