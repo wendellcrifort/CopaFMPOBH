@@ -242,6 +242,25 @@ namespace Application.Services.Partida
             };
         }
 
+        public async Task SalvarSumula(SumulaModel sumula)
+        {
+            _copaDbContext.Sumula.Add(_mapper.Map<Sumula>(sumula));
+            await _copaDbContext.SaveChangesAsync();
+        }
+        public async Task<List<SumulaViewModel>> BuscarSumula()
+        {
+            var sumula = await _copaDbContext.Sumula
+                                             .Include(i => i.Partida)
+                                             .ThenInclude(t => t.TimeMandante)
+                                             .Include(i => i.Partida)
+                                             .ThenInclude(t => t.TimeVisitante)
+                                             .AsNoTracking()
+                                             .ToListAsync();
+
+            var retorno = _mapper.Map<List<SumulaViewModel>>(sumula);
+            return retorno;
+        }
+
         private async Task RemoverCartaoVermelho(Domain.Entities.Jogador jogador)
         {
             var time = await _copaDbContext.Time.FirstAsync(x => x.Id == jogador.IdTime);
@@ -253,11 +272,6 @@ namespace Application.Services.Partida
             _copaDbContext.Time.Update(time);
             _copaDbContext.Jogador.Update(jogador);
             await _copaDbContext.SaveChangesAsync();
-        }
-
-        public async Task SalvarSumula() 
-        {
-
         }
 
         private async Task RemoverCartaoAmarelo(Domain.Entities.Jogador jogador)

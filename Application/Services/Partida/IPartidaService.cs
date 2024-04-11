@@ -14,5 +14,7 @@ namespace Application.Services.Partida
         Task<EventoPlacarViewModel> RemoverEventoPartida(int idEvento);
         Task<List<EventosPartidaViewModel>> BuscarEventosPartida(int idPartida);
         Task<int> IniciarPartida(int idPartida);
+        Task SalvarSumula(SumulaModel sumula);
+        Task<List<SumulaViewModel>> BuscarSumula();
     }
 }

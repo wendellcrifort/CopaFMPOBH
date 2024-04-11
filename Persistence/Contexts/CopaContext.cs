@@ -18,6 +18,8 @@ namespace Persistence.Contexts
         public virtual DbSet<Jogador> Jogador { get; set; }
         public virtual DbSet<EventosPartida> EventosPartida { get; set; }
 
+        public virtual DbSet<Sumula> Sumula { get; set; }
+
         public virtual Task<int> SaveChangesAsync()
         {
             return base.SaveChangesAsync();
