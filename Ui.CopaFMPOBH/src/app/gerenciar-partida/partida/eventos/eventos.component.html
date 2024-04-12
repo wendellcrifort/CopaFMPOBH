@@ -2,33 +2,45 @@
     <div class="item-body">
         <div class="part-list">
             <div class="row" [ngClass]="{'padding-casa': time == 'casa'}">
-                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}">
-                    <span class="item" (click)="abrirModalGol(jogador!.id)">
+                <div class="col-xs-6" [ngClass]="{'padding-item': time == 'casa'}">
+                    <span class="item" (click)="abrirModalGol(jogador!.id)" style="padding-top: 5px;">
                         <span class="logo"><i class='far fa-futbol' style='font-size:60px;color:green'></i></span>
                         <span class="icone">Gol</span>
                     </span>
                 </div>
-                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
+                <div class="col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
                     (click)="abrirModalGol(jogador!.id, true)">
-                    <span class="item">
+                    <span class="item" style="padding-top: 5px;">
                         <span class="logo"><i class='far fa-futbol' style='font-size:60px;color:red'></i></span>
                         <span class="icone">Gol contra</span>
                     </span>
                 </div>
-                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
+                <div class="col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
                     (click)="amarelo(jogador!.id)">
-                    <span class="item">
+                    <span class="item" style="padding-top: 5px;">
                         <span class="logo"><img src="assets/images/CopaFMPOBH/Site/caIcon.png" width="20" height="20"
                                 alt="club-image"></span>
                         <span class="icone">Amarelo</span>
                     </span>
                 </div>
-                <div class="col-md-3 col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
+                <div class="col-xs-6" [ngClass]="{'padding-item': time == 'casa'}"
                     (click)="vermelho(jogador!.id)">
-                    <span class="item">
+                    <span class="item" style="padding-top: 5px;">
                         <span class="logo"><img src="assets/images/CopaFMPOBH/Site/cvIcon.png" width="20" height="20"
                                 alt="club-image"></span>
                         <span class="icone">Vermelho</span>
+                    </span>
+                </div>
+                <div class="col-xs-6" [ngClass]="{'padding-item': time == 'casa'}">
+                    <span class="item" style="padding-top: 5px;" (click)="melhorJogador(jogador!.id)">
+                        <span class="logo"><i class='far fa-star fa-solid' style='font-size:60px;color:#daa520'></i></span>
+                        <span class="icone">Jogador</span>
+                    </span>
+                </div>
+                <div class="col-xs-6" [ngClass]="{'padding-item': time == 'casa'}">
+                    <span class="item" style="padding-top: 5px;" (click)="melhorGoleiro(jogador!.id)">
+                        <span class="logo"><i class='far fa-mitten fa-solid' style='font-size:60px;color:black'></i></span>
+                        <span class="icone">Goleiro</span>
                     </span>
                 </div>
             </div>
@@ -79,7 +91,7 @@
         *ngIf="modalConfirmacao" 
         (cancelar)="fechaModal()" 
         (confirmar)="confirmaCartao()"
-        titulo="confirmar cartão?">
+        [titulo]="mensagemConfirmacao">
     </app-modal-confimacao>
 
 </div>

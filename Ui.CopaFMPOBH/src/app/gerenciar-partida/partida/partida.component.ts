@@ -59,11 +59,31 @@ export class PartidaComponent implements OnInit {
         this.partida!.golsTimeMandante = x.golsMandante;
         this.partida!.golsTimeVisitante = x.golsVisitante;
         this.alertService.showAlertSuccess("evento deletado");
-    }
+      }
     );
   }
 
   public abrirModalFinalizarPartida() {
+    var melhorJogador = this.eventos?.filter(x => x.descricaoEvento == "MelhorJogador").length;
+    var melhorGoleiro = this.eventos?.filter(x => x.descricaoEvento == "MelhorGoleiro").length;
+    
+    if (melhorJogador == 0) {
+      this.alertService.showAlertDanger("melhor JOGADOR não inserido");
+      return;
+    }
+    if (melhorGoleiro == 0) {
+      this.alertService.showAlertDanger("melhor GOLEIRO não inserido");
+      return;
+    }
+    if (melhorJogador! > 1) {
+      this.alertService.showAlertDanger("mais de um JOGADOR selecionado para melhor da partida");
+      return;
+    }
+    if (melhorGoleiro! > 1) {
+      this.alertService.showAlertDanger("mais de um GOLEIRO selecionado para melhor da partida");
+      return;
+    }
+
     this.modalFinalizarPartida = true;
   }
 
@@ -73,8 +93,8 @@ export class PartidaComponent implements OnInit {
 
   public finalizarPartida() {
     this.fecharModalFinalizar();
-    this.partidaService.finalizarPartida(this.id!).subscribe(() => { 
-      this.irParaGerenciarPartidas() 
+    this.partidaService.finalizarPartida(this.id!).subscribe(() => {
+      this.irParaGerenciarPartidas()
       this.alertService.showAlertSuccess("partida finalizada");
     });
   }
@@ -86,8 +106,8 @@ export class PartidaComponent implements OnInit {
       this.jogadorSelecionado = jogador;
   }
 
-  public iniciarPartida(){
-    this.partidaService.inciarPartida(this.id!).subscribe(() => { 
+  public iniciarPartida() {
+    this.partidaService.inciarPartida(this.id!).subscribe(() => {
       this.partida!.emAndamento = true
       this.alertService.showAlertSuccess("partida iniciada");
     });
@@ -101,7 +121,7 @@ export class PartidaComponent implements OnInit {
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
     fileInput.click();
   }
-  
+
   public onFileSelected(event: any) {
     this.file = event.target.files[0];
     this.nomeArquivoSumula = this.file?.name ?? '';
@@ -124,17 +144,17 @@ export class PartidaComponent implements OnInit {
     }
   }
 
-  private salvarSumula(sumulaString : string){
-    var sumula : Sumula =  {
-      idPartida : this.partida!.idPartida,
-      arquivoSumula : sumulaString
+  private salvarSumula(sumulaString: string) {
+    var sumula: Sumula = {
+      idPartida: this.partida!.idPartida,
+      arquivoSumula: sumulaString
     }
 
     this.partidaService.salvarSumula(sumula)
       .subscribe({
         next: response => console.log('Arquivo enviado com sucesso:', response),
         error: err => console.error('Observable emitted an error: ' + err)
-        }
+      }
       );
   }
 
