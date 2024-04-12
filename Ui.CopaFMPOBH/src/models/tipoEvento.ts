@@ -3,4 +3,6 @@ export enum TipoEvento {
     GolContra = 1,        
     CartaoAmarelo = 3,
     CartaoVermelho = 4,
+    MelhorJogador = 5,
+    MelhorGoleiro = 6,
   }
