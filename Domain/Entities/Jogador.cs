@@ -45,6 +45,12 @@ namespace Domain.Entities
         [Column("Suspenso")]
         public bool? Suspenso { get; set; } = false;
 
+        [Column("MelhorJogador")]
+        public int? MelhorJogador { get; set; }
+
+        [Column("MelhorGoleiro")]
+        public int? MelhorGoleiro { get;set; }
+
         [ForeignKey("IdTime")]
         public virtual Time? Time { get; set; }
     }

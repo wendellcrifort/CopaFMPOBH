@@ -168,6 +168,12 @@ namespace Application.Services.Partida
                 case TipoEventoEnum.CartaoVermelho:
                     await AddCartaoVermelho(jogador, timeAcao);
                     break;
+                case TipoEventoEnum.MelhorGoleiro:
+                    await AddVotoMelhorGoleiro(idJogador);
+                    break;
+                case TipoEventoEnum.MelhorJogador:
+                    await AddVotoMelhorJogador(idJogador);
+                    break;
                 default:
                     break;
             }
@@ -353,6 +359,24 @@ namespace Application.Services.Partida
             _copaDbContext.Time.Update(time);
             _copaDbContext.Jogador.Update(jogador);
             await _copaDbContext.SaveChangesAsync();
+        }
+
+        private async Task AddVotoMelhorJogador(int idJogador) 
+        {
+            var jogador = await _copaDbContext.Jogador.FirstAsync(f => f.Id == idJogador);
+            jogador.MelhorJogador += 1;
+            _copaDbContext.Jogador.Update(jogador);
+            await _copaDbContext.SaveChangesAsync();
+
+        }
+
+        private async Task AddVotoMelhorGoleiro(int idJogador)
+        {
+            var jogador = await _copaDbContext.Jogador.FirstAsync(f => f.Id == idJogador);
+            jogador.MelhorGoleiro += 1;
+            _copaDbContext.Jogador.Update(jogador);
+            await _copaDbContext.SaveChangesAsync();
+
         }
 
         private async Task AddCartaoVermelho(Domain.Entities.Jogador jogador, Domain.Entities.Time time)
