@@ -85,10 +85,10 @@ namespace Api.CopaFMPOBH.Controllers
             return Ok();
         }
 
-        [HttpGet("[Action]")]
-        public async Task<ActionResult<List<SumulaViewModel>>> BuscarSumulas()
+        [HttpGet("[Action]/{idPartida}")]
+        public async Task<ActionResult<SumulaModel>> BuscarSumula(int idPartida)
         {            
-            return Ok(await _partidaService.BuscarSumula());
+            return Ok(await _partidaService.BuscarSumula(idPartida));
         }
     }
 }

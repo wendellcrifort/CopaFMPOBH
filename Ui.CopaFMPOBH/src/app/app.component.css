@@ -1,7 +1,7 @@
 .fixed-bottom {
     position: fixed;
     bottom: 0;
-    width: 100%; /* Ou a largura desejada */
-    padding: 45px; /* Opcional: adicionar preenchimento */
-    /* Outros estilos conforme necessário */
+    width: 100%;
+    padding: 45px;
+    z-index: 9999;
 }
