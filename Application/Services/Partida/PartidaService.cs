@@ -39,14 +39,21 @@ namespace Application.Services.Partida
         {
             var partidas = await _copaDbContext.Partida
                                          .AsNoTracking()
-                                         .Include(i => i.TimeMandante)
-                                         .Include(i => i.TimeVisitante)
+                                         .Include(i => i.TimeMandante!.Jogadores)
+                                         .Include(i => i.TimeVisitante!.Jogadores)
                                          .Where(x => !string.IsNullOrEmpty(data)
                                                       ? x.DataPartida == data
                                                       : true)
                                          .ToListAsync();
 
-            return _mapper.Map<List<PartidaViewModel>>(partidas);
+            var eventos = await BuscarEventosPartidas(partidas.Select(x => x.Id).ToList());
+
+            var partidasModel = _mapper.Map<List<PartidaViewModel>>(partidas);
+
+            foreach (var partida in partidasModel)
+                partida.Eventos = eventos.Where(x => x.IdPartida == partida.IdPartida).ToList();
+
+            return partidasModel;
         }
 
         public async Task<PartidasHomeViewModel> BuscarPartidasHome()
@@ -247,17 +254,15 @@ namespace Application.Services.Partida
             _copaDbContext.Sumula.Add(_mapper.Map<Sumula>(sumula));
             await _copaDbContext.SaveChangesAsync();
         }
-        public async Task<List<SumulaViewModel>> BuscarSumula()
+        public async Task<SumulaModel> BuscarSumula(int idPartida)
         {
             var sumula = await _copaDbContext.Sumula
-                                             .Include(i => i.Partida)
-                                             .ThenInclude(t => t.TimeMandante)
-                                             .Include(i => i.Partida)
-                                             .ThenInclude(t => t.TimeVisitante)
+                                             .Where(x=>x.IdPartida == idPartida)
+                                             .OrderByDescending(x=>x.Id)
                                              .AsNoTracking()
-                                             .ToListAsync();
+                                             .FirstOrDefaultAsync();
 
-            var retorno = _mapper.Map<List<SumulaViewModel>>(sumula);
+            var retorno = _mapper.Map<SumulaModel>(sumula);
             return retorno;
         }
 

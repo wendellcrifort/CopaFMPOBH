@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Jogador } from 'src/models/jogador';
 import { Partida } from 'src/models/partida';
+import { Sumula } from 'src/models/sumula';
 import { Time } from 'src/models/time';
+import { AlertService } from 'src/services/alert.service';
+import { PartidaService } from 'src/services/partida.service';
 
 @Component({
   selector: 'app-item-partida',
@@ -12,6 +15,8 @@ export class ItemPartidaComponent {
   @Input() partida: Partida | null = null;
   
   public partidaSelecionada: Partida | null = null;
+
+  constructor(private partidaService : PartidaService, private alertService: AlertService){}
 
   public selecionarPartida(partida: Partida) {
     this.partidaSelecionada = partida == this.partidaSelecionada ? null : partida;
@@ -59,12 +64,23 @@ export class ItemPartidaComponent {
     return eventosJogadores;
   }
 
-  public nomeJogador(nome : string){
-    const [primeiroNome, ...partesRestantes] = nome.trim().split(" ");
-    const ultimoNome = partesRestantes.pop() || '';
-    const nomeCompleto = [primeiroNome, ultimoNome].join(" ");
-
-    return nomeCompleto;
+  public buscarSumula(){
+    this.partidaService.buscarSumula(this.partidaSelecionada!.idPartida)
+    .subscribe((sumula: Sumula) => {
+      if(!sumula || !sumula.arquivoSumula){
+        this.alertService.showAlertDanger("súmula não encontrada");
+        return;
+      }
+      const byteCharacters = atob(sumula.arquivoSumula); // Decodifica a string base64
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: 'image/png' }); // Substitua 'image/png' pelo tipo de imagem retornado pela sua API
+      const url = window.URL.createObjectURL(blob);
+      window.open(url);
+    });
   }
   
 }

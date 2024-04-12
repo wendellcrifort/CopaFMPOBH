@@ -5,13 +5,14 @@ import { Evento } from 'src/models/evento';
 import { Partida } from 'src/models/partida';
 import { PartidasHome } from '../models/partidaHome';
 import { EventoPartida } from 'src/models/eventoPartida';
+import { Sumula } from 'src/models/sumula';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PartidaService {
   private apiUrl = 'https://api.copafmpobh.com.br/Partida';
-  ///private apiUrl = 'http://localhost:5097/Partida';
+  //private apiUrl = 'http://localhost:5097/Partida';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -61,7 +62,11 @@ export class PartidaService {
     return this.http.post<any>(`${this.apiUrl}/IniciarPartida/${id}`, this.httpOptions);
   }
 
-  salvarSumula(idPartida: number, formData: FormData) {
-    return this.http.post<any>(`${this.apiUrl}/Sumula/${idPartida}`, formData)
+  salvarSumula(sumula : Sumula) {
+    return this.http.post<any>(`${this.apiUrl}/SalvarSumula`, sumula)
+  }
+
+  buscarSumula(idPartida : number) {
+    return this.http.get<Sumula>(`${this.apiUrl}/BuscarSumula/${idPartida}`)
   }
 }

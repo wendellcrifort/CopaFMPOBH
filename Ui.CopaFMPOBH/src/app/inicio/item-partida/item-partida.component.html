@@ -32,13 +32,16 @@
 
       <div class="item-body" *ngIf="partida == partidaSelecionada">
         <div class="row">
+          <div class="col-xs-12 text-center" *ngIf="partida?.partidaFinalizada">
+            <button class="btn-link" (click)="buscarSumula()">ver sumula</button>
+          </div>
           <div class="lineup-list">
             <div class="col-xs-6">
               <div class="lineup-list">
                 <div class="item" *ngFor="let jogador of eventos(partida!, partida!.timeMandante, partida!.timeVisitante)">
                   <div class="left">
                     <div class="number"><span>{{jogador.numero}} </span></div>
-                    <div class="name">{{nomeJogador(jogador.nome)}}
+                    <div class="name">{{jogador.nome.split(' ')[0]}}
                       <ng-container *ngFor="let evento of jogador.eventosAgrupados | keyvalue">
                         <ng-container *ngIf="evento.key === 'CartaoAmarelo'">
                           <ng-container *ngFor="let _ of [].constructor(evento.value)">

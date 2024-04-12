@@ -4,6 +4,7 @@ import { error } from 'jquery';
 import { EventoPartida } from 'src/models/eventoPartida';
 import { Jogador } from 'src/models/jogador';
 import { Partida } from 'src/models/partida';
+import { Sumula } from 'src/models/sumula';
 import { AlertService } from 'src/services/alert.service';
 import { PartidaService } from 'src/services/partida.service';
 
@@ -21,7 +22,7 @@ export class PartidaComponent implements OnInit {
   public modalFinalizarPartida = false;
   public jogadorSelecionado: Jogador | null = null;
   public nomeArquivoSumula: string = '';
-  public selectedFile: File | undefined;
+  public file: File | undefined;
 
   constructor(private route: ActivatedRoute, private partidaService: PartidaService, private router: Router, private alertService: AlertService) { }
 
@@ -102,23 +103,53 @@ export class PartidaComponent implements OnInit {
   }
   
   public onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-    this.nomeArquivoSumula = this.selectedFile?.name ?? '';
+    this.file = event.target.files[0];
+    this.nomeArquivoSumula = this.file?.name ?? '';
   }
 
   public salvarArquivo() {
-    if (!this.selectedFile) {
+    if (!this.file) {
       console.error('Nenhum arquivo selecionado.');
       return;
     }
 
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
-    this.partidaService.salvarSumula(this.partida!.idPartida, formData)
+    if (this.file) {
+      this.readFile(this.file).then((byteArray: Uint8Array) => {
+        const byteString = byteArray.reduce((data, byte) => {
+          return data + String.fromCharCode(byte);
+        }, '');
+        const sumulaString = btoa(byteString);
+        this.salvarSumula(sumulaString);
+      });
+    }
+  }
+
+  private salvarSumula(sumulaString : string){
+    var sumula : Sumula =  {
+      idPartida : this.partida!.idPartida,
+      arquivoSumula : sumulaString
+    }
+
+    this.partidaService.salvarSumula(sumula)
       .subscribe({
         next: response => console.log('Arquivo enviado com sucesso:', response),
         error: err => console.error('Observable emitted an error: ' + err)
         }
       );
+  }
+
+  private readFile(file: File): Promise<Uint8Array> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const arrayBuffer = reader.result as ArrayBuffer;
+        const byteArray = new Uint8Array(arrayBuffer);
+        resolve(byteArray);
+      };
+      reader.onerror = () => {
+        reject(reader.error);
+      };
+      reader.readAsArrayBuffer(file);
+    });
   }
 }

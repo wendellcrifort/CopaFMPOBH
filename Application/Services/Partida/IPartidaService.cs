@@ -15,6 +15,6 @@ namespace Application.Services.Partida
         Task<List<EventosPartidaViewModel>> BuscarEventosPartida(int idPartida);
         Task<int> IniciarPartida(int idPartida);
         Task SalvarSumula(SumulaModel sumula);
-        Task<List<SumulaViewModel>> BuscarSumula();
+        Task<SumulaModel> BuscarSumula(int idPartida);
     }
 }
