@@ -68,11 +68,10 @@ namespace Application.Services.Partida
             var eventos = await BuscarEventosPartidas(partidas.Select(x => x.Id).ToList());
 
             var partidasHome = new PartidasHomeViewModel();
-            string hoje = DateTime.Today.ToString("dd-MM");
 
             partidasHome.PartidasAoVivo = _mapper.Map<List<PartidaViewModel>>(partidas.Where(x => x.EmAndamento));
             partidasHome.ProximaPartida = _mapper.Map<PartidaViewModel>(partidas.FirstOrDefault(x => !x.EmAndamento && !x.PartidaFinalizada));
-            partidasHome.PartidasEncerradas = _mapper.Map<List<PartidaViewModel>>(partidas.Where(x => x.PartidaFinalizada && x.DataPartida == hoje));
+            partidasHome.PartidasEncerradas = _mapper.Map<List<PartidaViewModel>>(partidas.Where(x => x.PartidaFinalizada).OrderByDescending(x=>x.DataHoraPartida).Take(4));
 
             foreach (var partida in partidasHome.PartidasAoVivo)
                 partida.Eventos = eventos.Where(x => x.IdPartida == partida.IdPartida).ToList();
