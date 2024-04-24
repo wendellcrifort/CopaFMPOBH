@@ -1,6 +1,7 @@
 ﻿using Application.Common.Enum;
 using Application.Common.Interfaces;
 using Application.Services.Partida.Model;
+using Application.Services.Time;
 using AutoMapper;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -11,11 +12,11 @@ namespace Application.Services.Partida
     {
         private readonly IMapper _mapper;
         private readonly ICopaDbContext _copaDbContext;
-
+        
         public PartidaService(IMapper mapper, ICopaDbContext copaDbContext)
         {
             _mapper = mapper;
-            _copaDbContext = copaDbContext;
+            _copaDbContext = copaDbContext;            
         }
 
         public async Task<int> CriarPartida(PartidaModel partida)
@@ -44,6 +45,7 @@ namespace Application.Services.Partida
                                          .Where(x => !string.IsNullOrEmpty(data)
                                                       ? x.DataPartida == data
                                                       : true)
+                                         .OrderBy(o => o.DataHoraPartida)
                                          .ToListAsync();
 
             var eventos = await BuscarEventosPartidas(partidas.Select(x => x.Id).ToList());

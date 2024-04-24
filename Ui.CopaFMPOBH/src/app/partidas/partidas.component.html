@@ -1,8 +1,10 @@
 <section class="main-club-stuff">
     <div class="container" *ngIf="rodadaSelecionada">
-        <div class="row col-md-12">
-            <h6 style="padding-left: 15px;">rodada {{rodadaSelecionada}}</h6>
-        </div>
+      <div class="row col-md-12">
+        <!--<h6 style="padding-left: 15px;">rodada {{rodadaSelecionada}}</h6>-->
+        <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada != 4">Rodada {{rodadaSelecionada}}</h6>
+        <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada == 4">Semifinais</h6>
+      </div>
     </div>
     <div class="tab-content">
         <div class="tab-pane active" id="managers" role="tabpanel">
