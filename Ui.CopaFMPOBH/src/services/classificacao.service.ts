@@ -9,7 +9,7 @@ import { Jogador } from '../models/jogador';
 })
 export class ClassificacaoService {
 
-    //private apiUrl = 'http://localhost:5097/Ranking';
+    // private apiUrl = 'http://localhost:5097/Ranking';
     private apiUrl = 'https://api.copafmpobh.com.br/Ranking';
 
     constructor(private http: HttpClient) { }
