@@ -56,8 +56,8 @@ namespace Application.Services.Jogador
                                                 .AsNoTracking()
                                                 .Include(x => x.Time)
                                                 .Where(x => x.EhGoleiro)
-                                                .OrderBy(o => o.GolsSofridos)
-                                                .ThenByDescending(o => o.Jogos)
+                                                .OrderByDescending(o => o.MelhorGoleiro)
+                                                .ThenBy(o => o.GolsSofridos)
                                                 .ToListAsync();
 
             return _mapper.Map<List<JogadorViewModel>>(jogadores);
