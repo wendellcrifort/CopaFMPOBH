@@ -55,9 +55,10 @@ namespace Application.Services.Jogador
             var jogadores = await _copaDbContext.Jogador
                                                 .AsNoTracking()
                                                 .Include(x => x.Time)
-                                                .Where(x => x.EhGoleiro)
+                                                .Where(x => x.EhGoleiro && x.MelhorGoleiro > 0)
                                                 .OrderByDescending(o => o.MelhorGoleiro)
                                                 .ThenBy(o => o.GolsSofridos)
+                                                .ThenBy(o => o.Jogos)
                                                 .ToListAsync();
 
             return _mapper.Map<List<JogadorViewModel>>(jogadores);
