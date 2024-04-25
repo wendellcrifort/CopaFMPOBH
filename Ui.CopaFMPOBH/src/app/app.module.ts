@@ -14,18 +14,19 @@ import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida
 import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
 import { EventosComponent } from './gerenciar-partida/partida/eventos/eventos.component';
 import { ClassificacaoComponent } from './classificacao/classificacao.component';
-import { ModalConfimacaoComponent } from './modal-confimacao/modal-confimacao.component';
+import { ModalConfimacaoComponent } from './shared/modal-confimacao/modal-confimacao.component';
 import { HistoricoEventosComponent } from './gerenciar-partida/partida/historico-eventos/historico-eventos.component';
 import { CriarPartidaComponent } from './criar-partida/criar-partida.component';
 import { FormsModule } from '@angular/forms';
-import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
-import { LoadingComponent } from './loading/loading.component';
+import { GoleiroComponent } from './destaques/melhor-goleiro/goleiro.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 import { LoadingInterceptor } from 'src/services/loading.interceptor';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { ItemPartidaComponent } from './inicio/item-partida/item-partida.component';
+import { ItemPartidaComponent } from './shared/item-partida/item-partida.component';
 import { CadastroJogadorComponent } from './cadastro-jogador/cadastro-jogador.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ArtilheirosComponent } from './artilheiros/artilheiros.component'
+import { ArtilheirosComponent } from './destaques/artilheiros/artilheiros.component';
+import { MelhorJogadorComponent } from './destaques/melhor-jogador/melhor-jogador.component'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ArtilheirosComponent } from './artilheiros/artilheiros.component'
     LoadingComponent,
     ItemPartidaComponent,
     CadastroJogadorComponent,
-    ArtilheirosComponent
+    ArtilheirosComponent,
+    MelhorJogadorComponent
   ],
   imports: [
     CommonModule,

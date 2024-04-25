@@ -63,5 +63,18 @@ namespace Application.Services.Jogador
 
             return _mapper.Map<List<JogadorViewModel>>(jogadores);
         }
+
+        public async Task<List<JogadorViewModel>> BuscarMelhoresJogadores()
+        {
+            var jogadores = await _copaDbContext.Jogador
+                                    .AsNoTracking()
+                                    .Include(x => x.Time)
+                                    .Where(x => !x.EhGoleiro && x.MelhorJogador > 0)
+                                    .OrderByDescending(o => o.MelhorJogador)
+                                    .ThenBy(o => o.Jogos)
+                                    .ToListAsync();
+
+            return _mapper.Map<List<JogadorViewModel>>(jogadores);
+        }
     }
 }

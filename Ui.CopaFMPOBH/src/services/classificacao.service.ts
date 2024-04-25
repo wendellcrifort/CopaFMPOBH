@@ -25,4 +25,8 @@ export class ClassificacaoService {
     getArtilheiros(): Observable<Jogador[]> {
         return this.http.get<Jogador[]>(`${this.apiUrl}/BuscarArtilheiros`);
     }
+
+    getMelhorJogador(): Observable<Jogador[]> {
+        return this.http.get<Jogador[]>(`${this.apiUrl}/BuscarMelhoresJogadores`);
+    }
 }

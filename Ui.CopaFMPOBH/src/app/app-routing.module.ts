@@ -7,10 +7,11 @@ import { JogadorComponent } from './jogadores/jogadores.component';
 import { GerenciarPartidaComponent } from './gerenciar-partida/gerenciar-partida.component';
 import { PartidaComponent } from './gerenciar-partida/partida/partida.component';
 import { ClassificacaoComponent } from './classificacao/classificacao.component';
-import { GoleiroComponent } from './melhor-goleiro/goleiro.component';
+import { GoleiroComponent } from './destaques/melhor-goleiro/goleiro.component';
 import { CriarPartidaComponent } from './criar-partida/criar-partida.component';
 import { CadastroJogadorComponent } from './cadastro-jogador/cadastro-jogador.component';
-import { ArtilheirosComponent } from './artilheiros/artilheiros.component'
+import { ArtilheirosComponent } from './destaques/artilheiros/artilheiros.component'
+import { MelhorJogadorComponent } from './destaques/melhor-jogador/melhor-jogador.component'
 
 
 const routes: Routes = [
@@ -21,10 +22,11 @@ const routes: Routes = [
   { path: 'times', component: TimesComponent },
   { path: 'jogadores/:id', component: JogadorComponent },
   { path: 'classificacao', component: ClassificacaoComponent },
-  { path: 'melhorgoleiro', component: GoleiroComponent },
+  { path: 'melhorGoleiro', component: GoleiroComponent },
   { path: 'criarpartida', component: CriarPartidaComponent },
   { path: 'cadastroJogador', component: CadastroJogadorComponent },
   { path: 'artilheiros', component: ArtilheirosComponent },
+  { path: 'melhorJogador', component: MelhorJogadorComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' } // Rota padrão
 ];
 
