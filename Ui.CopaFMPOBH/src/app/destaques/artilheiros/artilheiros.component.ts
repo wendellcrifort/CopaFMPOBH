@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Jogador } from '../../models/jogador';
-import { ClassificacaoService } from '../../services/classificacao.service';
+import { Jogador } from '../../../models/jogador';
+import { ClassificacaoService } from '../../../services/classificacao.service';
 
 @Component({
   selector: 'app-artilheiros',

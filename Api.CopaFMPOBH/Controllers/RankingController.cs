@@ -40,5 +40,12 @@ namespace Api.CopaFMPOBH.Controllers
             var melhoresGoleiros = await _jogadorService.BuscarMelhoresGoleiros();
             return Ok(melhoresGoleiros);
         }
+
+        [HttpGet("[Action]")]
+        public async Task<ActionResult<List<JogadorViewModel>>> BuscarMelhoresJogadores()
+        {
+            var melhoresGoleiros = await _jogadorService.BuscarMelhoresJogadores();
+            return Ok(melhoresGoleiros);
+        }
     }
 }

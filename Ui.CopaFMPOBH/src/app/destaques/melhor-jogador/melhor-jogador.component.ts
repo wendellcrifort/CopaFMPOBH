@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Jogador } from '../../models/jogador';
-import { ClassificacaoService } from '../../services/classificacao.service';
+import { Jogador } from 'src/models/jogador';
+import { ClassificacaoService } from 'src/services/classificacao.service';
 
 @Component({
-  selector: 'app-goleiro',
-  templateUrl: './goleiro.component.html',
-  styleUrls: ['./goleiro.component.css']
+  selector: 'app-melhor-jogador',
+  templateUrl: './melhor-jogador.component.html',
+  styleUrls: ['./melhor-jogador.component.css']
 })
-
-export class GoleiroComponent {
+export class MelhorJogadorComponent {
   goleiros: Jogador[] | undefined;
 
   constructor(private route: ActivatedRoute,
@@ -17,7 +16,7 @@ export class GoleiroComponent {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.classificacaoService.getMelhorGoleiro()?.subscribe(x => this.goleiros = x);
+      this.classificacaoService.getMelhorJogador()!.subscribe(x => this.goleiros = x);
     });
   }
 
@@ -28,6 +27,4 @@ export class GoleiroComponent {
 
     return nomeCompleto;
   }
-  
 }
-

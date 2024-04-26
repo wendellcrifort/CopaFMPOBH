@@ -1,0 +1,39 @@
+<section class="club-main-stat">
+    <div class="container">
+        <div class="col-xs-12" style="padding-left: 5px; padding-right: 5px;">
+            <h6 style="padding-left: 10px;">melhor jogador</h6>
+            <div class="broadcast-item">
+                <div class="item-body">
+                    <div class="row">
+                        <div class="col-xs-12" style="padding-right: 0;">
+                            <div class="lineup-list">
+                                <div class="left">
+                                    <div class="number paddingZero col-xs-1" style="width: 40px !important; font-weight: bold">
+                                        <span>
+                                            -
+                                        </span>
+                                    </div>
+                                    <div class="playername name col-xs-5" style="font-weight: bold">Nome</div>
+                                    <div class="name col-xs-2" style="text-align:center; font-weight: bold">Votos</div>
+                                    <div class="name col-xs-1" style="text-align:center; font-weight: bold">J</div>
+                                    <div class="name col-xs-1" style="text-align:center; font-weight: bold">GS</div>
+                                </div>
+                                <div class="item" *ngFor="let jogador of goleiros">
+                                    <div class="left">
+                                        <div class="number paddingZero col-xs-1">
+                                            <img src="assets/images/CopaFMPOBH/Times/{{ jogador.escudo }}" width="24" height="24">
+                                        </div>
+                                        <div class="playername name col-xs-5">{{ nomeJogador(jogador.nome) }}</div>
+                                        <div class="name col-xs-2" style="text-align:center"> {{jogador.melhorGoleiro}} </div>
+                                        <div class="name col-xs-1" style="text-align:center"> {{jogador.jogos}} </div>
+                                        <div class="name col-xs-1" style="text-align:center"> {{jogador.golsSofridos}} </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

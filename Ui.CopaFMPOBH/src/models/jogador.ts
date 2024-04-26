@@ -15,5 +15,6 @@ export interface Jogador {
   jogos: number;
   escudo: string;
   igreja: string;
-  melhorGoleiro: number
+  melhorGoleiro: number;
+  melhorJogador: number;
 }

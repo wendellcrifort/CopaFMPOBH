@@ -8,5 +8,6 @@ namespace Application.Services.Jogador
         Task<JogadorTimeViewModel> BuscarJogadores(int idTime);
         Task<List<JogadorViewModel>> BuscarArtilheiros();
         Task<List<JogadorViewModel>> BuscarMelhoresGoleiros();
+        Task<List<JogadorViewModel>> BuscarMelhoresJogadores();
     }
 }
