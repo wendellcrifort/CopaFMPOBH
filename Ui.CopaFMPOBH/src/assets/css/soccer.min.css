@@ -18139,16 +18139,11 @@ body.admin-bar .is-sticky .main-menu-wrap {
   transform: translateY(-50%)
 }
 
-.footer .foot-news {
-  padding-top: 59px
-}
-
 .footer .foot-news .item span {
   transition: all .4s
 }
 
 .footer .foot-news .item .name {
-  padding-top: 20px;
   padding-bottom: 5px;
   font-weight: 700;
   line-height: 24px;
