@@ -15,10 +15,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 300px;
+  width: 200px;
   height: 300px;
   margin-top: -150px; /* Metade da altura da imagem */
-  margin-left: -150px; /* Metade da largura da imagem */
+  margin-left: -100px; /* Metade da largura da imagem */
   opacity: 0.8; /* Opacidade de 80% */
 }
 

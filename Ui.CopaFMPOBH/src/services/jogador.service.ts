@@ -11,7 +11,7 @@ import { JogadorForm } from 'src/models/jogadorForm';
 export class JogadorService {
   
   //private apiUrl = 'http://localhost:5097/Jogador';
-  private apiUrl = 'https://api.copafmpobh.com.br/Jogador';
+  private apiUrl = 'https://api.ipbfutsal.com.br/Jogador';
 
   constructor(private http: HttpClient) { }
 
