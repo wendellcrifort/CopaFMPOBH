@@ -39,7 +39,7 @@ namespace Domain.Entities
         [Column("CartoesAmarelos")]
         public int? CartoesAmarelos { get; set; } = 0;
 
-        [Column("CartoesVemelhos")]
+        [Column("CartoesVermelhos")]
         public int? CartoesVermelhos { get; set; } = 0;
 
         [Column("Suspenso")]

@@ -10,8 +10,8 @@ import { JogadorForm } from 'src/models/jogadorForm';
 })
 export class JogadorService {
   
-  //private apiUrl = 'http://localhost:5097/Jogador';
-  private apiUrl = 'https://api.ipbfutsal.com.br/Jogador';
+  private apiUrl = 'http://localhost:5097/Jogador';
+  //private apiUrl = 'http://api.ipbfutsal.com.br/Jogador';
 
   constructor(private http: HttpClient) { }
 
