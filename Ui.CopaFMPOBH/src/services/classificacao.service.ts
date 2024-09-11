@@ -10,7 +10,7 @@ import { Jogador } from '../models/jogador';
 export class ClassificacaoService {
 
     //private apiUrl = 'http://localhost:5097/Ranking';
-    private apiUrl = 'http://api.ipbfutsal.com.br/Ranking';
+    private apiUrl = 'https://api.ipbfutsal.com.br/Ranking';
 
     constructor(private http: HttpClient) { }
 

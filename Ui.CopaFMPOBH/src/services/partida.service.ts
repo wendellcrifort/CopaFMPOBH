@@ -11,7 +11,7 @@ import { Sumula } from 'src/models/sumula';
   providedIn: 'root'
 })
 export class PartidaService {
-  private apiUrl = 'http://api.ipbfutsal.com.br/Partida';
+  private apiUrl = 'https://api.ipbfutsal.com.br/Partida';
   //private apiUrl = 'http://localhost:5097/Partida';
 
   httpOptions = {
