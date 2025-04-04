@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { classificacao } from '../models/classificacao';
 import { Jogador } from '../models/jogador';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ClassificacaoService {
 
-    //private apiUrl = 'http://localhost:5097/Ranking';
-    private apiUrl = 'https://api.ipbfutsal.com.br/Ranking';
+    private apiUrl = `${environment.apiUrl}Ranking`;    
 
     constructor(private http: HttpClient) { }
 

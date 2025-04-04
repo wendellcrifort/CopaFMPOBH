@@ -5,6 +5,8 @@ import { Sumula } from 'src/models/sumula';
 import { Time } from 'src/models/time';
 import { AlertService } from 'src/services/alert.service';
 import { PartidaService } from 'src/services/partida.service';
+import { SignalRService } from '../../../services/signalr.service ';
+
 
 @Component({
   selector: 'app-item-partida',
@@ -16,7 +18,16 @@ export class ItemPartidaComponent {
   
   public partidaSelecionada: Partida | null = null;
 
-  constructor(private partidaService : PartidaService, private alertService: AlertService){}
+    constructor(private partidaService: PartidaService, private alertService: AlertService, private slRService: SignalRService){}
+
+    ngOnInit() {
+        this.slRService.getPlacarAtualizado().subscribe(data => {
+            if (this.partida && this.partida.idPartida === data.idPartida) {
+                this.partida.golsTimeMandante = data.golsMandante;
+                this.partida.golsTimeVisitante = data.golsVisitante;
+            }
+        });
+    }
 
   public selecionarPartida(partida: Partida) {
     this.partidaSelecionada = partida == this.partidaSelecionada ? null : partida;

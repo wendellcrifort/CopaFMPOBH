@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { AlertService } from 'src/services/alert.service';
+import { SignalRService } from '../services/signalr.service ';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent {
 
   alert: any;
 
-  constructor(private router: Router, private alertService: AlertService) { }
+    constructor(private router: Router, private alertService: AlertService, private signalRService: SignalRService) { }
 
   ngOnInit(): void {
     this.alertService.getAlerts().subscribe(alert => {
@@ -22,6 +23,8 @@ export class AppComponent {
         this.alert = null;
       }, 5000);
     });
+
+    this.signalRService.iniciarConexao();
 
     this.router.events.pipe(
       filter((event: any) => event instanceof NavigationEnd)

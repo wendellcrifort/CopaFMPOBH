@@ -6,67 +6,67 @@ import { Partida } from 'src/models/partida';
 import { PartidasHome } from '../models/partidaHome';
 import { EventoPartida } from 'src/models/eventoPartida';
 import { Sumula } from 'src/models/sumula';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class PartidaService {
-  private apiUrl = 'https://api.ipbfutsal.com.br/Partida';
-  //private apiUrl = 'http://localhost:5097/Partida';
+	private apiUrl = `${environment.apiUrl}Partida`;
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
+	httpOptions = {
+		headers: new HttpHeaders({
+			'Content-Type': 'application/json'
+		})
+	};
 
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-  obterPartidas(data?: string): Observable<Partida[]> {
-    var url = `${this.apiUrl}/BuscarPartidas`;
+	obterPartidas(data?: string): Observable<Partida[]> {
+		var url = `${this.apiUrl}/BuscarPartidas`;
 
-    if (data) url += `?data=${data}`;
-    
-    return this.http.get<Partida[]>(url);
-  }
+		if (data) url += `?data=${data}`;
 
-  obterPartidasHome(): Observable<PartidasHome> {
-    return this.http.get<PartidasHome>(`${this.apiUrl}/BuscarPartidasHome`);
-  }
+		return this.http.get<Partida[]>(url);
+	}
 
-  obterPartidaPorId(id: number): Observable<Partida> | undefined {
-    return this.http.get<Partida>(`${this.apiUrl}/BuscarPartidaEmAndamento/${id}`);
-  }
+	obterPartidasHome(): Observable<PartidasHome> {
+		return this.http.get<PartidasHome>(`${this.apiUrl}/BuscarPartidasHome`);
+	}
 
-  obterEventosPartida(id: number): Observable<EventoPartida[]> | undefined {
-    return this.http.get<EventoPartida[]>(`${this.apiUrl}/BuscarEventosPartidas/${id}`);
-  }
+	obterPartidaPorId(id: number): Observable<Partida> | undefined {
+		return this.http.get<Partida>(`${this.apiUrl}/BuscarPartidaEmAndamento/${id}`);
+	}
 
-  removerEventoPartida(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/RemoverEventoPartida/${id}`);
-  }
+	obterEventosPartida(id: number): Observable<EventoPartida[]> | undefined {
+		return this.http.get<EventoPartida[]>(`${this.apiUrl}/BuscarEventosPartidas/${id}`);
+	}
 
-  registrarEvento(evento: Evento): Observable<any> {
-    var url = `${this.apiUrl}/RegistrarEventoPartida?idPartida=${evento.idPartida}&idJogador=${evento.idJogador}&evento=${evento.evento}`;
+	removerEventoPartida(id: number): Observable<any> {
+		return this.http.delete(`${this.apiUrl}/RemoverEventoPartida/${id}`);
+	}
 
-    if (evento.idGoleiro) url += `&idGoleiro=${evento.idGoleiro}`;
+	registrarEvento(evento: Evento): Observable<any> {
+		var url = `${this.apiUrl}/RegistrarEventoPartida?idPartida=${evento.idPartida}&idJogador=${evento.idJogador}&evento=${evento.evento}`;
 
-    return this.http.post<any>(url, this.httpOptions);
-  }
+		if (evento.idGoleiro) url += `&idGoleiro=${evento.idGoleiro}`;
 
-  finalizarPartida(id: number): Observable<any> {
-    return this.http.patch(`${this.apiUrl}/FinalizarPartida/${id}`, null);
-  }
+		return this.http.post<any>(url, this.httpOptions);
+	}
 
-  inciarPartida(id: number) {
-    return this.http.post<any>(`${this.apiUrl}/IniciarPartida/${id}`, this.httpOptions);
-  }
+	finalizarPartida(id: number): Observable<any> {
+		return this.http.patch(`${this.apiUrl}/FinalizarPartida/${id}`, null);
+	}
 
-  salvarSumula(sumula : Sumula) {
-    return this.http.post<any>(`${this.apiUrl}/SalvarSumula`, sumula)
-  }
+	inciarPartida(id: number) {
+		return this.http.post<any>(`${this.apiUrl}/IniciarPartida/${id}`, this.httpOptions);
+	}
 
-  buscarSumula(idPartida : number) {
-    return this.http.get<Sumula>(`${this.apiUrl}/BuscarSumula/${idPartida}`)
-  }
+	salvarSumula(sumula: Sumula) {
+		return this.http.post<any>(`${this.apiUrl}/SalvarSumula`, sumula)
+	}
+
+	buscarSumula(idPartida: number) {
+		return this.http.get<Sumula>(`${this.apiUrl}/BuscarSumula/${idPartida}`)
+	}
 }
