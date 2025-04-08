@@ -58,6 +58,11 @@ export class PartidaService {
     return this.http.patch(`${this.apiUrl}/FinalizarPartida/${id}`, null);
   }
 
+  finalizarPartidaWo(id: number, idTimeVencedor:number): Observable<any> {
+    var url = `${this.apiUrl}/FinalizarPartidaWo?idPartida=${id}&idTimeVencedor=${idTimeVencedor}`;
+    return this.http.post<any>(url, this.httpOptions);
+  }
+  
   inciarPartida(id: number) {
     return this.http.post<any>(`${this.apiUrl}/IniciarPartida/${id}`, this.httpOptions);
   }

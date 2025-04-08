@@ -20,9 +20,11 @@ export class PartidaComponent implements OnInit {
   eventos: EventoPartida[] | null = null;
 
   public modalFinalizarPartida = false;
+  public modalFinalizarPartidaWo = false;
   public jogadorSelecionado: Jogador | null = null;
   public nomeArquivoSumula: string = '';
   public file: File | undefined;
+  public idTimeVencedorWo: number = 0;
 
   constructor(private route: ActivatedRoute, private partidaService: PartidaService, private router: Router, private alertService: AlertService) { }
 
@@ -62,6 +64,10 @@ export class PartidaComponent implements OnInit {
       }
     );
   }
+  public abrirModalFinalizarPartidaWo() {
+    this.idTimeVencedorWo = 0;
+    this.modalFinalizarPartidaWo = true;
+  }
 
   public abrirModalFinalizarPartida() {
     var melhorJogador = this.eventos?.filter(x => x.descricaoEvento == "MelhorJogador").length;
@@ -97,6 +103,30 @@ export class PartidaComponent implements OnInit {
       this.irParaGerenciarPartidas()
       this.alertService.showAlertSuccess("partida finalizada");
     });
+  }
+  
+  public fecharModalFinalizarWo() {
+    this.idTimeVencedorWo = 0;
+    this.modalFinalizarPartidaWo = false;
+  }
+
+  public finalizarPartidaWo() {
+    if(this.idTimeVencedorWo == 0)
+    {
+      this.alertService.showAlertDanger("selecione um time");
+      return;
+    }
+    this.partidaService.finalizarPartidaWo(this.id!, this.idTimeVencedorWo).subscribe(() => {
+      this.irParaGerenciarPartidas()
+      this.fecharModalFinalizarWo();
+      this.alertService.showAlertSuccess("partida finalizada");
+    }, error => 
+      this.alertService.showAlertDanger("erro ao finalizar por wo")
+    );
+  }
+
+  public selecionarTimeWo(idTimeVencedorWo: number){
+    this.idTimeVencedorWo = idTimeVencedorWo;
   }
 
   public selecionarJogador(jogador: Jogador) {
