@@ -1,1 +1,1 @@
-Projeto para gestão de todo a copa de futsal FMPOBH
+Projeto para gestão de toda a copa de futsal FMPOBH

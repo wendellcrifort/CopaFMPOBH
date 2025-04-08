@@ -1,9 +1,10 @@
 ﻿using Application.Common.Enum;
 using Application.Common.Interfaces;
+using Application.Hubs;
 using Application.Services.Partida.Model;
-using Application.Services.Time;
 using AutoMapper;
 using Domain.Entities;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Services.Partida
@@ -12,11 +13,13 @@ namespace Application.Services.Partida
     {
         private readonly IMapper _mapper;
         private readonly ICopaDbContext _copaDbContext;
-        
-        public PartidaService(IMapper mapper, ICopaDbContext copaDbContext)
+        private readonly IHubContext<PlacarHub> _hubContext;
+
+        public PartidaService(IMapper mapper, ICopaDbContext copaDbContext, IHubContext<PlacarHub> hubContext)
         {
             _mapper = mapper;
-            _copaDbContext = copaDbContext;            
+            _copaDbContext = copaDbContext;
+            _hubContext = hubContext;            
         }
 
         public async Task<int> CriarPartida(PartidaModel partida)
@@ -191,6 +194,8 @@ namespace Application.Services.Partida
             _copaDbContext.EventosPartida.Add(novoEvento);
             await _copaDbContext.SaveChangesAsync();
 
+            await _hubContext.Clients.All.SendAsync("ReceberAtualizacaoPlacar", idPartida, partida.GolsTimeMandante ?? 0, partida.GolsTimeVisitante ?? 0);
+
             return new EventoPlacarViewModel()
             {
                 IdEvento = novoEvento.Id,
@@ -247,6 +252,8 @@ namespace Application.Services.Partida
 
             _copaDbContext.EventosPartida.Remove(evento);
             var result = await _copaDbContext.SaveChangesAsync();
+
+            await _hubContext.Clients.All.SendAsync("ReceberAtualizacaoPlacar", partida.Id, partida.GolsTimeMandante ?? 0, partida.GolsTimeVisitante ?? 0);
 
             return new EventoPlacarViewModel()
             {

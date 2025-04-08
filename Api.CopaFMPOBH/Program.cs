@@ -1,3 +1,4 @@
+using Application.Hubs;
 using Application.Services.Jogador;
 using Application.Services.Partida;
 using Application.Services.Time;
@@ -20,6 +21,8 @@ builder.Services.AddApplicationService();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 app.UseCors((builder => builder
@@ -35,5 +38,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<PlacarHub>("/placarHub"); // Mapeia o hub do SignalR
+});
 
 app.Run();
