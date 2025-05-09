@@ -1,12 +1,13 @@
 <section class="main-club-stuff">
     <div class="container" *ngIf="rodadaSelecionada">
-      <div class="row col-md-12">
-        <!--<h6 style="padding-left: 15px;">rodada {{rodadaSelecionada}}</h6>-->
-        <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada != 4 && rodadaSelecionada != 5 && rodadaSelecionada != 6">Rodada {{rodadaSelecionada}}</h6>
-        <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada == 4">Semifinais</h6>
-        <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada == 5">Terceiro Lugar</h6>
-        <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada == 6">Grande Final</h6>
-      </div>
+        <div class="row col-md-12">
+            <!--<h6 style="padding-left: 15px;">rodada {{rodadaSelecionada}}</h6>-->
+            <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada != 4 && rodadaSelecionada != 5 && rodadaSelecionada != 6">Rodada {{rodadaSelecionada}}</h6>
+            <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada == 4">Play offs</h6>
+            <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada == 5">Semifinais</h6>
+            <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada == 6">Terceiro Lugar</h6>
+            <h6 style="padding-left: 15px;" *ngIf="rodadaSelecionada == 7">Grande Final</h6>
+        </div>
     </div>
     <div class="tab-content">
         <div class="tab-pane active" id="managers" role="tabpanel">
