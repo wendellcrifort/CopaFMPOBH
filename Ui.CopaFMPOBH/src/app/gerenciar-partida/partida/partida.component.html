@@ -85,7 +85,12 @@
             </div>
         </div>
         <div class="row sem-margem">
-            <div class="col-xs-12 text-right" *ngIf="partida.emAndamento">
+            <div class="col-xs-6 text-left" [attr.disabled]="partida.partidaFinalizada ? true : null">
+                <button class="button btn btn-secondary" (click)="abrirModalFinalizarPartidaWo()">
+                    w.o
+                </button>
+            </div>
+            <div class="col-xs-6 text-right" *ngIf="partida.emAndamento">
                 <button class="button btn btn-secondary" (click)="abrirModalFinalizarPartida()">
                     finalizar
                 </button>
@@ -109,6 +114,31 @@
 
         <app-modal-confimacao *ngIf="modalFinalizarPartida" (cancelar)="fecharModalFinalizar()"
             (confirmar)="finalizarPartida()" titulo="finalizar partida?">
+        </app-modal-confimacao>
+        
+        <app-modal-confimacao *ngIf="modalFinalizarPartidaWo" (cancelar)="fecharModalFinalizarWo()"
+            (confirmar)="finalizarPartidaWo()" titulo="finalizar por WO?">
+            <div class="row">
+                <h6 style="padding: 0 0 0 15px; margin-top: 0;">time vencedor</h6>
+            </div>
+            <div class="row">
+                <div class="last-match" style="border-bottom: none"> 
+                    <div class="team" (click)="selecionarTimeWo(partida.timeMandante.id)"
+                        [ngClass]="{ 'active': idTimeVencedorWo === partida.timeMandante.id }"
+                    >
+                        <a><img src="assets/images/CopaFMPOBH/Times/{{ partida.timeMandante.escudo }}" width="40"
+                                height="40" alt="team-logo"></a>
+                        <a class="name" style="padding: 5px;">{{partida.timeMandante.nome}}</a>
+                    </div>
+                    <div class="team right" (click)="selecionarTimeWo(partida.timeVisitante.id)"
+                        [ngClass]="{ 'active': idTimeVencedorWo === partida.timeVisitante.id }"
+                    >
+                        <a><img src="assets/images/CopaFMPOBH/Times/{{ partida.timeVisitante.escudo }}" width="40"
+                                height="40" alt="team-logo"></a>
+                        <a class="name" style="padding: 5px;">{{partida.timeVisitante.nome}}</a>
+                    </div>
+                </div>
+            </div>
         </app-modal-confimacao>
 
     </div>
