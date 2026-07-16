@@ -14,16 +14,10 @@ namespace Domain.Entities
 
         [Column("Nome")]
         public string Nome { get; set; }
-
-        [Column("Igreja")]
-        public string Igreja { get; set; }
-
+        
         [Column("Numero")]
         public int Numero { get; set; }
-
-        [Column("Idade")]
-        public int Idade { get; set; }
-
+       
         [Column("GolsMarcados")]
         public int? GolsMarcados { get; set; } = 0;
 

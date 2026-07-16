@@ -23,9 +23,7 @@ export class CadastroJogadorComponent implements OnInit {
   ngOnInit(): void {
     this.jogadorForm = this.formBuilder.group({
       nome: '',
-      numero: null,
-      idade:null,
-      igreja:'',
+      numero: null,      
       IdTime:0,
       ehGoleiro:false
     });
@@ -48,9 +46,7 @@ export class CadastroJogadorComponent implements OnInit {
     this.ArrayFormJogadores.push(
       this.formBuilder.group({
         nome: '',
-        numero: null,
-        idade:null,
-        igreja:'',
+        numero: null,       
         IdTime:"",
         ehGoleiro:false
       })

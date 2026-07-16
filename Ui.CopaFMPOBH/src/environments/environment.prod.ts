@@ -1,4 +1,4 @@
 export const environment = {
 	production: true,
-	apiUrl: 'https://api.ipbfutsal.com.br/'
+	apiUrl: 'https://api.metropolitanocristao.com.br/'
 };

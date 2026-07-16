@@ -13,7 +13,7 @@ export class SignalRService {
 
     public iniciarConexao() {
         this.hubConnection = new signalR.HubConnectionBuilder()
-            .withUrl('https://api.ipbfutsal.com.br/placarHub', {
+            .withUrl('https://api.metropolitanocristao.com.br/placarHub', {
                 skipNegotiation: true, 
                 transport: signalR.HttpTransportType.WebSockets 
             })

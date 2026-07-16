@@ -31,7 +31,7 @@ namespace Application.Services.Jogador
             var jogadoresTime = await _copaDbContext.Time
                                                     .AsNoTracking()
                                                     .Include(i => i.Jogadores
-                                                    .OrderBy(o => o.Nome))
+                                                    .OrderByDescending(o => o.EhGoleiro).ThenBy(o => o.Numero))
                                                     .FirstAsync(x => x.Id == idTime);
 
             return _mapper.Map<JogadorTimeViewModel>(jogadoresTime);

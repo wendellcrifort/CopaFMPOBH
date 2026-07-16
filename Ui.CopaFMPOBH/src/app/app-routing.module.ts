@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'jogadores/:id', component: JogadorComponent },
   { path: 'classificacao', component: ClassificacaoComponent },
   { path: 'melhorGoleiro', component: GoleiroComponent },
-  { path: 'criarpartida', component: CriarPartidaComponent },
+  { path: 'criarPartida', component: CriarPartidaComponent },
   { path: 'cadastroJogador', component: CadastroJogadorComponent },
   { path: 'artilheiros', component: ArtilheirosComponent },
   { path: 'melhorJogador', component: MelhorJogadorComponent },

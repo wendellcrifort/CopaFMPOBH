@@ -13,8 +13,7 @@ export interface Jogador {
   cartoesVermelhos: number;
   suspenso: boolean;
   jogos: number;
-  escudo: string;
-  igreja: string;
+  escudo: string;  
   melhorGoleiro: number;
   melhorJogador: number;
 }

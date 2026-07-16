@@ -3977,7 +3977,7 @@ fieldset[disabled] .btn-default:hover {
 }
 
 .btn-preto:hover {
-  background: #D6001C;
+  background: #FDC60A;
   color: #fff
 }
 
@@ -4004,15 +4004,15 @@ fieldset[disabled] .btn-default:hover {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #8f081a;
+  background-color: #FDC60A;
   border-color: #800a1a
 }
 
 
 .btn-primary {
-  color: #fff;
-  background-color: #D6001C;
-  border-color: #e7324b;
+    color: #fff;
+    background-color: #FDC60A;
+    border-color: #FDC60A;
 }
 
 .btn-primary.focus,
@@ -4024,7 +4024,7 @@ fieldset[disabled] .btn-default:hover {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #8f081a;
+  background-color: #FDC60A;
   border-color: #800a1a
 }
 
@@ -4046,7 +4046,7 @@ fieldset[disabled] .btn-default:hover {
 .open>.dropdown-toggle.btn-primary:focus,
 .open>.dropdown-toggle.btn-primary:hover {
   color: #fff;
-  background-color: #8f081a;
+  background-color: #FDC60A;
   border-color: #800a1a
 }
 
@@ -4065,12 +4065,12 @@ fieldset[disabled] .btn-default:hover {
 fieldset[disabled] .btn-primary.focus,
 fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary:hover {
-  background-color: #8f081a;
+  background-color: #FDC60A;
   border-color: #800a1a
 }
 
 .btn-primary .badge {
-  color: #D6001C;
+  color: #FDC60A;
   background-color: #fff
 }
 
@@ -4336,7 +4336,7 @@ fieldset[disabled] .btn-danger:hover {
 
 .btn-link {
   font-weight: 400;
-  color: #D6001C;
+  color: #FDC60A;
   border-radius: 0
 }
 
@@ -4530,7 +4530,7 @@ tbody.collapse.in {
 .dropdown-menu>.active>a:hover {
   color: #fff;
   text-decoration: none;
-  background-color: #D6001C;
+  background-color: #FDC60A;
   outline: 0
 }
 
@@ -16826,7 +16826,7 @@ body {
 }
 
 a {
-  color: #D6001C;
+  color: #FDC60A;
   text-decoration: none;
   outline: 0;
   transition: all .4s
@@ -17100,7 +17100,7 @@ h5.esport-landing-header {
 }
 
 .cart-drop table .delete a:hover:before {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .cart-drop table td.info {
@@ -17359,7 +17359,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
 
 .main-menu>li:hover>a {
   background: 0 0;
-  color: #D6001C
+  color: #FDC60A
 }
 
 .main-menu>li a:focus {
@@ -17384,7 +17384,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
   content: '';
   width: 100%;
   height: 2px !important;
-  background: #D6001C;
+  background: #FDC60A;
   bottom: 30px;
   left: 0;
   position: absolute;
@@ -17415,7 +17415,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #D6001C;
+  background: #FDC60A;
   position: absolute;
   top: -2px;
   right: -3px;
@@ -17445,7 +17445,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
 }
 
 .main-menu>li>ul li {
-  border-left: 2px solid #D6001C;
+  border-left: 2px solid #FDC60A;
   margin: 0;
   display: block;
   position: relative;
@@ -17463,7 +17463,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
 }
 
 .main-menu>li>ul>li:hover {
-  background: #D6001C;
+  background: #FDC60A;
   border-left: 2px solid #000
 }
 
@@ -17490,7 +17490,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
 }
 
 .main-menu>li>ul>li>ul li:hover {
-  background: #D6001C;
+  background: #FDC60A;
   border-left: 2px solid #000
 }
 
@@ -17547,7 +17547,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
   margin-top: 65px;
   padding: 9px 26px 8px 26px;
   display: inline-block;
-  background: #D6001C;
+  background: #FDC60A;
   border-radius: 9px;
   color: #141414;
   font-size: 16px;
@@ -17623,7 +17623,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
   margin-top: 65px;
   padding: 9px 26px 8px 26px;
   display: inline-block;
-  background: #D6001C;
+  background: #FDC60A;
   border-radius: 9px;
   color: #141414;
   font-size: 16px;
@@ -17806,7 +17806,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
 .call-to-action .join {
   padding: 9px 31px 10px 31px;
   display: inline-block;
-  background: #D6001C;
+  background: #FDC60A;
   border-radius: 9px;
   color: #141414;
   font-size: 16px;
@@ -17833,7 +17833,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
 }
 
 #show-all-link:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .store-list-item>div {
@@ -17899,7 +17899,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
   transform: rotate(9deg);
   transition: all .4s;
   top: 100%;
-  background: #D6001C;
+  background: #FDC60A;
   z-index: 0
 }
 
@@ -17956,7 +17956,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
   font-size: 12px;
   color: #141414;
   float: left;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .store-list-item .btn:last-child {
@@ -18152,7 +18152,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
 }
 
 .footer .foot-news .item .name:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .footer .foot-news .item .date {
@@ -18277,7 +18277,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
   content: '';
   width: 100%;
   height: 2px !important;
-  background: #D6001C;
+  background: #FDC60A;
   bottom: 30px;
   left: 0;
   position: absolute;
@@ -18356,7 +18356,7 @@ body.admin-bar .is-sticky .main-menu-wrap {
 }
 
 .main-match-shedule.amateurs-match-shedule>ul.player-filters li a:before {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .image-header {
@@ -18626,7 +18626,7 @@ ul.team-legend {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s;
   z-index: -1
 }
@@ -18647,7 +18647,7 @@ ul.team-legend {
   width: 100%;
   transition: all .6s;
   margin-top: 0;
-  border: solid #D6001C;
+  border: solid #FDC60A;
   border-width: 0 0 0 2px;
   position: relative;
   background: #141414;
@@ -18694,7 +18694,7 @@ ul.team-legend {
 }
 
 .categories-list>li ul li:hover a {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .categories-list>li:hover>ul {
@@ -18783,7 +18783,7 @@ ul.team-legend {
   display: block;
   height: 39px;
   line-height: 39px;
-  background: #D6001C;
+  background: #FDC60A;
   color: #141414
 }
 
@@ -18827,7 +18827,7 @@ ul.team-legend {
 }
 
 .recent-news .item .date a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .recent-news .item .name {
@@ -18839,7 +18839,7 @@ ul.team-legend {
 }
 
 .recent-news .item .name:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .content {
@@ -18863,8 +18863,8 @@ ul.team-legend {
 }
 
 .tags a:hover {
-  background: #D6001C;
-  border-color: #D6001C
+  background: #FDC60A;
+  border-color: #FDC60A
 }
 
 .news-list .item {
@@ -18885,7 +18885,7 @@ ul.team-legend {
   line-height: normal;
   text-transform: uppercase;
   color: #fff;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .news-list .item .img-wrap .bage:before {
@@ -18948,7 +18948,7 @@ ul.team-legend {
   left: 0;
   right: 0;
   opacity: 0;
-  background: #D6001C;
+  background: #FDC60A;
   transform: skewY(4deg);
   z-index: 0;
   transition: all .3s;
@@ -19022,7 +19022,7 @@ ul.team-legend {
 }
 
 .news-list .item .info .continue:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .news-list .item .info .comment-quantity {
@@ -19076,7 +19076,7 @@ ul.team-legend {
 }
 
 .sidebar-btn {
-  background: #D6001C;
+  background: #FDC60A;
   font-size: 12px;
   text-transform: uppercase;
   color: #141414
@@ -19104,7 +19104,7 @@ ul.team-legend {
 }
 
 .champ-nav-list li a:hover {
-  background: #D6001C;
+  background: #FDC60A;
   color: #141414
 }
 
@@ -19182,7 +19182,7 @@ ul.team-legend {
 }
 
 .news-single .item .top-info .date a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .news-single .item .top-info .comment-quantity {
@@ -19469,7 +19469,7 @@ blockquote p.name {
 }
 
 .share-box .share-socials li a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .comments-wrap {
@@ -19518,7 +19518,7 @@ blockquote p.name {
 }
 
 .comment-item .info .date a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .comment-item .info .date .quote {
@@ -19613,7 +19613,7 @@ blockquote p.name {
 .leave-comment-wrap .comment-submit {
   padding: 18px 30px 16px 30px;
   border-radius: 9px;
-  background: #D6001C;
+  background: #FDC60A;
   border: none;
   font-size: 12px;
   text-transform: uppercase;
@@ -19761,7 +19761,7 @@ blockquote p.name {
     font-size: 18px;
     font-weight: 700;
     color: #fff;
-    background: #D6001C;
+    background: #FDC60A;
     height: 32px;
     line-height: 30px;
     border-radius: 9px;
@@ -19791,7 +19791,7 @@ blockquote p.name {
     font-size: 14px;
     font-weight: 700;
     color: #fff;
-    background: #D6001C;
+    background: #FDC60A;
     height: 32px;
     line-height: 30px;
     border-radius: 9px;
@@ -20049,7 +20049,7 @@ td a {
 }
 
 .player-hockey-wrap .circle-item path {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 .player-hockey-wrap .circle-item>.text {
@@ -20059,7 +20059,7 @@ td a {
 #circle-bar2 .progressbar-text,
 #circle-bar3 .progressbar-text {
   font-size: 12px;
-  color: #D6001C;
+  color: #FDC60A;
   font-family: Montserrat
 }
 
@@ -20095,7 +20095,7 @@ td a {
   position: relative;
   margin: 10px;
   margin-top: 20px;
-  color: #D6001C
+  color: #FDC60A
 }
 
 .canvas-minutes {
@@ -20121,7 +20121,7 @@ td a {
 }
 
 .player-hockey-wrap .number {
-  color: #D6001C;
+  color: #FDC60A;
   font-size: 40px;
   font-family: Montserrat
 }
@@ -20186,7 +20186,7 @@ td a {
 }
 
 .filter-wrap .ui-widget-header {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .filter-wrap .ui-slider .ui-slider-handle {
@@ -20196,7 +20196,7 @@ td a {
   border: none;
   cursor: pointer;
   border-radius: 50%;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .filter-wrap .filter-title {
@@ -20477,7 +20477,7 @@ td a {
 
 .product-right-info .details ul li {
   padding-bottom: 3px;
-  color: #D6001C
+  color: #FDC60A
 }
 
 .product-right-info .details ul li span {
@@ -20486,7 +20486,7 @@ td a {
 
 .product-right-info .details ul li a {
   font-size: 16px;
-  color: #D6001C
+  color: #FDC60A
 }
 
 .product-right-info .socials {
@@ -20545,7 +20545,7 @@ td a {
 }
 
 .feat-show-all:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 [type=checkbox].filter-check:checked,
@@ -20646,7 +20646,7 @@ label:hover:before {
 .post-password-form input[type=submit] {
   border-radius: 3px;
   font-size: 16px;
-  background-color: #D6001C;
+  background-color: #FDC60A;
   color: #141414;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -20775,7 +20775,7 @@ label:hover:before {
 }
 
 .cart-table tr:hover .delete a:before {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .cart-table tr:hover .delete a i {
@@ -20823,7 +20823,7 @@ label:hover:before {
   bottom: 0;
   right: -30px;
   left: 0;
-  background: #D6001C;
+  background: #FDC60A;
   transform: skew(-6deg);
   transition: all .4s
 }
@@ -20847,7 +20847,7 @@ label:hover:before {
   font-size: 12px;
   text-transform: uppercase;
   font-family: Montserrat, sans-serif;
-  background: #D6001C;
+  background: #FDC60A;
   border: none;
   color: #141414
 }
@@ -20987,7 +20987,7 @@ label:hover:before {
   color: #141414;
   transition: all .4s;
   font-family: Montserrat, sans-serif;
-  background: #D6001C;
+  background: #FDC60A;
   border-radius: 8px;
   border: none;
   width: 100%;
@@ -21023,7 +21023,7 @@ label:hover:before {
   background: #fcfcfc;
   border-radius: 0;
   overflow-x: hidden;
-  border: solid #D6001C;
+  border: solid #FDC60A;
   border-width: 0 0 0 5px
 }
 
@@ -21056,7 +21056,7 @@ label:hover:before {
 }
 
 .team-alert .close:hover:before {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .team-alert .close:hover span {
@@ -21168,7 +21168,7 @@ label:hover:before {
 }
 
 .search-item .info .name:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .search-item .info .wrap {
@@ -21194,12 +21194,12 @@ label:hover:before {
 
 .search-item .info>p span {
   padding: 0 2px;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .search-item .info .name span {
   padding: 0 2px;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .search-item .info .read-more {
@@ -21207,7 +21207,7 @@ label:hover:before {
   display: inline-block;
   font-size: 12px;
   text-transform: uppercase;
-  color: #D6001C;
+  color: #FDC60A;
   font-family: Montserrat, sans-serif
 }
 
@@ -21388,7 +21388,7 @@ overflow-scroll.table tr td {
     margin: 33px 16px 0 0;
     display: block;
     z-index: 1;
-    background: #D6001C
+    background: #FDC60A
   }
 
   .navbar-toggle .icon-bar {
@@ -21484,11 +21484,11 @@ overflow-scroll.table tr td {
   }
 
   .main-menu>li>ul>li>ul li:hover>a {
-    color: #D6001C
+    color: #FDC60A
   }
 
   .main-menu>li>ul>li:hover>a {
-    color: #D6001C
+    color: #FDC60A
   }
 
   .main-menu>li>a>span:before {
@@ -22021,7 +22021,7 @@ overflow-scroll.table tr td {
 }
 
 .socials li a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .top-contacts .contacts {
@@ -22051,11 +22051,11 @@ overflow-scroll.table tr td {
 }
 
 .top-contacts .contacts li a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .top-contacts .contacts li a:hover .fa {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .top-search {
@@ -22198,16 +22198,16 @@ overflow-scroll.table tr td {
 }
 
 .main-slider .nav-arrow:hover {
-  background: #D6001C;
+  background: #FDC60A;
   color: #000
 }
 
 .main-slider .nav-arrow.left-arrow:hover:before {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .main-slider .nav-arrow.right-arrow:hover:before {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .main-slider .carousel-indicators {
@@ -22233,7 +22233,7 @@ overflow-scroll.table tr td {
   font-size: 16px;
   text-transform: uppercase;
   font-family: Montserrat, sans-serif;
-  color: #D6001C;
+  color: #FDC60A;
 }
 
 .text-main {
@@ -22249,7 +22249,7 @@ overflow-scroll.table tr td {
   font-size: 40px;
   text-transform: uppercase;
   font-family: Raleway, sans-serif;
-  color: #D6001C;
+  color: #FDC60A;
   font-weight: 800;
   line-height: normal
 }
@@ -22313,7 +22313,7 @@ overflow-scroll.table tr td {
 
 .main-slider-caption .booking a {
   padding: 15px 24px 15px 24px;
-  background: #D6001C;
+  background: #FDC60A;
   overflow: hidden;
   border-radius: 23px;
   color: #141414;
@@ -22324,7 +22324,7 @@ overflow-scroll.table tr td {
 
 .main-slider-caption .booking a:hover {
   border-radius: 9px;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .main-slider-caption .title {
@@ -22383,7 +22383,7 @@ overflow-scroll.table tr td {
   left: 0;
   position: absolute;
   bottom: -6px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -22920,7 +22920,7 @@ overflow-scroll.table tr td {
 .main-next-match .booking {
   padding: 0 15px 0 15px;
   display: inline-block;
-  background: #D6001C;
+  background: #FDC60A;
   border-radius: 9px;
   color: #141414;
   font-size: 12px;
@@ -22952,7 +22952,7 @@ overflow-scroll.table tr td {
 }
 
 .main-lates-matches .item:hover {
-  border-bottom: 1px solid #D6001C;
+  border-bottom: 1px solid #FDC60A;
   transition: all .5s
 }
 
@@ -23133,7 +23133,7 @@ overflow-scroll.table tr td {
   left: 0;
   bottom: 0;
   height: 6px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -23277,7 +23277,7 @@ overflow-scroll.table tr td {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .players_statistic_slider .player-stat-slider .item .progress-line .bar.bar-1 {
@@ -23400,7 +23400,7 @@ overflow-scroll.table tr td {
   left: 0;
   bottom: 0;
   height: 6px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -23465,7 +23465,7 @@ overflow-scroll.table tr td {
 
 .best-players-list .item:first-child .achievement {
   color: #141414;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .best-players-list .item:first-child .achievement:before {
@@ -23477,7 +23477,7 @@ overflow-scroll.table tr td {
   bottom: 0;
   transform: skew(-10deg);
   z-index: -1;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .best-players-list .item .achievement:before {
@@ -23594,7 +23594,7 @@ overflow-scroll.table tr td {
 }
 
 .main-award-slider .nav-arrow:hover {
-  background: #D6001C;
+  background: #FDC60A;
   color: #141414
 }
 
@@ -23717,7 +23717,7 @@ overflow-scroll.table tr td {
   position: absolute;
   color: #000;
   font-size: 12px;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .main-stuff-slider .nav-arrow.left-arrow {
@@ -23734,7 +23734,7 @@ overflow-scroll.table tr td {
   bottom: 0;
   width: 12px;
   transform: skew(-10deg);
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -23746,7 +23746,7 @@ overflow-scroll.table tr td {
   bottom: 0;
   width: 12px;
   transform: skew(-10deg);
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -23801,7 +23801,7 @@ overflow-scroll.table tr td {
   left: 0;
   bottom: 0;
   height: 6px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -23853,7 +23853,7 @@ overflow-scroll.table tr td {
 }
 
 .main-sponsor-slider .nav-arrow:hover {
-  background: #D6001C;
+  background: #FDC60A;
   color: #141414
 }
 
@@ -23875,7 +23875,7 @@ overflow-scroll.table tr td {
   position: relative;
   font-size: 16px;
   text-transform: uppercase;
-  background: #D6001C;
+  background: #FDC60A;
   color: #292929;
   font-family: Montserrat, sans-serif;
   z-index: 1
@@ -23892,7 +23892,7 @@ overflow-scroll.table tr td {
   left: -10000%;
   top: 0;
   bottom: 0;
-  background: #D6001C;
+  background: #FDC60A;
   right: 0;
   z-index: 0
 }
@@ -23903,7 +23903,7 @@ overflow-scroll.table tr td {
   top: 0;
   bottom: 0;
   width: 40px;
-  background: #D6001C;
+  background: #FDC60A;
   right: -20px;
   z-index: 1;
   transform: skew(-10deg)
@@ -24235,11 +24235,11 @@ overflow-scroll.table tr td {
 }
 
 #circle_3>svg>path {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 #circle_4>svg>path {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 #circle_3>div.progressbar-text {
@@ -24738,7 +24738,7 @@ overflow-scroll.table tr td {
   top: 0;
   left: 0;
   bottom: 0;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .match-stat-table .item .percent-bar .bar.bar-1 {
@@ -24922,7 +24922,7 @@ overflow-scroll.table tr td {
 }
 
 .match-lineup .member .card.yellow {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .match-lineup .member .card.red {
@@ -25120,7 +25120,7 @@ overflow-scroll.table tr td {
 }
 
 .share-box .share-socials li a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 @media (max-width:767px) {
@@ -25916,7 +25916,7 @@ overflow-scroll.table tr td {
 }
 
 .staff-box .item:hover .info:before {
-  background: #D6001C;
+  background: #FDC60A;
   right: -50px
 }
 
@@ -25987,7 +25987,7 @@ overflow-scroll.table tr td {
   text-transform: uppercase;
   color: #fff;
   font-family: Montserrat, sans-serif;
-  background: #D6001C;
+  background: #FDC60A;
   position: relative
 }
 
@@ -25998,7 +25998,7 @@ overflow-scroll.table tr td {
 .staff-box .info .role:before {
   content: '';
   width: 100%;
-  background: #D6001C;
+  background: #FDC60A;
   transform: skew(-10deg);
   position: absolute;
   top: 0;
@@ -26037,7 +26037,7 @@ overflow-scroll.table tr td {
   text-transform: uppercase;
   color: #fff;
   font-family: Montserrat, sans-serif;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .captain-bage:before {
@@ -26048,7 +26048,7 @@ overflow-scroll.table tr td {
   bottom: 0;
   right: -10px;
   transform: skew(-10deg);
-  background: #D6001C;
+  background: #FDC60A;
   z-index: -1
 }
 
@@ -26070,7 +26070,7 @@ overflow-scroll.table tr td {
   font-size: 40px;
   font-weight: 700;
   color: #141414;
-  background: #D6001C;
+  background: #FDC60A;
   top: 0;
   bottom: 0;
   left: 0
@@ -26479,7 +26479,7 @@ table tr td:first-child span {
 
 .donation-item .info:after {
   content: '';
-  background: #D6001C;
+  background: #FDC60A;
   transform: skew(-13deg);
   position: absolute;
   top: 0;
@@ -26542,7 +26542,7 @@ table tr td:first-child span {
   left: 0;
   top: 0;
   bottom: 0;
-  background: #D6001C;
+  background: #FDC60A;
   width: 20%
 }
 
@@ -26551,7 +26551,7 @@ table tr td:first-child span {
   left: 0;
   top: 0;
   bottom: 0;
-  background: #D6001C;
+  background: #FDC60A;
   width: 30%
 }
 
@@ -26560,7 +26560,7 @@ table tr td:first-child span {
   left: 0;
   top: 0;
   bottom: 0;
-  background: #D6001C;
+  background: #FDC60A;
   width: 40%
 }
 
@@ -26569,14 +26569,14 @@ table tr td:first-child span {
   left: 0;
   top: 0;
   bottom: 0;
-  background: #D6001C;
+  background: #FDC60A;
   width: 50%
 }
 
 .donation-item .info .progress-line .bar:before {
   content: '';
   width: 4px;
-  background: #D6001C;
+  background: #FDC60A;
   transform: skew(-10deg);
   position: absolute;
   top: 0;
@@ -26641,7 +26641,7 @@ table tr td:first-child span {
 
 .ct-series-a .ct-line,
 .ct-series-a .ct-point {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 .ct-series-b .ct-line,
@@ -26697,7 +26697,7 @@ table tr td:first-child span {
 }
 
 .contacts-wrap .contact-list li a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .contacts-wrap .contact-list li.phone span {
@@ -26811,7 +26811,7 @@ td a {
 #circle-bar .progressbar-text,
 #circle-bar1 .progressbar-text {
   font-size: 12px;
-  color: #D6001C;
+  color: #FDC60A;
   font-family: Montserrat
 }
 
@@ -26864,7 +26864,7 @@ td a {
 }
 
 .player-hockey-wrap .number {
-  color: #D6001C;
+  color: #FDC60A;
   font-size: 40px;
   font-family: Montserrat
 }
@@ -26902,7 +26902,7 @@ td a {
   background: #fcfcfc;
   border-radius: 0;
   overflow-x: hidden;
-  border: solid #D6001C;
+  border: solid #FDC60A;
   border-width: 0 0 0 5px
 }
 
@@ -26935,7 +26935,7 @@ td a {
 }
 
 .team-alert .close:hover:before {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .team-alert .close:hover span {
@@ -27015,7 +27015,7 @@ td a {
 }
 
 .amateurs-news-list .item .name:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .amateurs-news-list .item .date {
@@ -27035,7 +27035,7 @@ td a {
 }
 
 .amateurs-news-list .item .date a:hover {
-  color: #D6001C
+  color: #FDC60A
 }
 
 .amateurs-news-list .item a>img {
@@ -27044,7 +27044,7 @@ td a {
 }
 
 .sidebar-btn {
-  background: #D6001C;
+  background: #FDC60A;
   font-size: 12px;
   text-transform: uppercase;
   color: #141414
@@ -27070,7 +27070,7 @@ td a {
   width: 10px;
   height: 10px;
   display: inline-block;
-  background: #D6001C;
+  background: #FDC60A;
   cursor: pointer
 }
 
@@ -27092,13 +27092,13 @@ td a {
   left: 0;
   top: 0;
   bottom: 0;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .main-slider .progress-line .bar:before {
   content: '';
   width: 4px;
-  background: #D6001C;
+  background: #FDC60A;
   transform: skew(-10deg);
   position: absolute;
   top: 0;
@@ -27168,7 +27168,7 @@ td a {
 }
 
 .player-hockey-wrap .number {
-  color: #D6001C;
+  color: #FDC60A;
   font-size: 40px;
   font-family: Montserrat
 }
@@ -27242,7 +27242,7 @@ player-hockey-wrap .wrapper-circle {
   text-transform: uppercase;
   color: #fcfcfc;
   font-family: Montserrat, sans-serif;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .player-single-wrap .captain-bage:before {
@@ -27253,7 +27253,7 @@ player-hockey-wrap .wrapper-circle {
   bottom: 0;
   right: -10px;
   transform: skew(-10deg);
-  background: #D6001C;
+  background: #FDC60A;
   z-index: -1
 }
 
@@ -27271,7 +27271,7 @@ player-hockey-wrap .wrapper-circle {
 
 .ct-series-a .ct-line,
 .ct-series-a .ct-point {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 .ct-series-b .ct-line,
@@ -27313,7 +27313,7 @@ player-hockey-wrap .wrapper-circle {
 
 .ct-series-a .ct-line,
 .ct-series-a .ct-point {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 .ct-series-b .ct-line,
@@ -27676,7 +27676,7 @@ table tr td .organisation-name {
 }
 
 .match-lineup .member .card.yellow {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .match-lineup .member .card.red {
@@ -27872,7 +27872,7 @@ table tr td .organisation-name {
   right: 0;
   height: 0;
   width: 2px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -28031,7 +28031,7 @@ table tr td .organisation-name {
   width: 10px;
   height: 10px;
   display: inline-block;
-  background: #D6001C;
+  background: #FDC60A;
   cursor: pointer;
   float: left
 }
@@ -28055,14 +28055,14 @@ table tr td .organisation-name {
   left: 0;
   top: 0;
   bottom: 0;
-  background: #D6001C;
+  background: #FDC60A;
   width: 10%
 }
 
 .msp_post_slider .progress-line .bar:before {
   content: '';
   width: 4px;
-  background: #D6001C;
+  background: #FDC60A;
   transform: skew(-10deg);
   position: absolute;
   top: 0;
@@ -28081,7 +28081,7 @@ table tr td .organisation-name {
   position: absolute;
   color: #000;
   font-size: 12px;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .msp_post_slider .nav-arrow.left-arrow {
@@ -28098,7 +28098,7 @@ table tr td .organisation-name {
   bottom: 0;
   width: 12px;
   transform: skew(-10deg);
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -28110,7 +28110,7 @@ table tr td .organisation-name {
   bottom: 0;
   width: 12px;
   transform: skew(-10deg);
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -28230,7 +28230,7 @@ table tr td .organisation-name {
 
 .msp_post_slider .msp_post_slide .slider-caption .booking a {
   padding: 15px 24px 15px 24px;
-  background: #D6001C;
+  background: #FDC60A;
   overflow: hidden;
   border-radius: 23px;
   color: #141414;
@@ -28241,7 +28241,7 @@ table tr td .organisation-name {
 
 .msp_post_slider .msp_post_slide .slider-caption .booking a:hover {
   border-radius: 9px;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .msp_post_slider .msp_post_slide .slider-caption .title {
@@ -28323,7 +28323,7 @@ table tr td .organisation-name {
   left: 0;
   bottom: 0;
   height: 6px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -28354,7 +28354,7 @@ table tr td .organisation-name {
 
 .preloader-wrapper .dark-big {
   display: flex;
-  background: #D6001C;
+  background: #FDC60A;
   width: 90%;
   z-index: 1;
   opacity: .9;
@@ -28363,7 +28363,7 @@ table tr td .organisation-name {
 
 .preloader-wrapper .dark-small {
   display: flex;
-  background: #D6001C;
+  background: #FDC60A;
   width: 35%;
   z-index: 2;
   left: -200%
@@ -28375,7 +28375,7 @@ table tr td .organisation-name {
   display: flex;
   width: 13%;
   z-index: 5;
-  background-color: #D6001C;
+  background-color: #FDC60A;
   right: -200%
 }
 
@@ -28385,7 +28385,7 @@ table tr td .organisation-name {
   display: flex;
   width: 4%;
   z-index: 3;
-  background-color: #D6001C;
+  background-color: #FDC60A;
   right: -200%
 }
 
@@ -28641,7 +28641,7 @@ table tr td .organisation-name {
 }
 
 .comm-wrap .item:hover {
-  background: #D6001C;
+  background: #FDC60A;
   z-index: 1
 }
 
@@ -29982,7 +29982,7 @@ table tr td .organisation-name {
 }
 
 .error-wrap .offline-socials li:hover a {
-  color: #D6001C
+  color: #FDC60A
 }
 
 @media (max-width:600px) {
@@ -30234,7 +30234,7 @@ div.fancy-select ul.options li {
 }
 
 div.fancy-select ul.options li.selected {
-  background: #D6001C;
+  background: #FDC60A;
   color: #141414
 }
 
@@ -30290,7 +30290,7 @@ div.fancy-select div.trigger:after {
 }
 
 #stackedbar>svg>g>g.ct-series.ct-series-b>line {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 #stackedbar>svg>g>g.ct-series.ct-series-c>line {
@@ -30302,7 +30302,7 @@ div.fancy-select div.trigger:after {
 }
 
 #gaugechart>svg>g.ct-series.ct-series-a>path {
-  fill: #D6001C
+  fill: #FDC60A
 }
 
 #gaugechart>svg>g.ct-series.ct-series-b>path {
@@ -30342,9 +30342,9 @@ div.fancy-select div.trigger:after {
   position: absolute;
   left: 0;
   content: '';
-  border: 3px solid #D6001C;
+  border: 3px solid #FDC60A;
   border-radius: 10px;
-  background: #D6001C;
+  background: #FDC60A;
   margin-right: 10px;
   margin-bottom: 10px
 }
@@ -30397,7 +30397,7 @@ div.fancy-select div.trigger:after {
 }
 
 .svgpath>svg>g>g.ct-series.ct-series-a>path {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 .svgpath>svg>g>g.ct-series.ct-series-b>path {
@@ -30417,7 +30417,7 @@ div.fancy-select div.trigger:after {
 }
 
 .svgpath>svg>g>g.ct-series.ct-series-a>path.ct-area {
-  fill: #D6001C
+  fill: #FDC60A
 }
 
 .svgpath>svg>g>g.ct-series.ct-series-b>path.ct-area {
@@ -30429,11 +30429,11 @@ div.fancy-select div.trigger:after {
 }
 
 #pickcircle>svg>g>g>line {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 #pickcircle>svg>g>g>circle {
-  fill: #D6001C
+  fill: #FDC60A
 }
 
 #pickcircle>svg>g.ct-grids>line {
@@ -30543,11 +30543,11 @@ div.fancy-select div.trigger:after {
 }
 
 #diagram>svg>g>g.ct-series.ct-series-a>path {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 #diagram>svg>g>g.ct-series.ct-series-a>.ct-point {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 #diagram>svg>g>g.ct-series.ct-series-b>path {
@@ -30575,11 +30575,11 @@ div.fancy-select div.trigger:after {
 }
 
 .advancesmill>svg>g>g.ct-series.ct-series-a>path {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 .advancesmill>svg>g>g.ct-series.ct-series-a>.ct-point {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 .advancesmill>svg>g>g.ct-series.ct-series-b>path {
@@ -30629,9 +30629,9 @@ div.fancy-select div.trigger:after {
   position: absolute;
   left: 0;
   content: '';
-  border: 3px solid #D6001C;
+  border: 3px solid #FDC60A;
   border-radius: 10px;
-  background: #D6001C;
+  background: #FDC60A;
   margin-right: 10px
 }
 
@@ -30697,7 +30697,7 @@ div.fancy-select div.trigger:after {
 }
 
 #donutchart>svg>g.ct-series.ct-series-a>path {
-  fill: #D6001C
+  fill: #FDC60A
 }
 
 #donutchart>svg>g.ct-series.ct-series-b>path {
@@ -30724,9 +30724,9 @@ div.fancy-select div.trigger:after {
   position: absolute;
   left: 0;
   content: '';
-  border: 3px solid #D6001C;
+  border: 3px solid #FDC60A;
   border-radius: 10px;
-  background: #D6001C;
+  background: #FDC60A;
   margin-right: 10px;
   margin-bottom: 10px
 }
@@ -30785,7 +30785,7 @@ div.fancy-select div.trigger:after {
 }
 
 #horizontalbar>svg>g>g.ct-series.ct-series-a>line {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 #horizontalbar>svg>g>g.ct-series.ct-series-b>line {
@@ -30811,9 +30811,9 @@ div.fancy-select div.trigger:after {
   position: absolute;
   left: 0;
   content: '';
-  border: 3px solid #D6001C;
+  border: 3px solid #FDC60A;
   border-radius: 10px;
-  background: #D6001C;
+  background: #FDC60A;
   margin-right: 10px
 }
 
@@ -30908,7 +30908,7 @@ div.fancy-select div.trigger:after {
 .ct-bar.ct-threshold-above,
 .ct-line.ct-threshold-above,
 .ct-point.ct-threshold-above {
-  stroke: #D6001C
+  stroke: #FDC60A
 }
 
 .ct-bar.ct-threshold-below,
@@ -31001,7 +31001,7 @@ div.fancy-select div.trigger:after {
   float: left;
   width: 121px;
   height: 86px;
-  background: #D6001C;
+  background: #FDC60A;
   display: flex;
   border-radius: 10px 10px 10px 10px/50px 50px 50px 50px
 }
@@ -31023,7 +31023,7 @@ div.fancy-select div.trigger:after {
   position: absolute;
   border-width: 0 53px 25px;
   border-style: solid;
-  border-color: transparent transparent #D6001C;
+  border-color: transparent transparent #FDC60A;
   transform: rotate(180deg);
   top: 99%;
   right: 6px;
@@ -31080,7 +31080,7 @@ div.fancy-select div.trigger:after {
   border-radius: 4px;
   margin: 24px 0 0 0;
   z-index: 1;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .sport-team-lp-header ul>li:last-child>a {
@@ -31471,7 +31471,7 @@ div.fancy-select div.trigger:after {
   position: relative;
   padding: 21px 23px 18px 23px;
   display: inline-block;
-  background: #D6001C;
+  background: #FDC60A;
   border-radius: 10px;
   text-transform: uppercase;
   color: #141414;
@@ -31841,7 +31841,7 @@ div.fancy-select div.trigger:after {
   bottom: 1px;
   left: -30px;
   right: -25px;
-  background-color: #D6001C;
+  background-color: #FDC60A;
   transform: skew(-10deg);
   background-blend-mode: overlay;
   opacity: .87
@@ -32324,7 +32324,7 @@ div.fancy-select div.trigger:after {
   position: absolute;
   color: #000;
   font-size: 12px;
-  background: #D6001C
+  background: #FDC60A
 }
 
 .landing-sport-players-slider .main-stuff-slider .nav-arrow.left-arrow {
@@ -32341,7 +32341,7 @@ div.fancy-select div.trigger:after {
   bottom: 0;
   width: 12px;
   transform: skew(-10deg);
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -32353,7 +32353,7 @@ div.fancy-select div.trigger:after {
   bottom: 0;
   width: 12px;
   transform: skew(-10deg);
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -32408,7 +32408,7 @@ div.fancy-select div.trigger:after {
   left: 0;
   bottom: 0;
   height: 6px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -32570,7 +32570,7 @@ div.fancy-select div.trigger:after {
   padding: 15px 24px 13px 24px;
   border-radius: 9px;
   border: none;
-  background: #D6001C;
+  background: #FDC60A;
   font-size: 16px;
   color: #141414;
   text-transform: uppercase;
@@ -32614,7 +32614,7 @@ div.fancy-select div.trigger:after {
 }
 
 .landing-sport-main-slider .msp_post_slider .owl-dot.active {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .sport-team-landing-store-filter li a {
@@ -32648,7 +32648,7 @@ div.fancy-select div.trigger:after {
   left: 0;
   bottom: 0;
   height: 6px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 
@@ -36262,7 +36262,7 @@ ul.esport-championship-timline-tabs>li>a:before {
 }
 
 .esport-team-landing-header .clear-header ul>li>a {
-  color: #D6001C;
+  color: #FDC60A;
   font-family: Montserrat;
   text-transform: uppercase;
   font-size: 14px;
@@ -36389,7 +36389,7 @@ ul.esport-championship-timline-tabs>li>a:before {
     margin: 25px 0 20px 0;
     z-index: 1;
     color: rgba(0, 0, 0, .85);
-    background: #D6001C
+    background: #FDC60A
   }
 
   .esport-team-landing-header .navbar-collapse.collapse {
@@ -36459,7 +36459,7 @@ ul.esport-championship-timline-tabs>li>a:before {
 }
 
 .esport-team-landing-main-slider .msp_post_slider .owl-dot.active {
-  background: #D6001C
+  background: #FDC60A
 }
 
 .esport-team-landing-sponsors {
@@ -37249,7 +37249,7 @@ ul.esport-championship-timline-tabs>li>a:before {
 }
 
 .esport-team-landing-subscribe button {
-  background: #D6001C;
+  background: #FDC60A;
   color: #141414;
   font-size: 14px;
   line-height: 50px;
@@ -37293,7 +37293,7 @@ ul.esport-championship-timline-tabs>li>a:before {
   left: 0;
   bottom: 0;
   height: 6px;
-  background: #D6001C;
+  background: #FDC60A;
   transition: all .4s
 }
 

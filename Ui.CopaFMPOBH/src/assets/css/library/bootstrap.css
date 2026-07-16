@@ -263,8 +263,8 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url('http://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.eot');
-  src: url('http://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('http://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('http://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.woff') format('woff'), url('http://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('http://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('https://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.eot');
+  src: url('https://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('https://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://cdn.h-team.torbara.com/css/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -1341,7 +1341,7 @@ mark,
 }
 a.text-primary:hover,
 a.text-primary:focus {
-  color: #8f081a;
+  color: #FDC60A;
 }
 .text-success {
   color: #3c763d;
@@ -1377,7 +1377,7 @@ a.text-danger:focus {
 }
 a.bg-primary:hover,
 a.bg-primary:focus {
-  background-color: #8f081a;
+  background-color: #FDC60A;
 }
 .bg-success {
   background-color: #dff0d8;
@@ -3121,19 +3121,19 @@ fieldset[disabled] .btn-default.focus {
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
-  background-color: #8f081a;
+  background-color: #FDC60A;
   border-color: #122b40;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #8f081a;
+  background-color: #FDC60A;
   border-color: #204d74;
 }
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: #fff;
-  background-color: #8f081a;
+  background-color: #FDC60A;
   border-color: #204d74;
 }
 .btn-primary:active:hover,
@@ -4879,7 +4879,7 @@ a.label:focus {
 }
 .label-primary[href]:hover,
 .label-primary[href]:focus {
-  background-color: #8f081a;
+  background-color: #FDC60A;
 }
 .label-success {
   background-color: #5cb85c;

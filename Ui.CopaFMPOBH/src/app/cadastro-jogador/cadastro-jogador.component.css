@@ -21,14 +21,15 @@ input[type=number]{
 
 input[type=text]{
 
-    width: 300px;
+    
 }
 
 select {
-    color:grey !important;
+    color: grey !important;
     margin: 10px 0px;
     padding: 15px 10px;
-    border:none;
+    border: none;
+    width: 100%;
 }
 
 select > option {
@@ -42,6 +43,6 @@ select > option {
 .iputs-menores{
     display: flex;
     justify-content: space-between;
-    min-width: 180px;
+    /*min-width: 180px;*/
 }
 

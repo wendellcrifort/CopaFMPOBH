@@ -92,9 +92,9 @@ namespace Application.Services.Partida
             var dadosPartida = await _copaDbContext.Partida
                                                    .AsNoTracking()
                                                    .Include(i => i.TimeMandante)
-                                                      .ThenInclude(i => i.Jogadores.OrderBy(o => o.Numero))
+                                                      .ThenInclude(i => i.Jogadores!.OrderBy(o => o.Numero))
                                                    .Include(i => i.TimeVisitante)
-                                                      .ThenInclude(i => i.Jogadores.OrderBy(o => o.Numero))
+                                                      .ThenInclude(i => i.Jogadores!.OrderBy(o => o.Numero))
                                                    .FirstOrDefaultAsync(x => x.Id == idPartida);
 
             return _mapper.Map<PartidaViewModel>(dadosPartida);
@@ -148,23 +148,23 @@ namespace Application.Services.Partida
 
             if (evento == TipoEventoEnum.GolContra)
             {
-                if (partida.IdTimeMandante == goleiro.IdTime)
+                if (partida.IdTimeMandante == goleiro!.IdTime)
                     timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeVisitante);
 
                 else
                     timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == partida.IdTimeMandante);
             }
             else if (evento == TipoEventoEnum.GolMarcado)
-                timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == goleiro.IdTime);
+                timePassivo = await _copaDbContext.Time.FirstAsync(x => x.Id == goleiro!.IdTime);
 
             switch (evento)
             {
                 case TipoEventoEnum.GolMarcado:
                     await AddGolMarcado(partida, jogador, timeAcao);
-                    await AddGolSofrido(goleiro, timePassivo);
+                    await AddGolSofrido(goleiro!, timePassivo);
                     break;
                 case TipoEventoEnum.GolContra:
-                    await AddGolContra(goleiro, timeAcao, timePassivo, partida);
+                    await AddGolContra(goleiro!, timeAcao, timePassivo, partida);
                     break;
                 case TipoEventoEnum.CartaoAmarelo:
                     await AddCartaoAmarelo(jogador, timeAcao);
@@ -208,58 +208,62 @@ namespace Application.Services.Partida
         {
 
             var evento = await _copaDbContext.EventosPartida
+                                             .Include(p => p.Partida)
+                                             .Include(j => j.Jogador)
                                              .FirstOrDefaultAsync(x => x.Id == idEvento)
                                                 ?? throw new Exception("Evento não localizado");
 
-            var partida = await _copaDbContext.Partida
-                                              .FirstOrDefaultAsync(x => x.Id == evento.IdPartida)
-                                                 ?? throw new Exception("Partida não localizada");
-
-            var jogador = await _copaDbContext.Jogador
-                                              .FirstOrDefaultAsync(x => x.Id == evento.IdJogador)
-                                                 ?? throw new Exception("Jogador não localizado");
-
-            if (evento.DescricaoEvento == TipoEventoEnum.CartaoAmarelo.ToString())
+            switch (evento.DescricaoEvento)
             {
-                await RemoverCartaoAmarelo(jogador);
-                return new EventoPlacarViewModel()
-                {
-                    IdEvento = idEvento,
-                    GolsMandante = partida.GolsTimeMandante ?? 0,
-                    GolsVisitante = partida.GolsTimeVisitante ?? 0
-                };
-            }
-            else if (evento.DescricaoEvento == TipoEventoEnum.CartaoVermelho.ToString())
-            {
-                await RemoverCartaoVermelho(jogador);
-                return new EventoPlacarViewModel()
-                {
-                    IdEvento = idEvento,
-                    GolsMandante = partida.GolsTimeMandante ?? 0,
-                    GolsVisitante = partida.GolsTimeVisitante ?? 0
-                };
-            }
+                case nameof(TipoEventoEnum.CartaoAmarelo):
+                    await RemoverCartaoAmarelo(evento.Jogador!);
+                    break;
 
-            var goleiro = await _copaDbContext.Jogador.FirstAsync(x => x.Id == evento.IdGoleiro);
+                case nameof(TipoEventoEnum.CartaoVermelho):
+                    await RemoverCartaoVermelho(evento.Jogador!);
+                    break;
 
-            if (evento.DescricaoEvento == TipoEventoEnum.GolMarcado.ToString())
-            {
-                await RemoverGolMarcado(jogador, partida);
-                await RemoverGolSofrido(goleiro);
+                case nameof(TipoEventoEnum.MelhorJogador):
+                    await RemoverMelhorJogador(evento.Jogador!);
+                    break;
+
+                case nameof(TipoEventoEnum.MelhorGoleiro):
+                    await RemoverMelhorGoleiro(evento.Jogador!);
+                    break;
+
+                case nameof(TipoEventoEnum.GolMarcado):
+                    {
+                        var goleiro = await _copaDbContext.Jogador
+                            .FirstAsync(x => x.Id == evento.IdGoleiro);
+
+                        await RemoverGolMarcado(evento.Jogador!, evento.Partida!);
+                        await RemoverGolSofrido(goleiro);
+                        break;
+                    }
+
+                case nameof(TipoEventoEnum.GolContra):
+                    {
+                        var goleiro = await _copaDbContext.Jogador
+                            .FirstAsync(x => x.Id == evento.IdGoleiro);
+
+                        await RemoverGolContra(goleiro, evento.Partida!);
+                        break;
+                    }
             }
-            else if (evento.DescricaoEvento == TipoEventoEnum.GolContra.ToString())
-                await RemoverGolContra(goleiro, partida);
 
             _copaDbContext.EventosPartida.Remove(evento);
             var result = await _copaDbContext.SaveChangesAsync();
 
-            await _hubContext.Clients.All.SendAsync("ReceberAtualizacaoPlacar", partida.Id, partida.GolsTimeMandante ?? 0, partida.GolsTimeVisitante ?? 0);
+            await _hubContext.Clients.All.SendAsync("ReceberAtualizacaoPlacar", 
+                                evento.Partida!.Id, 
+                                evento.Partida!.GolsTimeMandante ?? 0, 
+                                evento.Partida!.GolsTimeVisitante ?? 0);
 
             return new EventoPlacarViewModel()
             {
                 IdEvento = idEvento,
-                GolsMandante = partida.GolsTimeMandante ?? 0,
-                GolsVisitante = partida.GolsTimeVisitante ?? 0,
+                GolsMandante = evento.Partida!.GolsTimeMandante ?? 0,
+                GolsVisitante = evento.Partida!.GolsTimeVisitante ?? 0,
                 EventoDeletado = result > 0
             };
         }
@@ -290,6 +294,22 @@ namespace Application.Services.Partida
             time.CartoesVermelhos -= 1;
 
             _copaDbContext.Time.Update(time);
+            _copaDbContext.Jogador.Update(jogador);
+            await _copaDbContext.SaveChangesAsync();
+        }
+
+        private async Task RemoverMelhorJogador(Domain.Entities.Jogador jogador)
+        {
+            jogador.MelhorJogador -= 1;
+                        
+            _copaDbContext.Jogador.Update(jogador);
+            await _copaDbContext.SaveChangesAsync();
+        }
+
+        private async Task RemoverMelhorGoleiro(Domain.Entities.Jogador jogador)
+        {
+            jogador.MelhorGoleiro -= 1;
+            
             _copaDbContext.Jogador.Update(jogador);
             await _copaDbContext.SaveChangesAsync();
         }

@@ -1,32 +1,40 @@
 <section class="checkout-wrap" style="background-color: #eee;">
-    <div class="container" >
-      <div class="row">
-        <div class="container">
-          <h4>Cadastro de Jogador</h4>
-          <div class="customer-info">
-            <form [formGroup]=jogadoresForm (ngSubmit)="OnSubimit()">
-              <button type="button" class="btn btn-info"(click)="addJogador()">adicionar jogador </button>
-              <div class="row" formArrayName="jogadores" *ngFor="let jogador of jogadores.controls;let i=index" >
-                  <div class="part-form" formGroupName="{{i}}">
-                      <input placeholder="Nome" type="text" formControlName="nome">
-                      <select formControlName="IdTime" placeholder="Selecione o time">
-                        <option *ngFor="let time of times" value="{{time.id}}" >{{time.nome}}</option>
-                      </select>
-                      <div class="iputs-menores">
-                        <input placeholder="Numero" type="number" min="1" formControlName="numero">
-                        <input placeholder="Idade" type="number" min="1" formControlName="idade">
-                      </div>
-                      <input placeholder="Igreja" type="text" formControlName="igreja">
-                      <span class="check"><input type="checkbox" formControlName="ehGoleiro"> É goleiro?</span>
-                      <button type="button" class="btn btn-primary" (click)="removeJogador(i)">remover</button>
-                  </div>
-              </div>
-              <div class="col-md-12" style="text-align:right">
-                <button type="submit" class="btn btn-success ">Salvar Jogadores </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+	<div class="container">
+		<div class="row">
+			<div class="container">
+				<h4>Cadastro de Jogador</h4>
+				<div class="customer-info">
+					<form [formGroup]=jogadoresForm (ngSubmit)="OnSubimit()">
+						<button type="button" class="btn btn-info" (click)="addJogador()">adicionar jogador </button>
+						<div class="row" formArrayName="jogadores" *ngFor="let jogador of jogadores.controls;let i=index">
+							<div class="part-form col-md-12" formGroupName="{{i}}">
+								<div class="col-md-4">
+									<input placeholder="Nome" type="text" formControlName="nome">
+								</div>
+								<div class="col-md-3">
+									<select formControlName="IdTime" placeholder="Selecione o time">
+										<option *ngFor="let time of times" value="{{time.id}}">{{time.nome}}</option>
+									</select>
+								</div>
+								<div class="col-md-1">
+									<div class="iputs-menores">
+										<input placeholder="Nr" type="number" min="1" formControlName="numero">
+									</div>
+								</div>
+								<div class="col-md-2">
+									<span class="check"><input type="checkbox" formControlName="ehGoleiro"> É goleiro?</span>
+								</div>
+								<div class="col-md-2">
+									<button type="button" class="btn btn-primary" (click)="removeJogador(i)">remover</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12" style="text-align:right">
+							<button type="submit" class="btn btn-success ">Salvar Jogadores </button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
